@@ -1,0 +1,3701 @@
+sentence,linear_amr,graph_amr,is_valid,ground_truth,smatch_score
+"tôi nhớ lời anh chủ tịch xã Bùi Văn Luyến nhắc đi nhắc lại : "" coi bộ nhỏ nhưng quan trọng lắm !",(n /nhớ:agent(t /tôi):theme(l /lời:topic(n2 /ncảnh_đi_ncảnh_lại:topic(q /quan_trọng:domain(n3 /nhỏ:modality(c1 /coi_bộ)):degree(l2 /lắm)):agent(chủ_tịch))_:agent(p /person:name(n4 /name:op1(x /xã):op2(wz5 /Bùi):op3(wz6 /Văn):op4(wz7 /Luyến))))))),(n / nhớ:agent(t / tôi):theme(l / lời:topic(n2 / ncảnh_đi_ncảnh_lại:topic(q / quan_trọng:domain(n3 / nhỏ:modality(c1 / coi_bộ)):degree(l2 / lắm)):agent(c / chủ_tịch))_:agent(p / person:name(n4 / name:op1(x / xã):op2(wz5 / Bùi):op3(wz6 / Văn):op4(wz7 / Luyến))))))),False,"(n / nhớ
+:pivot(t / tôi)
+:theme(l / lời
+:poss(c / chủ tịch
+:classifier(a / anh)
+:mod(x / xã)
+:agent-of(n1 / nhắc
+:compound(đ / đi)
+:compound(n2 / nhắc)
+:compound(l1 / lại)
+:topic(cx / contrast-01
+:ARG1(n3 / nhỏ)
+:ARG2(q / quan trọng
+:degree(l2 / lắm))))
+:mod(p / person
+:name(nx / name
+:op2(wz1 / Văn)
+:op3(wz2 / Luyến)
+:op1(wz3 / Bùi))
+:wiki -))))",0.0
+"hiện nay xã có 68 tổ nhân dân , mỗi tổ phụ trách 40 gia đình .",(c /có:time(h /hiện_nay):theme(t /tổ_nhân_dân:quant(68):theme(p /phụ_trách:agent(t1 /tổ:mod(n1 /nhà)):theme(g /gia_đình:quant(40))),(c / có:time(h / hiện_nay):theme(t / tổ_nhân_dân:quant(x / 68):theme(p / phụ_trách:agent(t1 / tổ:mod(n1 / nhà)):theme(g / gia_đình:quant(x2 / 40))),False,"(m / multi-sentence
+:snt1(c / có
+:pivot(x / xã)
+:theme(t / tổ
+:quant 68
+:mod(n / nhân dân))
+:time(nx / now))
+:snt2(p / phụ trách
+:agent(t1 / tổ
+:mod(mx / mỗi))
+:theme(g / gia đình
+:quant 40)))",0.0
+"chủ trương tốt nhưng dân không hiểu , không hưởng ứng thì cũng chịu thua !",(c /contrast-01:ARG2(c2 /chịu_thua):condition(h /hiểu:pivot(d /dân):polarity -:theme(c1 /chủ_trương:mod(t /tốt))):ARG1(hx /hưởng_ứng:polarity -:agent(dân):theme(chủ_trương))),"    (c / contrast-01
+    :ARG2
+    (c2 / chịu_thua
+    )
+    :condition
+        (h / hiểu
+        :pivot
+        (d / dân
+        )
+        :polarity -
+        :theme
+            (c1 / chủ_trương
+            :mod
+            (t / tốt
+            )
+        )
+    )
+    :ARG1
+        (hx / hưởng_ứng
+        :polarity -
+        :agent
+        (d / dân
+        )
+        :theme
+        (c / chủ_trương
+        )
+    )
+)",True,"(c2 / chịu thua
+:concession(c / chủ trương
+:mod(t / tốt)
+:mod(a / and
+:op1(h / hiểu
+:pivot(d / dân)
+:polarity -)
+:op2(h1 / hưởng ứng
+:agent d
+:polarity -))))",0.0
+nên trước nhất người đảng viên phải làm gương .,(o /obligate-01:time(t /trước_nhất):topic(l /làm_guốc:agent(n1 /người:mod(d /đảng_viên)):ord(o2 /ordinal-entity:value(1))),(o / obligate-01:time(t / trước_nhất):topic(l / làm_guốc:agent(n1 / người:mod(d / đảng_viên)):ord(o2 / ordinal-entity:value(x / 1))),False,"(o / obligate-01
+:topic(l / làm gương
+:pivot(đ / đảng viên
+:classifier(n1 / người))))",0.0
+"riêng về xuất khẩu lao động , anh Luyến có cách nghĩ riêng : "" du học sinh đi nước ngoài để mở mang kiến thức .",(c /cách_nghĩ:topic(x /xuất_khẩu_lao_động):pivot(a /anh_Luyến):manner(r1 /rồi):topic(m1 /mở_mang:agent(d /du_học_sinh:agent-of(đ /đi:location(n /nước_ngoài))):theme(k /kiến_thức))),"    (c / cách_nghĩ
+    :topic
+    (x / xuất_khẩu_lao_động
+    )
+    :pivot
+    (a / anh_Luyến
+    )
+    :manner
+    (r1 / rồi
+    )
+    :topic
+        (m1 / mở_mang
+        :agent
+            (d / du_học_sinh
+            :agent-of
+                (đ / đi
+                :location
+                (n / nước_ngoài
+                )
+            )
+        )
+        :theme
+        (k / kiến_thức
+        )
+    )
+)",True,"(c / có
+:topic(x / xuất khẩu
+:prep(v / về)
+:theme(l / lao động))
+:theme(c1 / cách
+:mod(n / nghĩ)
+:mod(r1 / riêng))
+:example(đ / đi
+:agent(d / du học sinh)
+:location(n1 / nước ngoài)
+:purpose(m / mở mang
+:prep(đ1 / để)
+:theme(k / kiến thức)))
+:pivot(p / person
+:wiki -
+:name(n1x / name
+:op1(a / anh)
+:op2(l1 / Luyến))))",0.0
+người lao động cũng vậy .,(s /sự:domain(n1 /người:mod(l /lao_động)):modality(c /cũng)),"    (s / sự
+    :domain
+        (n1 / người
+        :mod
+        (l / lao_động
+        )
+    )
+    :modality
+    (c / cũng
+    )
+)",True,"(v / vậy
+:domain(l / lao động
+:classifier(n / người)))",0.0
+"sau ba năm làm việc ở nước ngoài , bên cạnh việc tạo vốn giúp gia đình thoát nghèo , họ còn tiếp cận một môi trường làm việc công nghiệp .",(t1 /tiếp_cận:time(s /sau:op1(l /làm_việc:duration(3):location(n1 /nước_ngoài)):pivot(h /họ):theme(m1 /môi_trường:mod(l2 /làm_việc:compound(c1 /công_nghiệp)):quant(1)),(t1 / tiếp_cận:time(s / sau:op1(l / làm_việc:duration(x / 3):location(n1 / nước_ngoài)):pivot(h / họ):theme(m1 / môi_trường:mod(l2 / làm_việc:compound(c1 / công_nghiệp)):quant(x2 / 1)),False,"(t2 / tiếp cận
+:topic(b1 / bên
+:compound(c / cạnh)
+:mod(v / việc
+:agent-of(t / tạo
+:theme(v1 / vốn)
+:purpose(g / giúp
+:beneficiary-arg2(g1 / gia đình
+:agent-of(t1 / thoát
+:theme(n2 / nghèo)))))))
+:agent(h / họ)
+:theme(m1 / môi trường
+:theme-of(l1 / làm việc
+:theme(c2 / công nghiệp))
+:quant 1)
+:time(a / after
+:op1(n / năm
+:agent-of(l / làm việc
+:location(n1 / nước ngoài
+:prep(ở / ở))
+:agent h)
+:quant 3)))",0.0
+đến nay xã có 672 người đi làm việc ở nước ngoài .,(c /có:time(n /nay):theme(l /làm_việc:agent(n1 /người:modality(đ1 /đi):quant(672):location(n3 /nước_ngoài)):pivot(x /xã)),(c / có:time(n / nay):theme(l / làm_việc:agent(n1 / người:modality(đ1 / đi):quant(x / 672):location(n3 / nước_ngoài)):pivot(x / xã)),False,"(c / có
+:pivot(x / xã)
+:theme(n1 / người
+:quant 672
+:agent-of(đ1 / đi
+:compound(l / làm việc)
+:location(n2 / nước ngoài
+:prep(ở / ở))))
+:time(n / now))",0.0
+"khi trở về , hầu hết tiếp tục làm việc tốt .",(t1 /tiếp_tục:time(t /trở_về):agent(h /hầu_hết):manner(l /làm_việc:degree(t2 /tốt))),"    (t1 / tiếp_tục
+    :time
+    (t / trở_về
+    )
+    :agent
+    (h / hầu_hết
+    )
+    :manner
+        (l / làm_việc
+        :degree
+        (t2 / tốt
+        )
+    )
+)",True,"(t1 / tiếp tục
+:time(k / khi
+:agent-of(t / trở về))
+:topic(l / làm việc
+:manner(t2 / tốt)))",0.0
+"nhiều người từ nghèo khó nhất xã đã có vốn mở cơ sở , lập trang trại , tạo công ăn việc làm cho nhiều lao động .",(c /có:domain(n1 /người:mod(m /một):source(n2 /ngoài)):tense(đ /đã):theme(v /vốn:purpose(a /and:op1(m1 /mở:agent(l /lao_động:quant(n3 /nhiều)):compound(c1 /cơ_sở)):op2(l1 /lập:theme(t2 /trang_trại)):op3(t3 /tạo:theme(c2 /công_ăn_việc_làm)))),(c / có:domain(n1 / người:mod(m / một):source(n2 / ngoài)):tense(đ / đã):theme(v / vốn:purpose(a / and:op1(m1 / mở:agent(l / lao_động:quant(n3 / nhiều)):compound(c1 / cơ_sở)):op2(l1 / lập:theme(t2 / trang_trại)):op3(t3 / tạo:theme(c2 / công_ăn_việc_làm)))),False,"(c / có
+:pivot(n1 / người
+:mod(n / nhiều)
+:mod(n2 / nghèo khó
+:prep(t / từ)
+:degree(n3 / nhất)
+:poss(x / xã)))
+:tense(đ / đã)
+:theme(v / vốn
+:purpose(o / or
+:op1(m / mở
+:theme(c1 / cơ sở))
+:op2(l / lập
+:theme(t1 / trang trại))))
+:purpose(t2 / tạo
+:theme(c2 / công ăn việc làm)
+:beneficiary-arg2(l1 / lao động
+:prep(c3 / cho)
+:mod(n4 / nhiều))))",0.0
+"mất hai cánh tay , một mắt .",(m /mất:theme(c1 /cánh_tay:quant(2):theme(m1 /mắt:quant(1)),(m / mất:theme(c1 / cánh_tay:quant(x / 2):theme(m1 / mắt:quant(x2 / 1)),False,"(m / mất
+:theme(a / and
+:op1(c / cánh tay
+:quant 2)
+:op2(m2 / mắt
+:quant 1)))",0.0
+"một tập thể vững mạnh còn nhờ "" đầu tàu "" .",(n /nhờ:theme(t1 /tập_thể:mod(v /vững_mạnh):quant(1):pivot(đ /đầu_tàu)),(n / nhờ:theme(t1 / tập_thể:mod(v / vững_mạnh):quant(x / 1):pivot(đ / đầu_tàu)),False,"(n / nhờ
+:beneficiary-arg0(t / tập thể
+:mod(v / vững mạnh)
+:quant 1)
+:theme(đ / đầu tàu))",0.0
+hai lão nông - một cánh tay còn nguyên vẹn - đã dựng lên hai gia đình gương mẫu .,(a /and:op1(l1 /lão_nông:quant(2):op2(d /dựng:agent(c /cánh_tay:part-of(l2 /lão_nông):quant(1):tense(đ /đã):compound(l3 /lên):result-arg1(g /gia_đình:mod(g1 /gương_mẫu):quant(2))),(a / and:op1(l1 / lão_nông:quant(x / 2):op2(d / dựng:agent(c / cánh_tay:part-of(l2 / lão_nông):quant(x2 / 1):tense(đ / đã):compound(l3 / lên):result-arg1(g / gia_đình:mod(g1 / gương_mẫu):quant(x / 2))),False,"(d / dựng
+:agent(l / lão nông
+:mod(n / nguyên vẹn
+:domain(c / cánh tay
+:quant 1))
+:quant 2)
+:tense(đ / đã)
+:compound(l1 / lên)
+:theme(g / gia đình
+:mod(g1 / gương mẫu)
+:quant 2))",0.0
+"có em trở về còn quyết tâm dùng tiền dành dụm tiếp tục học văn hóa , vào đại học "" .",(t /trở_về:agent(e /em):concession(q /quyết_tâm:topic(d /dùng_tiền:mod(n /nhiều)):purpose(h /học:degree(c2 /tiếp_tục):location(đ /đại_học:prep(v1 /vào)):theme(văn_hóa)):agent(em))_:pivot(em))),(t / trở_về:agent(e / em):concession(q / quyết_tâm:topic(d / dùng_tiền:mod(n / nhiều)):purpose(h / học:degree(c2 / tiếp_tục):location(đ / đại_học:prep(v1 / vào)):theme(v / văn_hóa)):agent(e / em))_:pivot(e / em))),False,"(c / có
+:theme-of(q / quyết tâm
+:agent(e / em
+:agent-of(t / trở về))
+:topic(d / dùng
+:theme(t1 / tiền
+:compound(d1 / dành dụm))
+:purpose(t2 / tiếp tục
+:topic(a / and
+:op1(h / học
+:theme(v / văn hóa))
+:op2(v1 / vào
+:op2(đ / đại học)))))))",0.0
+"có em trở về còn quyết tâm dùng tiền dành dụm tiếp tục học văn hóa , vào đại học "" .",(t /trở_về:agent(e /em):concession(q /quyết_tâm:topic(d /dùng_tiền:mod(n /nhiều)):purpose(h /học:degree(c2 /tiếp_tục):location(đ /đại_học:prep(v1 /vào)):theme(văn_hóa)):agent(em))_:pivot(em))),(t / trở_về:agent(e / em):concession(q / quyết_tâm:topic(d / dùng_tiền:mod(n / nhiều)):purpose(h / học:degree(c2 / tiếp_tục):location(đ / đại_học:prep(v1 / vào)):theme(v / văn_hóa)):agent(e / em))_:pivot(e / em))),False,"(c / có
+:theme-of(q / quyết tâm
+:agent(e / em
+:agent-of(t / trở về))
+:topic(d / dùng
+:theme(t1 / tiền
+:compound(d1 / dành dụm))
+:purpose(t2 / tiếp tục
+:topic(a / and
+:op1(h / học
+:theme(v / văn hóa))
+:op2(v1 / vào
+:op2(đ / đại học)))))))",0.0
+dự kiến từ nay đến năm 2007 sẽ hoàn thành phổ cập thpt .,(h /hoàn_thành:time(n1 /năm:mod(2007):tense(s /sẽ):theme(p /phổ_cập:theme(t1 /thpt)):time(b /before:op1(wz3 /now))),(h / hoàn_thành:time(n1 / năm:mod(x / 2007):tense(s / sẽ):theme(p / phổ_cập:theme(t1 / thpt)):time(b / before:op1(wz3 / now))),False,"(h / hoàn thành
+:source(d / dự kiến
+:time(dx / date-interval
+:op1(d2 / date-entity
+:year 2005)
+:op2(d3 / date-entity
+:year 2007)))
+:tense(s / sẽ)
+:topic(p / phổ cập
+:theme(t1 / thpt)))",0.0
+"con của "" thép "" .",(t /thép:classifier(c1 /con)),"    (t / thép
+    :classifier
+    (c1 / con
+    )
+)",True,"(c / con
+:poss(t / thép))",0.0
+tôi nghe câu chuyện anh Thanh cho anh Đu mượn chú heo con .,(n /nghe:agent(t /tôi):theme(c1 /câu_chuyện:topic(m /mượn:agent(a2 /anh_Đu):theme(h1 /heo_con:classifier(c2 /chú)):initiated_by(anh_thanh))_:agent(anh_thanh))),"    (n / nghe
+    :agent
+    (t / tôi
+    )
+    :theme
+        (c1 / câu_chuyện
+        :topic
+            (m / mượn
+            :agent
+            (a2 / anh_Đu
+            )
+            :theme
+                (h1 / heo_con
+                :classifier
+                (c2 / chú
+                )
+            )
+            :initiated_by
+            (a / anh_thanh
+            )
+        )
+        _
+        :agent
+        (a / anh_thanh
+        )
+    )
+)",True,"(n / nghe
+:agent(t / tôi)
+:theme(c / câu chuyện
+:theme-of(c1 / cho
+:agent(p / person
+:name(nx / name
+:op1(a / anh)
+:op2(t1 / Thanh))
+:wiki -)
+:beneficiary-arg2(p2 / person
+:agent-of(m / mượn
+:theme(h / heo
+:classifier(c2 / chú)
+:mod(c3 / con)))
+:wiki -
+:name(n1 / name
+:op1(a1 / anh)
+:op2(đ / Đu))))))",0.0
+"ai trồng lúa , xã mời các cán bộ về tập huấn cho trồng lúa .",(m /mời:agent(x /xã):topic(t1 /tập_huấn:beneficiary(cán_bộ):time(v /về:beneficiary-of(t2 /trồng_lúa:agent(a)))),(m / mời:agent(x / xã):topic(t1 / tập_huấn:beneficiary(c / cán_bộ):time(v / về:beneficiary-of(t2 / trồng_lúa:agent(a / a)))),False,"(m / mời
+:beneficiary-arg0(a / ai
+:agent-of(t / trồng
+:result-arg1(l / lúa)))
+:agent(x / xã)
+:goal(c1 / cán bộ
+:agent-of(v / về
+:purpose(t1 / tập huấn
+:topic(t2 / trồng
+:prep(c2 / cho)
+:result-arg1(l1 / lúa))))))",0.0
+"ai nuôi cá , nuôi bò thì được tập huấn về chăn nuôi .",(t1 /tập_huấn:condition(n /nuôi:agent(a /ai):theme(c /cá)):modality(đ /được):topic(c2 /chăn_nuôi:theme(b /bò))),"    (t1 / tập_huấn
+    :condition
+        (n / nuôi
+        :agent
+        (a / ai
+        )
+        :theme
+        (c / cá
+        )
+    )
+    :modality
+    (đ / được
+    )
+    :topic
+        (c2 / chăn_nuôi
+        :theme
+        (b / bò
+        )
+    )
+)",True,"(t1 / tập huấn
+:beneficiary-arg0(a / ai
+:agent-of(n / nuôi
+:theme(ax / and
+:op1(c / cá)
+:op2(b / bò))))
+:topic(c1 / chăn nuôi
+:prep(v / về))
+:modality +)",0.0
+ai muốn giữ nghề truyền thống được tạo điều kiện vay vốn .,(m /muốn:pivot(a /ai):theme(g /giữ:theme(n /nghề:mod(t /truyền_thống)):agent(đ /được:theme(t1 /tạo_điều_kiện:purpose(v /vay_vốn:agent(ai)))))),"    (m / muốn
+    :pivot
+    (a / ai
+    )
+    :theme
+        (g / giữ
+        :theme
+            (n / nghề
+            :mod
+            (t / truyền_thống
+            )
+        )
+        :agent
+            (đ / được
+            :theme
+                (t1 / tạo_điều_kiện
+                :purpose
+                    (v / vay_vốn
+                    :agent
+                    (a / ai
+                    )
+                )
+            )
+        )
+    )
+)",True,"(t1 / tạo
+:beneficiary-arg0(a / ai
+:pivot-of(m / muốn
+:topic(g / giữ
+:theme(n / nghề
+:mod(t / truyền thống)))))
+:theme(đ1 / điều kiện)
+:purpose(v / vay
+:theme(v1 / vốn))
+:modality +)",0.0
+nhưng không !,(c /contrast-01:ARG2(k /không)),"    (c / contrast-01
+    :ARG2
+    (k / không
+    )
+)",True,"(c / contrast-01
+:ARG2(k / không))",0.0
+"gặp những đứa con của quê hương này , tôi bị bất ngờ bởi sức sống mãnh liệt .",(b1 /bất_ngoại:condition(g /gặp:goal(c /con:classifier(đ /đứa):poss(q /quê_hương:mod(n2 /này))):agent(tôi)):domain(t /tôi):degree(b /bị):reason(s /sức_sống:mod(m1 /mãnh_liệt))),"    (b1 / bất_ngoại
+    :condition
+        (g / gặp
+        :goal
+            (c / con
+            :classifier
+            (đ / đứa
+            )
+            :poss
+                (q / quê_hương
+                :mod
+                (n2 / này
+                )
+            )
+        )
+        :agent
+        (t / tôi
+        )
+    )
+    :domain
+    (t / tôi
+    )
+    :degree
+    (b / bị
+    )
+    :reason
+        (s / sức_sống
+        :mod
+        (m1 / mãnh_liệt
+        )
+    )
+)",True,"(b1 / bất ngờ
+:time(g / gặp
+:goal(c / con
+:classifier(đ / đứa)
+:poss(q / quê hương
+:mod(n1 / này)))
+:agent t)
+:pivot(t / tôi)
+:reason(s / sức sống
+:prep(b2 / bởi)
+:mod(m / mãnh liệt))
+:modality +)",0.0
+mình còn sống .,(s /sống:pivot(m /mình)),"    (s / sống
+    :pivot
+    (m / mình
+    )
+)",True,"(s / sống
+:pivot(m / mình))",0.0
+hên thiệt !,(h /hên:mode(expressive):modality(t /thiệt)),"    (h / hên
+    :mode
+    (e / expressive
+    )
+    :modality
+    (t / thiệt
+    )
+)",True,"(h / hên
+:modality(t / thiệt)
+:mode expressive)",0.0
+"à , mà chuyện đó cũ hết rồi ... "" .",(m /multi-sentence:snt1(à /à:mode(expressive):snt2(c /chuyện:mod(đ /đó):mod(c1 /cũ)):manner(h /hết:compound(r /rồi))),(m / multi-sentence:snt1(à / à:mode(e / expressive):snt2(c / chuyện:mod(đ / đó):mod(c1 / cũ)):manner(h / hết:compound(r / rồi))),False,"(c1 / cũ
+:mode expressive
+:domain(c / chuyện
+:mod(đ / đó)))",0.0
+sau chiến tranh đi tháo gỡ bom mìn .,(t /tháo_gỡ:time(s /sau:mod(c /chiến_tranh)):agent(b /bom_mìn)),"    (t / tháo_gỡ
+    :time
+        (s / sau
+        :mod
+        (c / chiến_tranh
+        )
+    )
+    :agent
+    (b / bom_mìn
+    )
+)",True,"(đ / đi
+:compound(t / tháo gỡ
+:patient(b / bom
+:mod(m / mìn)))
+:time(a / after
+:op1(c / chiến tranh)))",0.0
+tháo gỡ đến trái 223 thì bị nổ .,(n /nổ:condition(t /tháo_gỡ:quant(đ /đến):location(t1 /trái:quant(223)):modality(b /bị)),(n / nổ:condition(t / tháo_gỡ:quant(đ / đến):location(t1 / trái:quant(x / 223)):modality(b / bị)),False,"(n / nổ
+:time(t / tháo gỡ
+:patient(t1 / trái
+:ord 223))
+:modality -)",0.0
+có người đã là cô giáo dạy thcs .,(c /có:theme(n /người:pivot-of(d /dạy_thcs:agent(cô):tense(đ /đã)))),"    (c / có
+    :theme
+        (n / người
+        :pivot-of
+            (d / dạy_thcs
+            :agent
+            (c / cô
+            )
+            :tense
+            (đ / đã
+            )
+        )
+    )
+)",True,"(c / có
+:theme(n / người
+:domain-of(c1 / cô giáo
+:tense(đ / đã)
+:agent-of(d / dạy
+:theme(t / thcs)))))",0.0
+gần đó cũng vừa mọc lên một nhà văn hóa trị giá khoảng 5 tỉ đồng .,(m1 /mọc:location(g /gần:mod(đ /đó)):time(v /vừa):compound(l /lên):result-arg1(n /nhà_văn_hoá:agent-of(t /trị_giá:quant(k /khoảng:op2(5000000000))))),"    (m1 / mọc
+    :location
+        (g / gần
+        :mod
+        (đ / đó
+        )
+    )
+    :time
+    (v / vừa
+    )
+    :compound
+    (l / lên
+    )
+    :result-arg1
+        (n / nhà_văn_hoá
+        :agent-of
+            (t / trị_giá
+            :quant
+                (k / khoảng
+                :op2
+                (x / 5000000000
+                )
+            )
+        )
+    )
+)",True,"(m / mọc
+:location(đ / đó
+:mod(g / gần))
+:tense(v / vừa)
+:compound(l / lên)
+:theme(n / nhà văn hóa
+:theme-of(t / trị giá
+:theme(a / about
+:op1(m2 / monetary-quantity
+:unit(đ1 / đồng)
+:quant 5000000000)))
+:quant 1))",0.0
+ngôi nhà của Ama Công .,(n1 /nhà:classifier(n /ngôi):poss(p /person:name(n2 /name:op1(A /Ama):op2(C /Công)))),"    (n1 / nhà
+    :classifier
+    (n / ngôi
+    )
+    :poss
+        (p / person
+        :name
+            (n2 / name
+            :op1
+            (A / Ama
+            )
+            :op2
+            (C / Công
+            )
+        )
+    )
+)",True,"(n1 / nhà
+:classifier(n / ngôi)
+:poss(p / person
+:wiki -
+:name(n2 / name
+:op2(wz2 / Công)
+:op1(wz3 / Ama))))",0.0
+đó là ngôi nhà của một gia đình người Kinh dưới chân núi chư pah ( Gia Lai ) .,(n1 /nhà:domain(đ /đó):classifier(n /ngôi):poss(g /gia_đình:mod(n2 /người_Kinh)):location(c2 /chân_núi:prep(d /dưới):name(n3 /name:op1(ch1 /chư_pah):op2(wz4 /province:name(wz5 /name:op1(G /Gia):op2(L1 /Lai)))))),"    (n1 / nhà
+    :domain
+    (đ / đó
+    )
+    :classifier
+    (n / ngôi
+    )
+    :poss
+        (g / gia_đình
+        :mod
+        (n2 / người_Kinh
+        )
+    )
+    :location
+        (c2 / chân_núi
+        :prep
+        (d / dưới
+        )
+        :name
+            (n3 / name
+            :op1
+            (ch1 / chư_pah
+            )
+            :op2
+                (wz4 / province
+                :name
+                    (wz5 / name
+                    :op1
+                    (G / Gia
+                    )
+                    :op2
+                    (L1 / Lai
+                    )
+                )
+            )
+        )
+    )
+)",True,"(n1 / nhà
+:domain(đ / đó)
+:classifier(n / ngôi)
+:poss(g / gia đình
+:mod(n2 / người
+:compound(e / ethnic-group
+:name(n4 / name
+:op1(k / Kinh))
+:wiki -))
+:location(c1 / chân
+:prep(d / dưới)
+:mod(p / province
+:name(n6 / name
+:op1(wz2 / Gia)
+:op2(wz3 / Lai))
+:wiki(wz4 / Gia_Lai))
+:compound(m / mountain
+:name(n5 / name
+:op2(wz5 / Pah)
+:op1(wz6 / Chư))
+:wiki -))
+:quant 1))",0.0
+"cứ nhà nào có người ốm đau , bệnh hoạn anh đều có mặt .",(c2 /có_mặt:condition(n1 /nhà:mod(n2 /nào):pivot-of(c3 /chỗ:location-of(ố /ốm_đau:pivot(n4 /người)):quant(1)):agent(a /anh:domain(b /bệnh_hoạn:patient(n5 /người)))),(c2 / có_mặt:condition(n1 / nhà:mod(n2 / nào):pivot-of(c3 / chỗ:location-of(ố / ốm_đau:pivot(n4 / người)):quant(x / 1)):agent(a / anh:domain(b / bệnh_hoạn:patient(n5 / người)))),False,"(c2 / có mặt
+:location(n / nhà
+:mod(n1 / nào)
+:pivot-of(c1 / có
+:theme(n2 / người
+:mod(o / or
+:op1(ố / ốm đau)
+:op2(b / bệnh hoạn)))))
+:pivot(a / anh)
+:degree(đ / đều))",0.0
+""" hồi ấy đây là vùng giao tranh ác liệt - ông kể - ngày nào cũng có người chết vì bom đạn .",(k /kể:agent(ô /ông):topic(a1 /and:op1(v /vùng:domain(đ /đây):mod(g /giao_tranh:degree(á1 /ác_liệt)):time(b /before)):op2(c3 /có:theme(n1 /người:agent-of(c4 /chết:pivot-of(n2 /nó)):cause(b1 /bom_đạn)):frequency(r /rate-entity-91:unit(t1 /day)))):time(d /date-entity:year(h /hồi:mod(ấ /ấy))))),(k / kể:agent(ô / ông):topic(a1 / and:op1(v / vùng:domain(đ / đây):mod(g / giao_tranh:degree(á1 / ác_liệt)):time(b / before)):op2(c3 / có:theme(n1 / người:agent-of(c4 / chết:pivot-of(n2 / nó)):cause(b1 / bom_đạn)):frequency(r / rate-entity-91:unit(t1 / day)))):time(d / date-entity:year(h / hồi:mod(ấ / ấy))))),False,"(k / kể
+:agent(ô / ông)
+:topic(a / and
+:op1(v / vùng
+:time(h / hồi
+:mod(ấ / ấy))
+:domain(đ / đây)
+:theme-of(g / giao tranh
+:manner(á / ác liệt)))
+:op2(c1 / có
+:time(n / ngày
+:mod(n1 / nào))
+:theme(n2 / người
+:patient-of(c2 / chết
+:reason(b / bom đạn
+:prep(v1 / vì)))))))",0.0
+nay thì mô hình đã thành công .,(t1 /thành_công:time(n / Nay):theme(m /mô_hình)),"    (t1 / thành_công
+    :time
+    (n / Nay
+    )
+    :theme
+    (m / mô_hình
+    )
+)",True,"(t1 / thành công
+:theme(m / mô hình)
+:tense(đ / đã)
+:time(n / now))",0.0
+tất cả chỉ với hai cùi tay cụt .,(c /chỉ:domain(t /tất_cả):means(t2 /trông:degree(c1 /cụt):part-of(tôi):quant(2)),(c / chỉ:domain(t / tất_cả):means(t2 / trông:degree(c1 / cụt):part-of(t / tôi):quant(x / 2)),False,"(t / tất cả
+:manner(c1 / cùi tay
+:degree(c / chỉ)
+:mod(c2 / cụt)
+:quant 2))",0.0
+sẽ tổ chức phố đi bộ tại Hội An .,(t /tổ_chức:theme(p /phố_đi_bộ):location(H /Hội_An):tense(s /sẽ)),"    (t / tổ_chức
+    :theme
+    (p / phố_đi_bộ
+    )
+    :location
+    (H / Hội_An
+    )
+    :tense
+    (s / sẽ
+    )
+)",True,"(t / tổ chức
+:tense(s / sẽ)
+:theme(p / phố
+:theme-of(đ / đi
+:compound(b / bộ)))
+:location(c / city
+:prep(t1 / tại)
+:name(n / name
+:op2(wz1 / An)
+:op1(wz2 / Hội))
+:wiki(wz3 / Hội_An)))",0.0
+"công ty đồng ý , cụ mãn nguyện , yên tâm sống ở đây suốt quãng đời còn lại .",(đ /đồng_ý:agent(c /công_ty):manner(n /nghiêm_mục):result(l1 /lên_tinh_thân:topic(s /sống:pivot(t /ta):location(đ1 /đây:prep(ở /ở)):duration(q /quãng_đời:mod(c2 /còn_lại)))),(đ / đồng_ý:agent(c / công_ty):manner(n / nghiêm_mục):result(l1 / lên_tinh_thân:topic(s / sống:pivot(t / ta):location(đ1 / đây:prep(ở / ở)):duration(q / quãng_đời:mod(c2 / còn_lại)))),False,"(a / and
+:op1(đ / đồng ý
+:agent(c / công ty))
+:op2(a1 / and
+:op1(m / mãn nguyện
+:pivot(c1 / cụ))
+:op2(s / sống
+:manner(y / yên tâm)
+:location(đ1 / đây
+:prep(ở / ở))
+:time(q / quãng
+:mod(s1 / suốt)
+:mod(đ2 / đời)
+:theme-of(c2 / còn
+:compound(l / lại)))
+:pivot c1)))",0.0
+một điểm chung là người thương binh ít chạm vào quá khứ .,(c /chung:domain(đ /điểm):modality(m /một):topic(t1 /thương_binh:pivot(n /người)):theme(c2 /chạm:degree(í /ít):compound(v /vào):theme(q /quá_khứ):agent(thương_binh))),"    (c / chung
+    :domain
+    (đ / điểm
+    )
+    :modality
+    (m / một
+    )
+    :topic
+        (t1 / thương_binh
+        :pivot
+        (n / người
+        )
+    )
+    :theme
+        (c2 / chạm
+        :degree
+        (í / ít
+        )
+        :compound
+        (v / vào
+        )
+        :theme
+        (q / quá_khứ
+        )
+        :agent
+        (t / thương_binh
+        )
+    )
+)",True,"(t / thương binh
+:domain(đ / điểm
+:mod(c / chung)
+:quant 1)
+:classifier(n / người)
+:agent-of(c1 / chạm
+:degree(í / ít)
+:goal(q / quá khứ
+:prep(v / vào))))",0.0
+"giờ nó đi làm có chút vốn , lấy đó mà học tiếp "" .",(a /and:op1(đ /đi:agent(n /nó):compound(l /làm)):op2(l1 /lấy:theme(v /vốn:quant(m /một_chút)):purpose(h /học:compound(t /tiếp):pivot(nó))_:agent(nó))),"    (a / and
+    :op1
+        (đ / đi
+        :agent
+        (n / nó
+        )
+        :compound
+        (l / làm
+        )
+    )
+    :op2
+        (l1 / lấy
+        :theme
+            (v / vốn
+            :quant
+            (m / một_chút
+            )
+        )
+        :purpose
+            (h / học
+            :compound
+            (t / tiếp
+            )
+            :pivot
+            (n / nó
+            )
+        )
+        _
+        :agent
+        (n / nó
+        )
+    )
+)",True,"(đ / đi
+:agent(n / nó)
+:compound(l / làm)
+:time(n1 / now)
+:purpose(a / and
+:op1(c / có
+:theme(v / vốn))
+:op2(l1 / lấy
+:theme(đ1 / đó)
+:purpose(h / học
+:compound(t / tiếp)))))",0.0
+"đấy là phòng giá cao nhất : 3, 5 triệu / tháng .",(p /phòng:domain(đ /đấy):mod(g /giá:degree(c /cao:degree(n /nhất)):quant(wz1 /product-of:op2(t1 /triệu:quant(3.5):op1(t /tháng))))),"    (p / phòng
+    :domain
+    (đ / đấy
+    )
+    :mod
+        (g / giá
+        :degree
+            (c / cao
+            :degree
+            (n / nhất
+            )
+        )
+        :quant
+            (wz1 / product-of
+            :op2
+                (t1 / triệu
+                :quant
+                (x / 3.5
+                )
+                :op1
+                (t / tháng
+                )
+            )
+        )
+    )
+)",True,"(p / phòng
+:domain(đ / đấy)
+:mod(g / giá
+:mod(c / cao
+:degree(n / nhất)))
+:mod(m / monetary-quantity
+:mod(t1 / tháng)
+:unit(đ1 / đồng)
+:quant 3500000))",0.0
+"mẹ anh là cụ g . , có năm con .",(c /cụ:domain(m /mẹ:domain-of(a /anh)):mod(g /g):agent-of(c1 /có:theme(c2 /con:quant(5))),(c / cụ:domain(m / mẹ:domain-of(a / anh)):mod(g / g):agent-of(c1 / có:theme(c2 / con:quant(x / 5))),False,"(a / and
+:op1(c / cụ
+:mod(g / g
+:compound(. / .))
+:domain(h / have-rel-role-91
+:ARG1(m / mẹ)
+:ARG2(ax / anh)))
+:op2(c1 / có
+:theme(c2 / con
+:quant 5)
+:pivot h))",0.0
+"bán thuốc giá cao , công ty Sanofi phải giải trình .",(o /obligate-01:topic(g1 /giải_trình:reason(b /bán:theme(t /thuốc):manner(c /cao)):agent(c1 /công_ti:name(n2 /name:op1(S /Sanofi)))),(o / obligate-01:topic(g1 / giải_trình:reason(b / bán:theme(t / thuốc):manner(c / cao)):agent(c1 / công_ti:name(n2 / name:op1(S / Sanofi)))),False,"(o / obligate-01
+:topic(g1 / giải trình
+:topic(b / bán
+:theme(t / thuốc)
+:manner(g / giá
+:mod(c / cao)))
+:agent(cx / company
+:name(n / name
+:op1(s / Sanofi))
+:wiki -)))",0.0
+"không phải phép thần kỳ biến quê hương từ chỗ cay cực nhất vinh dự nhận danh hiệu tập thể "" anh hùng lao động thời kỳ đổi mới "" sau 15 năm đổi mới .","(p /phép:domain(t /thần_kỳ):theme-of(b /biến:source(q /quê_hương)):location(c2 /chỗ:mod(c3 /cay_cực_nhất)):theme-of(n /nhận:degree(v /vinh_dự):theme(d /danh_hiệu:mod(t4 /tập_thể:mod(""anh_hùng_lao_động:time(s /sau:op1(đ /đổi_mới:duration(t5 /temporal-quantity:unit(n1 /năm):quant(15)))))):agent(quê_hương))_:pivot(quê_hương)):mode(-)","(p / phép:domain(t / thần_kỳ):theme-of(b / biến:source(q / quê_hương)):location(c2 / chỗ:mod(c3 / cay_cực_nhất)):theme-of(n / nhận:degree(v / vinh_dự):theme(d / danh_hiệu:mod(t4 / tập_thể:mod(""anh_hùng_lao_động:time(s / sau:op1(đ / đổi_mới:duration(t5 / temporal-quantity:unit(n1 / năm):quant(x / 15)))))):agent(q / quê_hương))_:pivot(q / quê_hương)):mode(-)",False,"(p1 / phép
+:modality(p / phải
+:polarity -)
+:mod(t / thần kỳ)
+:theme-of(b / biến
+:patient(q / quê hương)
+:source(c / chỗ
+:prep(t1 / từ)
+:mod(c1 / cay cực
+:degree(n / nhất)))
+:result(n1 / nhận
+:manner(v / vinh dự)
+:theme(d / danh hiệu
+:mod(t2 / tập thể
+:mod(a / anh hùng
+:compound(l / lao động)
+:mod(t3 / thời kỳ
+:mod(đ / đổi mới))))))
+:time(ax / after
+:op1(n2 / năm
+:quant 15
+:theme-of(đ1 / đổi mới)))))",0.0
+ăn xong chị lại quày quả ra đi với chiếc xe đạp cọc cạch và hai cái bao nhỏ .,(q /quày_quả:agent(c /chị):compound(r /ra):compound(đ /đi):accompanier(w1 /and:op2(b1 /bao:quant 2:classifier(c2 /cái)):mod(n3 /nhỏ)):op1(x1 /xe_đạp:mod(c3 /cọc_cạch):classifier(c4 /chiếc)))),(q / quày_quả:agent(c / chị):compound(r / ra):compound(đ / đi):accompanier(w1 / and:op2(b1 / bao:quant 2:classifier(c2 / cái)):mod(n3 / nhỏ)):op1(x1 / xe_đạp:mod(c3 / cọc_cạch):classifier(c4 / chiếc)))),False,"(r / ra
+:time(ă / ăn
+:tense(x / xong))
+:agent(c / chị)
+:manner(q / quày quả)
+:compound(đ / đi)
+:instrument(a / and
+:op1(x1 / xe đạp
+:classifier(c1 / chiếc)
+:mod(c2 / cọc cạch))
+:op2(b / bao
+:mod(n / nhỏ)
+:quant 2
+:classifier(c3 / cái))))",0.0
+"tối 21 - 3 , chúng tôi tìm đến chỗ trọ của vợ chồng anh trong ngôi nhà nhỏ của người em gái chị Xoan .",(t /tìm:agent(c /chúng_tôi):compound(đ /đến):location(c1 /chỗ_trọ:poss(v1 /vợ_chồng:mod(a /anh)):location(n1 /nhà:classifier(n /ngôi):mod(n2 /nhỏ):poss(e /em_gái:mod(g /gai):name(w /woman:name(n4 /name:op1(X /Xoan)))))):time(d /date-entity:dayperiod(t1 /tối:mod(2 /21-3)))),"    (t / tìm
+    :agent
+    (c / chúng_tôi
+    )
+    :compound
+    (đ / đến
+    )
+    :location
+        (c1 / chỗ_trọ
+        :poss
+            (v1 / vợ_chồng
+            :mod
+            (a / anh
+            )
+        )
+        :location
+            (n1 / nhà
+            :classifier
+            (n / ngôi
+            )
+            :mod
+            (n2 / nhỏ
+            )
+            :poss
+                (e / em_gái
+                :mod
+                (g / gai
+                )
+                :name
+                    (w / woman
+                    :name
+                        (n4 / name
+                        :op1
+                        (X / Xoan
+                        )
+                    )
+                )
+            )
+        )
+    )
+    :time
+        (d / date-entity
+        :dayperiod
+            (t1 / tối
+            :mod
+            (2 / 21-3
+            )
+        )
+    )
+)",True,"(t1 / tìm
+:agent(c / chúng tôi)
+:compound(đ / đến)
+:location(c1 / chỗ
+:compound(t2 / trọ)
+:poss(v / vợ chồng
+:mod(a / anh))
+:prep(t3 / trong)
+:mod(n1 / nhà
+:classifier(n / ngôi)
+:mod(n2 / nhỏ)
+:poss(n3 / người
+:mod(h / have-rel-role-91
+:ARG2(e / em gái)
+:ARG0(p / person
+:wiki -
+:name(n31 / name
+:op1(c4 / chị)
+:op2(x / Xoan)))))))
+:time(d / date-entity
+:dayperiod(t / tối)
+:day 21
+:month 3))",0.0
+đứa lớn theo vợ chồng chị vào tp hcm .,(t /theo:agent(đ /đứa:mod(l /lớn)):accompanier(v1 /vợ_chồng:source(c /chị)):direction(v2 /vào:finalLocation(tp /tp:mod(h /hcm)))),"    (t / theo
+    :agent
+        (đ / đứa
+        :mod
+        (l / lớn
+        )
+    )
+    :accompanier
+        (v1 / vợ_chồng
+        :source
+        (c / chị
+        )
+    )
+    :direction
+        (v2 / vào
+        :finalLocation
+            (tp / tp
+            :mod
+            (h / hcm
+            )
+        )
+    )
+)",True,"(t / theo
+:agent(đ / đứa
+:mod(l / lớn))
+:accompanier(v / vợ chồng
+:mod(c / chị))
+:location(t1 / tp
+:mod(c2 / city
+:prep(v1 / vào)
+:name(n / name
+:op1(h / hcm))
+:wiki -)))",0.0
+hà nội : 98 % - 100 % người nghiện tái nghiện .,(n2 /nghiện:domain(h /hà_nội):degree(wz3 /98%_100%):pivot-of(t /tái_nghiện:pivot-người))),(n2 / nghiện:domain(h / hà_nội):degree(wz3 / 98%_100%):pivot-of(t / tái_nghiện:pivot-người))),False,"(t / tái_nghiện
+:agent(n / người
+:compound(n1 / nghiện)
+:quant(p / percentage-entity
+:ARG2(p2 / percentage-entity
+:value 100)
+:ARG1(p1 / percentage-entity
+:value 98)))
+:location(wz1 / city
+:name(n2 / name
+:op2(wz2 / Nội)
+:op1(wz3 / Hà))
+:wiki(wz4 / Hà_Nội)))",0.0
+lập tức các mặt hàng trên bị lập biên bản thu giữ .,(l1 /lập_tức:theme(m /mặt_hàng:location(t /trên):modality(b /bị)):result-arg1(l2 /lập_biên_phản:purpose(t1 /thu_giữ))),"    (l1 / lập_tức
+    :theme
+        (m / mặt_hàng
+        :location
+        (t / trên
+        )
+        :modality
+        (b / bị
+        )
+    )
+    :result-arg1
+        (l2 / lập_biên_phản
+        :purpose
+        (t1 / thu_giữ
+        )
+    )
+)",True,"(l1 / lập
+:manner(l / lập tức)
+:patient(m / mặt hàng
+:mod(t / trên))
+:theme(b1 / biên bản
+:compound(t1 / thu giữ))
+:modality -)",0.0
+"ai muốn lao động ở nước ngoài , xã làm cầu nối ... 500 liệt sĩ ! 750 hộ gia đình chính sách ! 176 thương binh ! ...",(l1 /làm:agent(x /xã):compound(c /cầu_nối):topic(a2 /and:op1(m /muốn:pivot(a /ai):theme(l /lao_động:location(n /nước_ngoài):agent(ai))):op2(5 /liệt_sĩ:quant(500):op3(h /hộ_gia_đình:mod(c1 /chính_sách)):quant(750):op4(t /thương_binh:quant(176))),(l1 / làm:agent(x / xã):compound(c / cầu_nối):topic(a2 / and:op1(m / muốn:pivot(a / ai):theme(l / lao_động:location(n / nước_ngoài):agent(a / ai))):op2(5 / liệt_sĩ:quant(x / 500):op3(h / hộ_gia_đình:mod(c1 / chính_sách)):quant(x2 / 750):op4(t / thương_binh:quant(x3 / 176))),False,"(mx / multi-sentence
+:snt1(l1 / làm
+:beneficiary-arg0(a / ai
+:pivot-of(m / muốn
+:topic(l / lao động
+:location(n / nước ngoài
+:prep(ở / ở)))))
+:agent(x / xã)
+:compound(c / cầu nối))
+:snt2(l2 / liệt sĩ
+:quant 500)
+:snt3(h / hộ
+:quant 750
+:mod(g / gia đình
+:mod(c1 / chính sách)))
+:snt4(t / thương binh
+:quant 176))",0.0
+17 lao động trở về từ Malaysia vì không có việc làm .,(t /trở_về:agent(l /lao_động:quant(17):cause(v1 /việc_làm:polarity -:pivot(lao))),(t / trở_về:agent(l / lao_động:quant(x / 17):cause(v1 / việc_làm:polarity -:pivot(l / lao))),False,"(t / trở
+:agent(l / lao động
+:quant 17)
+:compound(v / về)
+:reason(c / có
+:theme(v2 / việc làm)
+:polarity -
+:pivot l)
+:initialLocation(wz4 / place
+:wiki(wz5 / Malaysia
+:name(wz6 / name
+:op1(m / Malaysia)))))",0.0
+thực chất là đổi đất lấy hạ tầng .,(đ /đổi:theme(t /thực_chất):theme(l1 /lấy:theme(đ1 /đất)):theme(h /hạ_tầng)),"    (đ / đổi
+    :theme
+    (t / thực_chất
+    )
+    :theme
+        (l1 / lấy
+        :theme
+        (đ1 / đất
+        )
+    )
+    :theme
+    (h / hạ_tầng
+    )
+)",True,"(đ / đổi
+:manner(t / thực chất)
+:theme(đ1 / đất)
+:purpose(l1 / lấy
+:theme(h / hạ tầng)))",0.0
+"anh Đu nuôi đến khi heo lớn , bán thịt thì mới trả heo con lại cho anh Thanh , không tính lời lãi .",(t1 /trả:agent(a1 /anh_Đu):theme(h /heo:classifier(c /con)):time(b /bán:theme(t /thịt):agent(anh_Đu):time(k2 /khi:prep(đ1 /đến):op1(l1 /lớn:pivot(héo)))):beneficiary-arg1(a2 /anh:mod(T2 /Thành)):manner(t3 /tính:theme(l2 /lời_lãi):polarity -:agent(anh)),(t1 / trả:agent(a1 / anh_Đu):theme(h / heo:classifier(c / con)):time(b / bán:theme(t / thịt):agent(a / anh_Đu):time(k2 / khi:prep(đ1 / đến):op1(l1 / lớn:pivot(h / héo)))):beneficiary-arg1(a2 / anh:mod(T2 / Thành)):manner(t3 / tính:theme(l2 / lời_lãi):polarity -:agent(a2 / anh)),False,"(t2 / trả
+:theme(h1 / heo
+:mod(c / con))
+:manner(t4 / tính
+:theme(l2 / lời lãi)
+:polarity -)
+:condition(wz2 / and
+:op1(n / nuôi
+:finalTime(l / lớn
+:theme(h / heo))
+:agent(wz3 / person
+:wiki -
+:name(wz5 / name
+:op1(a / anh)
+:op2(đ / Đu))))
+:op2(b / bán
+:theme(t / thịt)))
+:beneficiary(wz6 / person
+:wiki -
+:name(wz8 / name
+:op1(a1 / anh)
+:op2(t3 / Thanh)))
+:agent a)",0.0
+anh Đu thì vui mừng thông báo con heo con đi mượn ấy giờ đã thành mẹ của một bầy con ...,(t1 /thông_báo:agent(a /anh:mod(p /person:name(n2 /name:op1(đ /Đu)))):manner(v /vui_mừng):topic(t2 /thành:theme(m1 /mẹ:domain(h /heo:classifier(c /con):mod(ấ /ấy)):time(g /giờ):poss(b /bầy:consist-of(c2 /con):quant(1)):cause(m /mượn:agent(anh)))),(t1 / thông_báo:agent(a / anh:mod(p / person:name(n2 / name:op1(đ / Đu)))):manner(v / vui_mừng):topic(t2 / thành:theme(m1 / mẹ:domain(h / heo:classifier(c / con):mod(ấ / ấy)):time(g / giờ):poss(b / bầy:consist-of(c2 / con):quant(x / 1)):cause(m / mượn:agent(a / anh)))),False,"(t1 / thông báo
+:manner(v / vui mừng)
+:topic(t2 / thành
+:patient(h / heo
+:classifier(c / con)
+:mod(c1 / con)
+:patient-of(đ1 / đi
+:compound(m / mượn))
+:mod(ấ / ấy))
+:tense(đ2 / đã)
+:time(wz1 / now)
+:result(wz2 / have-rel-role-91
+:ARG2(m1 / mẹ)
+:ARG1(b / bầy
+:compound(c3 / con)
+:quant 1)))
+:agent(wz4 / person
+:name(wz5 / name
+:op1(a / anh)
+:op2(đ / Đu))
+:wiki -))",0.0
+"còn anh Đu thì : "" ngày 30-4-1975 tui còn y nguyên .",(y /y_nguyên:domain(a /anh:mod(wz2 /person:name(n2 /name:op1(đ /Đu)))):time(d /date-entity:day(3 /30):month(4 /(4):year(1975)),(y / y_nguyên:domain(a / anh:mod(wz2 / person:name(n2 / name:op1(đ / Đu)))):time(d / date-entity:day(3 / 30):month(4 / (x / 4):year(x2 / 1975)),False,"(a1 / and
+:op1(s / say-01
+:topic(c1 / còn
+:agent(t1 / tui)
+:manner(y / y nguyên)
+:time(wz1 / date-entity
+:day 30
+:month 4
+:year 1975))
+:agent(p / person
+:name(wz5 / name
+:op1(a / anh)
+:op2(đ / Đu))
+:wiki -)))",0.0
+chuyện mới là từ chỗ đất anh gửi lại một phần thân thể ấy đang xây một trụ sở ubnd xã mới .,(c /chuyện:domain(m /mới):source(t1 /trụ_sở:agent-of(x1 /xây:tense(đ1 /đang)):location(c2 /chỗ:mod(đ /đất:agent-of(g /gửi:agent(a /anh))):theme(t3 /thân_thể:part-of(ấ /ấy):quant 1:classifier(p /phần)):beneficiary-arg1(p1 /person:name(n1 /name:op1(u /ubnd):op2(x /xã):op3(m1 /mới)))),(c / chuyện:domain(m / mới):source(t1 / trụ_sở:agent-of(x1 / xây:tense(đ1 / đang)):location(c2 / chỗ:mod(đ / đất:agent-of(g / gửi:agent(a / anh))):theme(t3 / thân_thể:part-of(ấ / ấy):quant 1:classifier(p / phần)):beneficiary-arg1(p1 / person:name(n1 / name:op1(u / ubnd):op2(x / xã):op3(m1 / mới)))),False,"(c / chuyện
+:mod(m / mới)
+:topic(x / xây
+:location(c1 / chỗ
+:compound(đ / đất)
+:mod(g / gửi
+:agent(a / anh)
+:manner(l1 / lại)
+:theme(p / phần
+:mod(t1 / thân thể)
+:quant 1)
+:finalLocation đ)
+:mod(ấ / ấy))
+:tense(đ1 / đang)
+:result(t2 / trụ sở
+:mod(u / ubnd
+:compound(x1 / xã))
+:mod(m3 / mới)
+:quant 1)))",0.0
+"cũng qua rồi thời thức suốt trong bưng , đội mít , đội thúng mua đi bán lại nuôi con ăn học .",(a /and:op1(q /qua:time(t /thời:mod(s /sống):location(b /bưng)):compound(r /rồi)):op2(n /nuôi:cause(m4 /mít:quant(đ /đội):theme(t1 /thúng_mua:quant(đ1 /đội):purpose(n1 /nấu_ăn_học:agent(c3))_:agent(anh)):agent(p /person:name(n2 /name:op1(c2 /con)))),(a / and:op1(q / qua:time(t / thời:mod(s / sống):location(b / bưng)):compound(r / rồi)):op2(n / nuôi:cause(m4 / mít:quant(đ / đội):theme(t1 / thúng_mua:quant(đ1 / đội):purpose(n1 / nấu_ăn_học:agent(c / c3))_:agent(a / anh)):agent(p / person:name(n2 / name:op1(c2 / con)))),False,"(q / qua
+:mod(r / rồi)
+:patient(wz1 / time
+:mod(wz2 / and
+:op1(t1 / thức
+:mod(s / suốt)
+:location(b / bưng))
+:op2(đ / đội
+:theme(m / mít))
+:op3(đ1 / đội
+:theme(t3 / thúng))
+:op3(m1 / mua đi bán lại)
+:purpose(n / nuôi
+:patient(c1 / con)
+:purpose(ă / ăn học
+:agent c1)))))",0.0
+họ lập tức thông báo với người thân và bạn bè đến nộp đơn xin mua đất xây dựng .,(t /thông_báo:agent(h /họ):manner(l /lập_tức):goal(a /and:op1(n /người_thân):op2(b /bạn_bè)):purpose(n1 /nộp_đơn:compound(x /xin:theme(m /mua:theme(đ1 /đất):purpose(x1 /xây_dựng))_:agent(họ)))),"    (t / thông_báo
+    :agent
+    (h / họ
+    )
+    :manner
+    (l / lập_tức
+    )
+    :goal
+        (a / and
+        :op1
+        (n / người_thân
+        )
+        :op2
+        (b / bạn_bè
+        )
+    )
+    :purpose
+        (n1 / nộp_đơn
+        :compound
+            (x / xin
+            :theme
+                (m / mua
+                :theme
+                (đ1 / đất
+                )
+                :purpose
+                (x1 / xây_dựng
+                )
+            )
+            _
+            :agent
+            (h / họ
+            )
+        )
+    )
+)",True,"(t / thông báo
+:agent(h / họ)
+:manner(l / lập tức)
+:topic(đ / đến
+:purpose(n1 / nộp
+:theme(đ1 / đơn
+:mod(x / xin
+:theme(m / mua
+:theme(đ2 / đất)
+:purpose(x1 / xây dựng))))))
+:goal(wz1 / and
+:op1(n / người thân)
+:op2(b / bạn bè)))",0.0
+đến nay ngôi nhà ngói ba gian vững chãi xây trên nền căn nhà lá .,(x /xây:time(n /nay):result-arg1(n2 /nhà_ngôi:mod(g /gian:quant(3)):manner(v /vững_chãi):location(n3 /nền:prep(t /trên):part-of(c1 /căn:compound(n4 /nhà_lá)))),(x / xây:time(n / nay):result-arg1(n2 / nhà_ngôi:mod(g / gian:quant(x / 3)):manner(v / vững_chãi):location(n3 / nền:prep(t / trên):part-of(c1 / căn:compound(n4 / nhà_lá)))),False,"(x / xây
+:patient(n2 / nhà
+:classifier(n1 / ngôi)
+:compound(n3 / ngói
+:mod(g / gian
+:quant 3)))
+:manner(v / vững chãi)
+:location(n4 / nền
+:part-of(n5 / nhà
+:classifier(c / căn)
+:compound(l / lá)))
+:time(wz2 / now))",0.0
+công trình mẫu ... thi công bê bối .,(t /thi_công:patient(c /công_trình:mod(m /mẫu)):result-arg1(b /bê_bối)),"    (t / thi_công
+    :patient
+        (c / công_trình
+        :mod
+        (m / mẫu
+        )
+    )
+    :result-arg1
+    (b / bê_bối
+    )
+)",True,"(t / thi công
+:patient(c / công trình)
+:mod(m / mẫu)
+:manner(b / bê bối))",0.0
+hiện chúng tôi vẫn tiếp tục điều tra làm rõ động cơ của cán bộ địa phương .,(t /tiếp_tục:agent(c /chúng_tôi):modality(v /vẫn):theme(đ /điều_trao:purpose(l /làm_rõ:theme(đ1 /động_cơ:poss(c2 /cán_bộ:compound(đ2 /địa_phương))))_:agent(chúng))),"    (t / tiếp_tục
+    :agent
+    (c / chúng_tôi
+    )
+    :modality
+    (v / vẫn
+    )
+    :theme
+        (đ / điều_trao
+        :purpose
+            (l / làm_rõ
+            :theme
+                (đ1 / động_cơ
+                :poss
+                    (c2 / cán_bộ
+                    :compound
+                    (đ2 / địa_phương
+                    )
+                )
+            )
+        )
+        _
+        :agent
+        (c / chúng
+        )
+    )
+)",True,"(t / tiếp tục
+:agent(c / chúng tôi)
+:theme(đ / điều tra
+:purpose(l / làm
+:manner(r / rõ)
+:theme(đ1 / động cơ
+:poss(c2 / cán bộ
+:mod(đ2 / địa phương)))))
+:mod(wz1 / still)
+:time(wz2 / now))",0.0
+80 triệu đồng ủng hộ bệnh nhân nghèo .,(đ /đồng:domain(wz1 /80000000):purpose(u /ủng_hoạt:beneficiary(b /bệnh_nhân:mod(n /ngọt)))),"    (đ / đồng
+    :domain
+    (wz1 / 80000000
+    )
+    :purpose
+        (u / ủng_hoạt
+        :beneficiary
+            (b / bệnh_nhân
+            :mod
+            (n / ngọt
+            )
+        )
+    )
+)",True,"(wz1 / monetary-quantity
+:unit(đ / đồng)
+:mod(ủ / ủng hộ
+:beneficiary(b / bệnh nhân
+:mod(n / nghèo)))
+:quant 80000000)",0.0
+trong các trường học đã phát hiện 652 học sinh và 229 giáo viên nghiện ma túy .,(p /phát_hiện:location(t1 /trường_học):tense(đ /đã):find(h /học_sinh:quant(652):modality(n1 /nghiên_ma_tuy:pivot(g1 /giáo_viên)):quant(229)),(p / phát_hiện:location(t1 / trường_học):tense(đ / đã):find(h / học_sinh:quant(x / 652):modality(n1 / nghiên_ma_tuy:pivot(g1 / giáo_viên)):quant(x2 / 229)),False,"(p / phát hiện
+:location(t1 / trường học)
+:tense(đ / đã)
+:topic(n / nghiện
+:theme(m / ma túy)
+:pivot(wz1 / and
+:op1(h / học sinh
+:quant 652)
+:op2(g / giáo viên
+:quant 229))))",0.0
+"dân Thái Mỹ cũng quen lắm hình ảnh phó chủ tịch hội cựu chiến binh xã kiêm tổ trưởng tổ nhân dân một mắt , lái xe máy bằng hai cùi tay .",(q /quen:domain(d /dân):modality(c /cũng):degree(l /lắm):theme(h /hình_ảnh:agent-of(a /and:op1(p /phó_chủ_tịch:agent-of(h1 /hội:compound(c2 /cựu_chiến_binh)):location(x /xã)):agent-of(k1 /kiêm:theme(t1 /tổ_trưởng:theme(t2 /tổ_nhân_dân):manner(m4 /mắt:quant(1))):agent-of(l1 /lái:patient(x1 /xe_máy):manner(b1 /bằng:means(c3 /cùi_tay:quant(2)):agent(dân)))),(q / quen:domain(d / dân):modality(c / cũng):degree(l / lắm):theme(h / hình_ảnh:agent-of(a / and:op1(p / phó_chủ_tịch:agent-of(h1 / hội:compound(c2 / cựu_chiến_binh)):location(x / xã)):agent-of(k1 / kiêm:theme(t1 / tổ_trưởng:theme(t2 / tổ_nhân_dân):manner(m4 / mắt:quant(x / 1))):agent-of(l1 / lái:patient(x1 / xe_máy):manner(b1 / bằng:means(c3 / cùi_tay:quant(x2 / 2)):agent(d / dân)))),False,"(q / quen
+:pivot(d / dân
+:mod(wz1 / person
+:wiki(t / Thái Mỹ)
+:name(wz2 / name
+:op1(wz3 / Thái)
+:op2(wz4 / Mỹ))))
+:degree(l / lắm)
+:theme(h / hình ảnh
+:poss(wz5 / person
+:mod(l1 / lái
+:theme(x1 / xe máy)
+:instrument(c3 / cùi tay
+:quant 2))
+:mod(wz7 / have-org-role-91
+:ARG2(p / phó
+:compound(c1 / chủ tịch))
+:ARG1(h1 / hội
+:compound(c2 / cựu chiến binh)
+:poss(x / xã)))
+:mod(wz8 / have-part-91
+:ARG1(m1 / mắt)
+:quant 1)
+:mod(wz10 / have-org-role-91
+:ARG2(t1 / tổ trưởng)
+:ARG1(t2 / tổ
+:compound(n / nhân dân))))))",0.0
+dự án này đã được ubnd tỉnh Phú Yên phê duyệt và giao cho ubnd huyện Sông Cầu thực hiện .,(a /and:op1(p /phê_duyệt:patient(d /dự_án:mod(n /này)):agent(u /ubnd:part-of(t /tỉnh:mod(s /sau)))):op2(g /giao:theme(dự_án):agent(ubnd_tỉnh):direction(h /huyện:mod(S /Sông_Cầu))_:manner(t1 /thực_hiện))),"    (a / and
+    :op1
+        (p / phê_duyệt
+        :patient
+            (d / dự_án
+            :mod
+            (n / này
+            )
+        )
+        :agent
+            (u / ubnd
+            :part-of
+                (t / tỉnh
+                :mod
+                (s / sau
+                )
+            )
+        )
+    )
+    :op2
+        (g / giao
+        :theme
+        (d / dự_án
+        )
+        :agent
+        (u / ubnd_tỉnh
+        )
+        :direction
+            (h / huyện
+            :mod
+            (S / Sông_Cầu
+            )
+        )
+        _
+        :manner
+        (t1 / thực_hiện
+        )
+    )
+)",True,"(a / and
+:op1(p1 / phê duyệt
+:patient(d / dự án
+:mod(n / này))
+:tense(đ / đã)
+:modality(đ1 / được)
+:agent(u / ubnd
+:mod(wz1 / province
+:wiki(p / Phú Yên)
+:name(wz2 / name
+:op1(wz3 / Phú)
+:op2(wz4 / Yên)))))
+:op2(g / giao
+:goal(u1 / ubnd
+:agent-of(t1 / thực hiện)
+:mod(wz5 / district
+:wiki(s / Sông Cầu)
+:name(wz6 / name
+:op1(wz7 / Sông)
+:op2(wz8 / Cầu))))
+:agent u
+:patient d))",0.0
+"mỗi thước "" đất thép "" đều thấm máu xương và mồ hôi nên chuyện con người lạ kỳ trên xã anh hùng vẫn còn dài .","(t1 /thấm:domain(t /thước:mod(""đất_thép""):quant(m /mỗi)):theme(a /and:op1(m1 /máu_xương):op2(m2 /mồ_hôi)):cause(c /chuyện:con_người:mod(l /lạ_kỳ):location(x /xã:mod(a1 /anh_hùng))):result(d /dài:domain(chuyện)))","    (t1 / thấm
+    :domain
+        (t / thước
+        :mod
+        (x / ""đất_thép""
+        )
+        :quant
+        (m / mỗi
+        )
+    )
+    :theme
+        (a / and
+        :op1
+        (m1 / máu_xương
+        )
+        :op2
+        (m2 / mồ_hôi
+        )
+    )
+    :cause
+        (c / chuyện
+        :con_người:mod
+        (l / lạ_kỳ
+        )
+        :location
+            (x / xã
+            :mod
+            (a1 / anh_hùng
+            )
+        )
+    )
+    :result
+        (d / dài
+        :domain
+        (c / chuyện
+        )
+    )
+)",True,"(d / dài
+:reason(t2 / thấm
+:location(đ / đất
+:unit(t / thước)
+:mod(t1 / thép))
+:mod(wz1 / all)
+:theme(wz2 / and
+:op1(m1 / máu xương)
+:op2(m2 / mồ hôi)))
+:domain(c / chuyện
+:mod(c1 / con người
+:mod(l / lạ kỳ)
+:location(x / xã
+:mod(a / anh hùng))))
+:mod(wz3 / still))",0.0
+"như chuyện dân chắt chiu xây dựng gần 500 căn nhà tình nghĩa , tình thương ...",(r /resemble-01:compared-to(c /chuyện:agent(d /dân:agent-of(c2 /chắt_chiu:theme(x /xây_dựng:agent(n1 /nó):result-arg1(n2 /nhà:quant(500:classifier(c3 /căn)):mod(t /tình_nghĩa))))))),"    (r / resemble-01
+    :compared-to
+        (c / chuyện
+        :agent
+            (d / dân
+            :agent-of
+                (c2 / chắt_chiu
+                :theme
+                    (x / xây_dựng
+                    :agent
+                    (n1 / nó
+                    )
+                    :result-arg1
+                        (n2 / nhà
+                        :quant
+                            (500
+                            :classifier
+                            (c3 / căn
+                            )
+                        )
+                        :mod
+                        (t / tình_nghĩa
+                        )
+                    )
+                )
+            )
+        )
+    )
+)",True,"(c / chuyện
+:topic(c1 / chắt chiu
+:agent(d / dân)
+:purpose(x / xây dựng
+:result-arg1(wz1 / nhà
+:classifier(c2 / căn
+:quant(wz2 / approximate-quantity
+:quant 500))
+:mod(wz4 / and
+:op2(t / tình thương)
+:op1(wz5 / tình nghĩa))))))",0.0
+chị già đi rất nhiều so với cái tuổi 35 của mình .,(đ /đi:agent(c /chị:mod(g /già)):degree(r /rất):compared-to(t1 /tuổi:classifier(c2 /cái):pivot(chị)_:time(wz4 /age:constant(35))),(đ / đi:agent(c / chị:mod(g / già)):degree(r / rất):compared-to(t1 / tuổi:classifier(c2 / cái):pivot(c / chị)_:time(wz4 / age:constant(x / 35))),False,"(g / già
+:domain(c / chị)
+:manner(đ / đi)
+:compared-to(t / tuổi
+:quant 35
+:poss c)
+:degree(wz3 / very))",0.0
+"anh khẳng định : "" trong vụ kiện này , tiền bạc đối với tôi không phải là tất cả , dù gia đình tôi đang rất túng quẫn "" .",(k /khẳng_định:agent(a /anh):topic(t2 /tiền_bạc:domain(v1 /vụ_kiện:mod(n /này)):goal(tôi):polarity -:domain(g /gia_đình:prep(đ /đang):pivot(tôi):manner(t3 /túng_quẫn:degree(r /rất))))),"    (k / khẳng_định
+    :agent
+    (a / anh
+    )
+    :topic
+        (t2 / tiền_bạc
+        :domain
+            (v1 / vụ_kiện
+            :mod
+            (n / này
+            )
+        )
+        :goal
+        (t / tôi
+        )
+        :polarity -
+        :domain
+            (g / gia_đình
+            :prep
+            (đ / đang
+            )
+            :pivot
+            (t / tôi
+            )
+            :manner
+                (t3 / túng_quẫn
+                :degree
+                (r / rất
+                )
+            )
+        )
+    )
+)",True,"(k / khẳng định
+:agent(a / anh)
+:topic(t3 / tất cả
+:setting(v / vụ
+:compound(k1 / kiện)
+:mod(n / này))
+:domain(t1 / tiền bạc)
+:goal(t2 / tôi)
+:concession(t5 / túng quẫn
+:pivot(g / gia đình
+:poss t2)
+:tense(đ1 / đang)
+:degree(wz2 / very))
+:polarity -))",0.0
+"nhiều gia đình trong số họ đã dắt díu nhau đi đâu , chính anh Đại bây giờ cũng không rõ .",(r /rõ:domain(a /anh:mod(c1 /chính):name(n2 /name:op1(Đ1 /Đại))):time(b /bây_giờ):polarity -:pivot(d /dắt_dìu:agent(g /gia_đình:quant(n /nhiều)):source(s /số:prep(t /trong):mod(h /họ)):tense(đ /đã):compound(n3 /nhau):direction(đ1 /đi:location(a1 /amr-unknown)):agent(gia_đình))),"    (r / rõ
+    :domain
+        (a / anh
+        :mod
+        (c1 / chính
+        )
+        :name
+            (n2 / name
+            :op1
+            (Đ1 / Đại
+            )
+        )
+    )
+    :time
+    (b / bây_giờ
+    )
+    :polarity -
+    :pivot
+        (d / dắt_dìu
+        :agent
+            (g / gia_đình
+            :quant
+            (n / nhiều
+            )
+        )
+        :source
+            (s / số
+            :prep
+            (t / trong
+            )
+            :mod
+            (h / họ
+            )
+        )
+        :tense
+        (đ / đã
+        )
+        :compound
+        (n3 / nhau
+        )
+        :direction
+            (đ1 / đi
+            :location
+            (a1 / amr-unknown
+            )
+        )
+        :agent
+        (g / gia_đình
+        )
+    )
+)",True,"(r / rõ
+:topic(d / dắt díu
+:agent(g / gia đình
+:quant(wz1 / many)
+:agent-of(wz2 / include-91
+:theme(s / số
+:mod(h / họ))))
+:tense(đ / đã)
+:goal(n1 / nhau)
+:purpose(đ1 / đi
+:location(đ2 / đâu)
+:agent g))
+:mod(wz4 / also)
+:polarity -
+:time(wz6 / now)
+:pivot(wz7 / person
+:name(wz8 / name
+:op1(a / anh)
+:op2(đ3 / Đại))
+:wiki -))",0.0
+nỗi oan chưa được giải nên cháu cũng phải sống trong sự ngờ vực của bạn bè .,(o /oán:domain(n /nỗi):modality(c /chưa):theme-of(g /giải:polarity -:agent(ch1)):cause(s /sống:pivot(c2 /cháu):location(s1 /sự:prep(t /trong):mod(k /khoẻ_vực:poss(b1 /bạn_bè))))),"    (o / oán
+    :domain
+    (n / nỗi
+    )
+    :modality
+    (c / chưa
+    )
+    :theme-of
+        (g / giải
+        :polarity -
+        :agent
+        (c / ch1
+        )
+    )
+    :cause
+        (s / sống
+        :pivot
+        (c2 / cháu
+        )
+        :location
+            (s1 / sự
+            :prep
+            (t / trong
+            )
+            :mod
+                (k / khoẻ_vực
+                :poss
+                (b1 / bạn_bè
+                )
+            )
+        )
+    )
+)",True,"(wz1 / obligate-01
+:reason(g / giải
+:patient(n / nỗi
+:compound(o / oan))
+:modality +
+:polarity -)
+:topic(s / sống
+:agent(c1 / cháu)
+:setting(s1 / sự
+:compound(n2 / ngờ vực)
+:poss(b / bạn bè)))
+:mod(wz4 / also))",0.0
+"chị Xoan vừa đi nhặt ve chai , giấy vụn trở về đang cùng chồng và đứa con gái ăn vội miếng cơm đạm bạc .",(đ1 /đi:agent(c /chị:mod(X /Xoan)):tense(v /vừa):compound(n /nhặt:theme(v1 /ve_chai):theme(g /giấy_vụn:trở_về(t /trùng:time(đ2 /đang):agent(c3 /cồng:modality(đ3 /đứa):mod(g1 /gái)))):purpose(ă /ăn_vội:topic(m /miếng:mod(c4 /cơm):mod(đ5 /đạm_bạc)):agent(chị))),(đ1 / đi:agent(c / chị:mod(X / Xoan)):tense(v / vừa):compound(n / nhặt:theme(v1 / ve_chai):theme(g / giấy_vụn:trở_về(t / trùng:time(đ2 / đang):agent(c3 / cồng:modality(đ3 / đứa):mod(g1 / gái)))):purpose(ă / ăn_vội:topic(m / miếng:mod(c4 / cơm):mod(đ5 / đạm_bạc)):agent(c / chị))),False,"(wz1 / and
+:op1(t / trở
+:setting(đ / đi
+:purpose(n / nhặt
+:theme(wz2 / and
+:op1(v1 / ve chai)
+:op2(g / giấy
+:mod(v2 / vụn)))))
+:compound(v3 / về)
+:agent(wz3 / person
+:wiki -
+:name(wz5 / name
+:op1(c / chị)
+:op2(x / Xoan)))
+:time(wz6 / just))
+:op2(ă / ăn
+:tense(đ1 / đang)
+:manner(v5 / vội)
+:patient(c4 / cơm
+:classifier(m / miếng)
+:mod(đ3 / đạm bạc))
+:accompanier(wz7 / and
+:op1(c2 / chồng)
+:op2(c3 / con
+:classifier(đ2 / đứa)
+:compound(g1 / gái)))))",0.0
+"cũng như số phận của vợ chồng anh Đại , những công nhân đứng ra tố cáo tiêu cực ở đường liên cảng a5 ngày xưa bây giờ phiêu bạt khắp nơi .",(t1 /tố_cáo:modality(c2 /cũng):theme(s /số_phận:poss(v /vợ_chồng:mod(wz3 /person:name(n4 /name:op1(a /anh):op2(Đ /Đại))))):agent(c3 /công_nhân:agent-of(đ1 /đứng_ra)):compound(l1 /làng):topic(t /tiêu_cực:location(đ2 /đường:mod(l2 /liên_cảng):mod(a1 /a5):time(b /before))):manner(p /phiêu_bạt:manner(k /khắp_nơi):time(now))),"    (t1 / tố_cáo
+    :modality
+    (c2 / cũng
+    )
+    :theme
+        (s / số_phận
+        :poss
+            (v / vợ_chồng
+            :mod
+                (wz3 / person
+                :name
+                    (n4 / name
+                    :op1
+                    (a / anh
+                    )
+                    :op2
+                    (Đ / Đại
+                    )
+                )
+            )
+        )
+    )
+    :agent
+        (c3 / công_nhân
+        :agent-of
+        (đ1 / đứng_ra
+        )
+    )
+    :compound
+    (l1 / làng
+    )
+    :topic
+        (t / tiêu_cực
+        :location
+            (đ2 / đường
+            :mod
+            (l2 / liên_cảng
+            )
+            :mod
+            (a1 / a5
+            )
+            :time
+            (b / before
+            )
+        )
+    )
+    :manner
+        (p / phiêu_bạt
+        :manner
+        (k / khắp_nơi
+        )
+        :time
+        (n / now
+        )
+    )
+)",True,"(p / phiêu bạt
+:compared-to(s / số phận
+:poss(v / vợ chồng
+:mod(wz1 / person
+:name(wz2 / name
+:op1(a / anh)
+:op2(đ / Đại))
+:wiki -)))
+:agent(c2 / công nhân
+:agent-of(t / tố cáo
+:patient(t1 / tiêu cực
+:location(đ2 / đường
+:mod(l / liên
+:compound(c3 / cảng))
+:mod(a1 / a5)))
+:time(wz4 / past)))
+:location(k / khắp nơi)
+:time(wz5 / now))",0.0
+"rùi đồng bào bị lũ lụt , hỏa hoạn , người thương binh ấy cũng lặn lội đi vận động ...",(l2 /lặn_lội:time(b1 /bị:agent(đ /đồng_bào):theme(a /and:op1(l /lũ_lụt):op2(h /hỏa_hoạn):op3(n1 /người:mod(t /thương_binh):mod(ấ /ấy))):agent(n2 /nhân_thần)):compound(đ1 /đi):purpose(v /vận_động)),"    (l2 / lặn_lội
+    :time
+        (b1 / bị
+        :agent
+        (đ / đồng_bào
+        )
+        :theme
+            (a / and
+            :op1
+            (l / lũ_lụt
+            )
+            :op2
+            (h / hỏa_hoạn
+            )
+            :op3
+                (n1 / người
+                :mod
+                (t / thương_binh
+                )
+                :mod
+                (ấ / ấy
+                )
+            )
+        )
+        :agent
+        (n2 / nhân_thần
+        )
+    )
+    :compound
+    (đ1 / đi
+    )
+    :purpose
+    (v / vận_động
+    )
+)",True,"(đ1 / đi
+:agent(n / người
+:mod(t / thương binh)
+:mod(ấ / ấy))
+:manner(l1 / lặn lội)
+:purpose(v / vận động
+:patient(wz1 / suffer-01
+:patient(đ / đồng bào)
+:cause(wz2 / and
+:op1(l / lũ lụt)
+:op2(h / hỏa hoạn))))
+:mod(wz3 / also))",0.0
+tôi rất lấy làm lạ là vì sao tôi không cho phép mà ở dưới vẫn làm .,(l /lấy_làm:domain(t /tôi):degree(r /rất):compound(n /nghờ_nổi):cause(c1 /cho_phép:agent(t1 /tôi):mode -:beneficiary(ở /làm:location(d /dưới):agent(tôi)))),"    (l / lấy_làm
+    :domain
+    (t / tôi
+    )
+    :degree
+    (r / rất
+    )
+    :compound
+    (n / nghờ_nổi
+    )
+    :cause
+        (c1 / cho_phép
+        :agent
+        (t1 / tôi
+        )
+        :mode -
+        :beneficiary
+            (ở / làm
+            :location
+            (d / dưới
+            )
+            :agent
+            (t / tôi
+            )
+        )
+    )
+)",True,"(l2 / lạ
+:pivot(t / tôi)
+:degree(wz1 / very)
+:cause(wz2 / contrast-01
+:ARG1(c / cho
+:compound(p / phép)
+:agent t
+:polarity -)
+:ARG2(l4 / làm
+:agent(d / dưới)
+:mod(wz5 / still))))",0.0
+ở đó có đến 13 con người chen chúc nhau sống trong đó .,(c /có:location(đ /đó):theme(c2 /con_người:agent-of(c3 /chen_chúc:compound(n /nhau)):agent-of(s /sống:location(t /trong:mod(đ1 /đó))):quant(13)),(c / có:location(đ / đó):theme(c2 / con_người:agent-of(c3 / chen_chúc:compound(n / nhau)):agent-of(s / sống:location(t / trong:mod(đ1 / đó))):quant(x / 13)),False,"(s / sống
+:location(đ / đó)
+:agent(c1 / con người
+:quant(1 / 13))
+:manner(c2 / chen chúc
+:goal(n / nhau)))",0.0
+wb giới thiệu mô hình xóa đói giảm nghèo của vn cho các nước đang phát triển .,(g /giới_thiệu:agent(w /world_bank):theme(m /mô_hình:mod(x /xóa_đói:compound(g1 /giảm_người)):poss(c2 /country:name(n3 /name:op1(v /vn)))):beneficiary(c4 /country:mod(đ /đang:compound(p /phát_triển)))),"    (g / giới_thiệu
+    :agent
+    (w / world_bank
+    )
+    :theme
+        (m / mô_hình
+        :mod
+            (x / xóa_đói
+            :compound
+            (g1 / giảm_người
+            )
+        )
+        :poss
+            (c2 / country
+            :name
+                (n3 / name
+                :op1
+                (v / vn
+                )
+            )
+        )
+    )
+    :beneficiary
+        (c4 / country
+        :mod
+            (đ / đang
+            :compound
+            (p / phát_triển
+            )
+        )
+    )
+)",True,"(g / giới thiệu
+:agent(w / wb)
+:patient(m / mô hình
+:purpose(x / xóa đói giảm nghèo)
+:poss(wz1 / country
+:wiki(wz2 / Việt Nam)
+:name(wz3 / name
+:op2(wz4 / Nam)
+:op1(wz5 / Việt))))
+:beneficiary-arg1(n / nước
+:theme-of(p / phát triển
+:tense(đ / đang))))",0.0
+tôi đã chấp nhận cho trả lại tiền và lãi ngân hàng từ mấy năm nay .,(c /chấp_nhận:agent(t /tôi):tense(đ /đã):theme(t1 /trả:compound(l /lại):theme(t2 /tiền):theme(l1 /lãi:source(n /ngân_hàng)):time(wz3 /duration:quant(m /mấy_năm:mod(n1 /nay)))),(c / chấp_nhận:agent(t / tôi):tense(đ / đã):theme(t1 / trả:compound(l / lại):theme(t2 / tiền):theme(l1 / lãi:source(n / ngân_hàng)):time(wz3 / duration:quant(m / mấy_năm:mod(n1 / nay)))),False,"(c / chấp nhận
+:agent(t / tôi)
+:tense(đ / đã)
+:patient(t1 / trả
+:patient(wz1 / and
+:op1(t2 / tiền)
+:op2(l1 / lãi
+:mod(n / ngân hàng))))
+:time(wz2 / since
+:op1(wz3 / year
+:time(wz4 / now)
+:quant(wz5 / several))))",0.0
+tôi cũng có suy nghĩ như đồng chí .,(c1 /có:pivot(t /tôi):theme(s /suy_nghĩ:compared-to(đ /đồng_chí))),"    (c1 / có
+    :pivot
+    (t / tôi
+    )
+    :theme
+        (s / suy_nghĩ
+        :compared-to
+        (đ / đồng_chí
+        )
+    )
+)",True,"(c1 / có
+:agent(t / tôi)
+:theme(s / suy nghĩ
+:compared-to(đ / đồng chí)
+:degree(wz1 / equal))
+:mod(wz2 / also))",0.0
+"phú yên : cán bộ làm sai , dân lãnh đủ .",(l /làm:agent(c /cán_bộ):compound(s /sai):result(l1 /lãnh_đủ:pivot(d /dân))),"    (l / làm
+    :agent
+    (c / cán_bộ
+    )
+    :compound
+    (s / sai
+    )
+    :result
+        (l1 / lãnh_đủ
+        :pivot
+        (d / dân
+        )
+    )
+)",True,"(l1 / lãnh
+:reason(l / làm
+:agent(c / cán bộ)
+:manner(s / sai))
+:patient(d / dân)
+:manner(đ / đủ)
+:location(wz1 / province
+:name(wz2 / name
+:op2(wz3 / Yên)
+:op1(wz4 / Phú))
+:wiki(wz5 / Phú Yên)))",0.0
+chỉ còn vợ chồng anh cùng bốn người khác trong nhóm công nhân 20 người đó còn bám trụ lại ở Sài Gòn .,(b /bám_trụ:degree(c1 /chỉ):agent(v /vợ_chồng:agent-of(a /anh)):accompanier(n /người:mod(k /khác):quant(4):source(g /group:prep(t /trong):consist-of(c3 /công_nhân:quant(20):name(n2 /name:op2(wz5 /Sài_Giòn)))),(b / bám_trụ:degree(c1 / chỉ):agent(v / vợ_chồng:agent-of(a / anh)):accompanier(n / người:mod(k / khác):quant(x / 4):source(g / group:prep(t / trong):consist-of(c3 / công_nhân:quant(x2 / 20):name(n2 / name:op2(wz5 / Sài_Giòn)))),False,"(b1 / bám trụ
+:compound(l / lại)
+:agent(wz1 / and
+:op1(v / vợ chồng
+:mod(a / anh))
+:op2(n / người
+:mod(k / khác)
+:agent-of(wz2 / include-91
+:theme(n1 / nhóm)
+:mod(c3 / công nhân
+:mod(n2 / người
+:quant 20)))
+:quant 4))
+:location(wz4 / city
+:wiki(s / Sài Gòn)
+:name(wz5 / name
+:op2(wz6 / Gòn)
+:op1(wz7 / Sài)))
+:mod(wz8 / still))",0.0
+tây nguyên và Nam bộ : có khả năng thiếu nước trên diện rộng .,(c /có:theme(k /khả_năng:theme-of(t1 /thiếu:theme(n1 /nước):quant(đ /diện_rộng:mod(wz2 /above)))):location(a /and:op1(p /province:name(wz4 /name:op1(x /xuân):op2(n /nguyên))):op2(p1 /province:name(wz6 /name:op1(N1 /Nam):op2(b /bộ))))),"    (c / có
+    :theme
+        (k / khả_năng
+        :theme-of
+            (t1 / thiếu
+            :theme
+            (n1 / nước
+            )
+            :quant
+                (đ / diện_rộng
+                :mod
+                (wz2 / above
+                )
+            )
+        )
+    )
+    :location
+        (a / and
+        :op1
+            (p / province
+            :name
+                (wz4 / name
+                :op1
+                (x / xuân
+                )
+                :op2
+                (n / nguyên
+                )
+            )
+        )
+        :op2
+            (p1 / province
+            :name
+                (wz6 / name
+                :op1
+                (N1 / Nam
+                )
+                :op2
+                (b / bộ
+                )
+            )
+        )
+    )
+)",True,"(c / có
+:theme(k / khả năng
+:mod(t1 / thiếu
+:theme(n1 / nước)
+:manner(d / diện
+:mod(r / rộng))))
+:location(wz1 / and
+:op1(wz2 / country-region
+:wiki(t / tây nguyên)
+:name(wz3 / name
+:op1(wz4 / Tây)
+:op2(wz5 / Nguyên)))
+:op2(wz6 / country-region
+:wiki(n / Nam bộ)
+:name(wz7 / name
+:op2(wz8 / Bộ)
+:op1(wz9 / Nam)))))",0.0
+viết tiếp về vụ anh Trương Xuân Đại .,(v /viết:compound(t /tiếp):topic(v1 /vụ:agent-of(h /have-rel-role-91:ARG2(a /anh:name(n3 /name:op1(wz4 /Trương):op2(x /Xuân):op3(đ /Đại))))),(v / viết:compound(t / tiếp):topic(v1 / vụ:agent-of(h / have-rel-role-91:ARG2(a / anh:name(n3 / name:op1(wz4 / Trương):op2(x / Xuân):op3(đ / Đại))))),False,"(v / viết
+:manner(t / tiếp)
+:topic(v2 / vụ
+:poss(wz1 / person
+:name(wz2 / name
+:op1(a / anh)
+:op2(wz3 / Trương)
+:op3(wz4 / Xuân)
+:op4(wz5 / Đại))
+:wiki -)))",0.0
+"và cũng chính vì nỗi đau này , anh đã quyết định đi kiện báo Pháp Luật tp .hcm để đòi lại danh dự cho mình .",(a1 /and:op2(q /quyết_định:reason(n /nỗi_đau:domain(n1 /nổi)):agent(a /anh):tense(đ /đã):compound(đ1 /đi:compound(k /kiện_báo:source(wz3 /website:name(wz4 /name:op1(p /pháp_luật):op2(t /tp):op3(h /hcm))):theme(d /danh_dự:poss(anh)))),(a1 / and:op2(q / quyết_định:reason(n / nỗi_đau:domain(n1 / nổi)):agent(a / anh):tense(đ / đã):compound(đ1 / đi:compound(k / kiện_báo:source(wz3 / website:name(wz4 / name:op1(p / pháp_luật):op2(t / tp):op3(h / hcm))):theme(d / danh_dự:poss(a / anh)))),False,"(wz1 / and
+:op2(q / quyết định
+:cause(n / nỗi
+:compound(đ / đau)
+:mod(n1 / này))
+:agent(a / anh)
+:tense(đ1 / đã)
+:topic(k / kiện
+:patient(b / báo
+:mod(wz2 / organization
+:wiki(p / Pháp Luật)
+:name(wz3 / name
+:op3(t / tp .hcm)
+:op2(wz4 / Luật)
+:op1(wz5 / Pháp))))
+:purpose(đ4 / đòi
+:patient(d / danh dự)
+:beneficiary-arg1 a
+:agent a)
+:agent a)
+:mod(wz9 / also)))",0.0
+hơn nữa giá cả phải được ủy ban tỉnh cho phép .,(o /obligate-01:topic(c2 /cho_phép:domain(g /giá_cả):modality(đ /được):agent(u /um_ban_tỉnh))),"    (o / obligate-01
+    :topic
+        (c2 / cho_phép
+        :domain
+        (g / giá_cả
+        )
+        :modality
+        (đ / được
+        )
+        :agent
+        (u / um_ban_tỉnh
+        )
+    )
+)",True,"(wz1 / obligate-01
+:mod(h / hơn nữa)
+:topic(c / cho
+:patient(g / giá cả)
+:agent(ủ / ủy ban
+:mod(t / tỉnh))
+:compound(p1 / phép)
+:modality +))",0.0
+có thể coi đây là hợp đồng vô hiệu .,(p /possible-01:theme(c2 /coi:domain(đ /đây):theme(h /hợp_đồng:mod(v /vô_hiệu)))),"    (p / possible-01
+    :theme
+        (c2 / coi
+        :domain
+        (đ / đây
+        )
+        :theme
+            (h / hợp_đồng
+            :mod
+            (v / vô_hiệu
+            )
+        )
+    )
+)",True,"(wz1 / possible-01
+:topic(c1 / coi
+:topic(h / hợp đồng
+:domain(đ / đây)
+:mod(v / vô hiệu))))",0.0
+chúng tôi xem đây như một vụ đấu tranh chống tiêu cực trong bộ máy nhà nước của chúng tôi .,(x /xét:agent(c /chúng_tôi):compound(đ /đây):theme(v1 /vụ:mod(đ1 /đấu_tranh:purpose(c2 /chống:theme(t1 /tiêu_cực)):location(b /bộ_máy:prep(t2 /trong):classifier(n3 /nhà_nước):poss(chúng))_:quant(1):time(wz4 /after))),(x / xét:agent(c / chúng_tôi):compound(đ / đây):theme(v1 / vụ:mod(đ1 / đấu_tranh:purpose(c2 / chống:theme(t1 / tiêu_cực)):location(b / bộ_máy:prep(t2 / trong):classifier(n3 / nhà_nước):poss(c / chúng))_:quant(x / 1):time(wz4 / after))),False,"(x / xem
+:agent(c / chúng tôi)
+:topic(v / vụ
+:domain(đ / đây)
+:compound(đ1 / đấu tranh)
+:mod(c1 / chống
+:patient(t / tiêu cực)
+:setting(b / bộ máy
+:mod(n1 / nhà nước)
+:poss(c3 / chúng tôi)))
+:quant 1))",0.0
+"thế rồi hết vụ chống tiêu cực đến việc anh Đại đeo đuổi vụ kiện , của cải trong nhà lần lượt đội nón ra đi .",(a /and:op1(t /thế_rồi):op2(h /hết:theme(v /vụ:mod(c /chống_tiêu_cực)):goal(v1 /việc:agent-of(đ /đeo_đuổi:agent(a1 /anh:mod(n /name:op1(Đ1 /Đại))):theme(v2 /vụ_kiện)))):op3(đ2 /đội_nón:theme(c2 /của_cải:location(n1 /nhà:prep(t1 /trong))):manner(r1 /ra:compound(đ3 /đi)):time(wz4 /after))),"    (a / and
+    :op1
+    (t / thế_rồi
+    )
+    :op2
+        (h / hết
+        :theme
+            (v / vụ
+            :mod
+            (c / chống_tiêu_cực
+            )
+        )
+        :goal
+            (v1 / việc
+            :agent-of
+                (đ / đeo_đuổi
+                :agent
+                    (a1 / anh
+                    :mod
+                        (n / name
+                        :op1
+                        (Đ1 / Đại
+                        )
+                    )
+                )
+                :theme
+                (v2 / vụ_kiện
+                )
+            )
+        )
+    )
+    :op3
+        (đ2 / đội_nón
+        :theme
+            (c2 / của_cải
+            :location
+                (n1 / nhà
+                :prep
+                (t1 / trong
+                )
+            )
+        )
+        :manner
+            (r1 / ra
+            :compound
+            (đ3 / đi
+            )
+        )
+        :time
+        (wz4 / after
+        )
+    )
+)",True,"(wz1 / and
+:op2(đ3 / đội nón ra đi
+:patient(c1 / của cải
+:location(n / nhà))
+:manner(l / lần lượt)
+:cause(wz2 / and
+:op1(v / vụ
+:mod(c / chống
+:patient(t1 / tiêu cực)))
+:op2(v1 / việc
+:mod(đ2 / đeo đuổi
+:patient(v2 / vụ
+:compound(k / kiện))
+:time(wz3 / after
+:op1(wz4 / v))
+:agent(wz5 / person
+:name(wz6 / name
+:op1(a / anh)
+:op2(đ1 / Đại))
+:wiki -))))))",0.0
+"thưa ông , sổ đỏ đã được giao cho người dân .",(g /giao:agent(ô /ông):modality(t /thưa):theme(s /sổ_đỏ):tense(đ /đã):beneficiary(c1 /chỗ:poss(n1 /người_dân))),"    (g / giao
+    :agent
+    (ô / ông
+    )
+    :modality
+    (t / thưa
+    )
+    :theme
+    (s / sổ_đỏ
+    )
+    :tense
+    (đ / đã
+    )
+    :beneficiary
+        (c1 / chỗ
+        :poss
+        (n1 / người_dân
+        )
+    )
+)",True,"(g / giao
+:patient(s / sổ đỏ)
+:tense(đ / đã)
+:beneficiary-arg1(n / người
+:compound(d / dân))
+:modality +
+:polite+(wz2 / sir))",0.0
+công nhân Trương Xuân Đại kiện báo Pháp Luật tp hcm .,(k /kiện_báo:agent(c /công_nhân:name(n2 /name:op1(p /person:name(n3 /name:op1(wz4 /Trương):op2(X):op3(Đ):quant(1)):location(l /law-office:prep(t /trong):acronym(tp /tp_hcm)))):goal(wz5 /Pháp_Luật)),(k / kiện_báo:agent(c / công_nhân:name(n2 / name:op1(p / person:name(n3 / name:op1(wz4 / Trương):op2(x / X):op3(đ / Đ):quant(x2 / 1)):location(l / law-office:prep(t / trong):acronym(tp / tp_hcm)))):goal(wz5 / Pháp_Luật)),False,"(k / kiện
+:agent(c / công nhân
+:mod(wz1 / person
+:name(wz2 / name
+:op3(wz3 / Đại)
+:op2(wz4 / Xuân)
+:op1(wz5 / Trương))
+:wiki -))
+:patient(b / báo
+:mod(wz7 / organization
+:name(wz8 / name
+:op3(t1 / tp
+:compound(h / hcm))
+:op2(wz9 / Luật)
+:op1(wz10 / Pháp))
+:wiki -)))",0.0
+tôi mong mỏi sự công bằng được thực hiện và trả lại cho họ .,(m /mong_mộp:pivot(t /tôi):topic(s /sự:compound(c /công_bằng)):theme-of(t1 /thực_hiện:modality(đ /được)):theme-of(t2 /trả_lại:beneficiary(h /họ)))),(m / mong_mộp:pivot(t / tôi):topic(s / sự:compound(c / công_bằng)):theme-of(t1 / thực_hiện:modality(đ / được)):theme-of(t2 / trả_lại:beneficiary(h / họ)))),False,"(m / mong mỏi
+:pivot(t / tôi)
+:topic(wz1 / and
+:op1(t1 / thực hiện
+:patient(s / sự
+:compound(c / công bằng))
+:modality +)
+:op2(t2 / trả
+:manner(l / lại)
+:beneficiary-arg1(h / họ))))",0.0
+tôi rất vui khi thấy việc tố cáo tiêu cực của các anh được làm sáng tỏ và được pháp luật bảo vệ .,(v /vui:pivot(t /tôi):degree(r /rất):time(t1 /thấy:topic(w2 /and:op1(l /làm_sáng_tỏ_việc:mod(tố_cáo:theme(t11 /tiêu_cực:agent(c1 /các_anh))_:agent(tôi)):modality(đ /được)):op2(b /bảo_vệ:modality(đ1 /được):agent(p1 /pháp_luật):theme(việc))_:pivot(tôi)))_:agent(tôi))),(v / vui:pivot(t / tôi):degree(r / rất):time(t1 / thấy:topic(w2 / and:op1(l / làm_sáng_tỏ_việc:mod(tố_cáo:theme(t11 / tiêu_cực:agent(c1 / các_anh))_:agent(t / tôi)):modality(đ / được)):op2(b / bảo_vệ:modality(đ1 / được):agent(p1 / pháp_luật):theme(v / việc))_:pivot(t / tôi)))_:agent(t / tôi))),False,"(v / vui
+:domain(t / tôi)
+:cause(t1 / thấy
+:agent t
+:patient(wz2 / and
+:op1(l / làm
+:patient(v1 / việc
+:mod(t2 / tố cáo
+:patient(t3 / tiêu cực))
+:poss(a / anh))
+:manner(s / sáng tỏ)
+:modality +)
+:op2(b / bảo vệ
+:agent(p / pháp luật)
+:patient v1
+:modality +)))
+:degree(wz6 / very))",0.0
+"đề nghị anh Đại liên hệ với chúng tôi : công ty xây lắp & vật tư xây dựng , 93 nguyễn công trứ , q.1 , tp hcm .",(đ /đề_nghị:agent(a /anh:mod(wz2 /person:name(n4 /name:op1(Đ1 /Đại)))):topic(l /liên_hệ:goal(c /chúng_tôi):agent(anh):content(w1 /and:op1(c1 /công_ti:domain(x /xây_lắp)):op2(v1 /vật_tư:domain(x1 /xây_dựng))):location(s /street-address-91:street(n5 /nguyễn_công_trứ):side(q /quận:ord(o /ordinal-entity:value(1)):city(t /tp:compound(h /hcm))))),(đ / đề_nghị:agent(a / anh:mod(wz2 / person:name(n4 / name:op1(Đ1 / Đại)))):topic(l / liên_hệ:goal(c / chúng_tôi):agent(a / anh):content(w1 / and:op1(c1 / công_ti:domain(x / xây_lắp)):op2(v1 / vật_tư:domain(x1 / xây_dựng))):location(s / street-address-91:street(n5 / nguyễn_công_trứ):side(q / quận:ord(o / ordinal-entity:value(x / 1)):city(t / tp:compound(h / hcm))))),False,"(đ / đề nghị
+:beneficiary-arg0(wz1 / person
+:agent-of(l / liên hệ
+:accompanier(wz2 / company
+:location(wz3 / and
+:op3(wz4 / city
+:wiki(t / tp hcm)
+:name(wz5 / name
+:op1(wz6 / tp)
+:op2(wz7 / HCM)))
+:op2(wz8 / district
+:wiki -
+:name(wz10 / name
+:op1(wz11 / 1)))
+:op1(wz12 / street-address
+:name(wz13 / name
+:op1 93
+:op2(n / nguyễn công trứ))
+:wiki -))
+:name(wz15 / name
+:op1(c1 / công ty)
+:op2(x / xây lắp)
+:op3(& / &)
+:op4(v1 / vật tư
+:compound(x1 / xây dựng)))
+:wiki -))
+:name(wz17 / name
+:op1(a / anh)
+:op2(đ1 / Đại))
+:wiki -))",0.0
+luật sư bảo vệ quyền lợi báo Pháp Luật đề nghị hòa giải .,(b /bảo_vệ:agent(l /luật_sư):theme(q /quyền_lợi:poss(b1 /báo:mod(Ph /Pháp_Luật))):topic(h /hòa_giải:modality(-)),(b / bảo_vệ:agent(l / luật_sư):theme(q / quyền_lợi:poss(b1 / báo:mod(Ph / Pháp_Luật))):topic(h / hòa_giải:modality(-)),False,"(đ / đề nghị
+:agent(l / luật sư
+:agent-of(b / bảo vệ
+:beneficiary-arg1(q / quyền lợi
+:poss(b1 / báo
+:mod(wz1 / organization
+:wiki(p / Pháp Luật)
+:name(wz2 / name
+:op1(wz3 / Pháp)
+:op2(wz4 / Luật)))))))
+:topic(h / hòa giải))",0.0
+"theo ông Hải , đây là vấn đề bức xúc của tp. .",(t /theo:agent(ô /ông:mod(px /person:name(n2 /name:op1(h /Hải)))):topic(v /vấn_đề:domain(đ /đây):mod(b /bức_xúc:poss(tp /tp)):quant(1)),(t / theo:agent(ô / ông:mod(px / person:name(n2 / name:op1(h / Hải)))):topic(v / vấn_đề:domain(đ / đây):mod(b / bức_xúc:poss(tp / tp)):quant(x / 1)),False,"(t / theo
+:topic(v / vấn đề
+:domain(đ / đây)
+:mod(b / bức xúc)
+:poss(t1 / tp.))
+:source(wz1 / person
+:name(wz2 / name
+:op1(ô / ông)
+:op2(h / Hải))
+:wiki -))",0.0
+"thân mình chịu cực , chịu khổ đã quen không màng đến , nhưng thương nhất là hai đứa con .",(c /contrast-01:ARG2(t1 /thương:degree(n1 /nhất):theme(c3 /con:quant(2)):ARG1(a /and:op1(c1 /chịu:pivot(m /mình:part-of(t /thân_mình)):theme(c2 /cực)):op2(q /quen:theme(c4 /chịu:polarity -:compound(k /khổ)):pivot(mình))))),"    (c / contrast-01
+    :ARG2
+        (t1 / thương
+        :degree
+        (n1 / nhất
+        )
+        :theme
+            (c3 / con
+            :quant
+            (x / 2
+            )
+        )
+        :ARG1
+            (a / and
+            :op1
+                (c1 / chịu
+                :pivot
+                    (m / mình
+                    :part-of
+                    (t / thân_mình
+                    )
+                )
+                :theme
+                (c2 / cực
+                )
+            )
+            :op2
+                (q / quen
+                :theme
+                    (c4 / chịu
+                    :polarity -
+                    :compound
+                    (k / khổ
+                    )
+                )
+                :pivot
+                (m / mình
+                )
+            )
+        )
+    )
+)",True,"(wz1 / contrast-01
+:ARG1(m1 / màng
+:manner(đ1 / đến)
+:reason(wz2 / and
+:op1(c / chịu
+:pivot(t / thân
+:mod(m / mình))
+:manner(c1 / cực))
+:op2(c2 / chịu
+:manner(k / khổ)
+:pivot t)
+:result(q / quen
+:tense(đ / đã)))
+:polarity -)
+:ARG2(t1 / thương
+:theme(c3 / con
+:classifier(đ2 / đứa
+:quant 2))
+:degree(wz6 / most)))",0.0
+"khoán tự ái mang cưa ra về , Hải đuổi theo và hai bên có cãi vã nhau .",(a /and:op1(k /khoán_tự_ái:manner(r /ra_về:theme(c /cưa)):agent(t /ta):manner(á /ám)):op2(d /đuổi_theo:agent(h /hải)):op3(c2 /cãi_vã:time(b /bên:quant(2):compound(n /nhau))),(a / and:op1(k / khoán_tự_ái:manner(r / ra_về:theme(c / cưa)):agent(t / ta):manner(á / ám)):op2(d / đuổi_theo:agent(h / hải)):op3(c2 / cãi_vã:time(b / bên:quant(x / 2):compound(n / nhau))),False,"(wz1 / multi-sentence
+:snt1(m / mang
+:reason(t / tự ái
+:pivot p)
+:theme(c / cưa)
+:purpose(r / ra
+:compound(v / về))
+:agent(p / person
+:wiki -
+:name(wz4 / name
+:op1(k / khoán))))
+:snt2(đ / đuổi
+:path(t1 / theo)
+:patient p
+:agent(p1 / person
+:name(wz6 / name
+:op1(h / Hải))
+:wiki -))
+:snt3(c2 / cãi vã
+:agent(b / bên
+:quant 2)
+:goal(n / nhau)))",0.0
+"khoán đã dùng cưa đang nổ gí vào người Hải , Hải đưa tay trái lên đỡ nên đã bị cắt trọng thương ...",(c /cắt:cause(d /dùng:agent(k /khoán):theme(c1 /cưa)):tense(đ /đã):patient(n1 /người:part-of(H /Hải))_:manner(t1 /trọng_thương):condition(wz2 /and:op1(n2 /nổ:agent(c2 /cái:mod(g /gì)):direction(v /vào:patient(n3 /người:poss(p /person:name(n4 /name:op1(h1 /hải)))))):tense(đ1 /đang)):op2(đ2 /đưa:agent(H1 /hai):theme(t /tay_trái):direction(l /lên):purpose(đ3 /đỡ:theme(cái)))),"    (c / cắt
+    :cause
+        (d / dùng
+        :agent
+        (k / khoán
+        )
+        :theme
+        (c1 / cưa
+        )
+    )
+    :tense
+    (đ / đã
+    )
+    :patient
+        (n1 / người
+        :part-of
+        (H / Hải
+        )
+    )
+    _
+    :manner
+    (t1 / trọng_thương
+    )
+    :condition
+        (wz2 / and
+        :op1
+            (n2 / nổ
+            :agent
+                (c2 / cái
+                :mod
+                (g / gì
+                )
+            )
+            :direction
+                (v / vào
+                :patient
+                    (n3 / người
+                    :poss
+                        (p / person
+                        :name
+                            (n4 / name
+                            :op1
+                            (h1 / hải
+                            )
+                        )
+                    )
+                )
+            )
+        )
+        :tense
+        (đ1 / đang
+        )
+    )
+    :op2
+        (đ2 / đưa
+        :agent
+        (H1 / hai
+        )
+        :theme
+        (t / tay_trái
+        )
+        :direction
+        (l / lên
+        )
+        :purpose
+            (đ3 / đỡ
+            :theme
+            (c / cái
+            )
+        )
+    )
+)",True,"(wz1 / multi-sentence
+:snt1(d / dùng
+:tense(đ / đã)
+:instrument(c / cưa
+:agent-of(n / nổ
+:tense(đ1 / đang)))
+:purpose(g / gí
+:direction(n1 / người
+:part-of(p / person
+:wiki -
+:name(wz3 / name
+:op1(h / Hải)))))
+:agent(wz4 / person
+:name(wz5 / name
+:op1(k / khoán))
+:wiki -))
+:snt2(c1 / cắt
+:reason(đ2 / đưa
+:patient(t / tay
+:mod(t1 / trái))
+:direction(l / lên)
+:purpose(đ3 / đỡ)
+:agent p)
+:tense(đ4 / đã)
+:manner(t2 / trọng thương)
+:patient p
+:modality -))",0.0
+"nhìn căn chòi tạm bợ mà gia đình anh Đại cùng nhóm công nhân chống tiêu cực đang tá túc , chúng tôi không khỏi chạnh lòng .",(c2 /chạnh_lòng:pivot(c1 /chúng_tôi):degree(k /không_kém):time(t3 /tán_túc:agent(n1 /nhóm:mod(c4 /công_nhân)):topic(c5 /chống:theme(t4 /tiêu_cực)):agent-of(anh)):goal(a /and:op1(c /căn_chòi:compound(t /tạm_bợ)):op2(g /gia_đình:consist-of(p /person:name(n2 /name:op1(Đ /Đại)))))),"    (c2 / chạnh_lòng
+    :pivot
+    (c1 / chúng_tôi
+    )
+    :degree
+    (k / không_kém
+    )
+    :time
+        (t3 / tán_túc
+        :agent
+            (n1 / nhóm
+            :mod
+            (c4 / công_nhân
+            )
+        )
+        :topic
+            (c5 / chống
+            :theme
+            (t4 / tiêu_cực
+            )
+        )
+        :agent-of
+        (a / anh
+        )
+    )
+    :goal
+        (a / and
+        :op1
+            (c / căn_chòi
+            :compound
+            (t / tạm_bợ
+            )
+        )
+        :op2
+            (g / gia_đình
+            :consist-of
+                (p / person
+                :name
+                    (n2 / name
+                    :op1
+                    (Đ / Đại
+                    )
+                )
+            )
+        )
+    )
+)",True,"(c6 / chạnh lòng
+:reason(n / nhìn
+:theme(c1 / chòi
+:classifier(c / căn)
+:mod(t / tạm bợ)
+:location-of(t2 / tá túc
+:tense(đ1 / đang)
+:agent(wz1 / and
+:op1(g / gia đình
+:poss(wz2 / person
+:wiki -
+:name(wz4 / name
+:op1(a / anh)
+:op2(đ / Đại))))
+:op2(n1 / nhóm
+:mod(c3 / công nhân)
+:agent-of(c4 / chống)
+:patient(t1 / tiêu cực))))))
+:pivot(c5 / chúng tôi)
+:manner(k1 / khỏi
+:polarity -))",0.0
+"để rồi bây giờ họ rơi vào cảnh túng quẫn , bần hàn đến vậy sao ?",(r /rơi:time(b /bây_giờ):agent(h /họ):compound(v /vào):setting(c /cảnh:mod(t1 /túng_quẫn)):manner(b1 /bần_hàn:degree(s /sao))),"    (r / rơi
+    :time
+    (b / bây_giờ
+    )
+    :agent
+    (h / họ
+    )
+    :compound
+    (v / vào
+    )
+    :setting
+        (c / cảnh
+        :mod
+        (t1 / túng_quẫn
+        )
+    )
+    :manner
+        (b1 / bần_hàn
+        :degree
+        (s / sao
+        )
+    )
+)",True,"(wz1 / cause-01
+:patient(r1 / rơi
+:agent(h / họ)
+:setting(c / cảnh
+:domain-of(wz2 / and
+:op1(t / túng quẫn)
+:op2(b1 / bần hàn)))
+:time(wz3 / now)))",0.0
+trong khi đó số người nhiễm hiv tại vn vẫn tiếp tục gia tăng .,(c /contrast-01:ARG2(t2 /tiếp_tục:theme(n1 /người:mod(n2 /nhiễm:theme(h /hiv)):location(v /vn)):degree(s /số):manner(g /gia_tăng))),"    (c / contrast-01
+    :ARG2
+        (t2 / tiếp_tục
+        :theme
+            (n1 / người
+            :mod
+                (n2 / nhiễm
+                :theme
+                (h / hiv
+                )
+            )
+            :location
+            (v / vn
+            )
+        )
+        :degree
+        (s / số
+        )
+        :manner
+        (g / gia_tăng
+        )
+    )
+)",True,"(t2 / tiếp tục
+:time(k / khi
+:mod(đ / đó))
+:pivot(s / số
+:mod(n / người)
+:mod(n1 / nhiễm
+:theme(h / hiv)))
+:manner(g / gia tăng))",0.0
+chỉ còn anh Đại và bốn người khác .,(c /còn:degree(c1 /chỉ):theme(a /anh:mod(n /name:op2(wz3 /Đại)):quant(1):pivot(b /bốn:mod(n1 /người:mod(k /khác)))),(c / còn:degree(c1 / chỉ):theme(a / anh:mod(n / name:op2(wz3 / Đại)):quant(x / 1):pivot(b / bốn:mod(n1 / người:mod(k / khác)))),False,"(c1 / còn
+:degree(c / chỉ)
+:pivot(a2 / and
+:op2(n / người
+:mod(k / khác)
+:quant 4)
+:op1(p / person
+:name(n2 / name
+:op1(a / anh)
+:op2(đ / Đại)))))",0.0
+ubnd tp đã chính thức kết luận hoan nghênh và biểu dương những việc làm tốt của họ .,(k /kết_luận:agent(u /ubnd_tp):tense(đ /đã):manner(c /chính_thức):topic(a /and:op1(h /hoan_nghênh:theme(v /việc_làm:mod(t1 /tốt):poss(họ)):agent(tp)):op2(b /biểu_dương:theme(việc_làm):agent(tp)))),"    (k / kết_luận
+    :agent
+    (u / ubnd_tp
+    )
+    :tense
+    (đ / đã
+    )
+    :manner
+    (c / chính_thức
+    )
+    :topic
+        (a / and
+        :op1
+            (h / hoan_nghênh
+            :theme
+                (v / việc_làm
+                :mod
+                (t1 / tốt
+                )
+                :poss
+                (h / họ
+                )
+            )
+            :agent
+            (t / tp
+            )
+        )
+        :op2
+            (b / biểu_dương
+            :theme
+            (v / việc_làm
+            )
+            :agent
+            (t / tp
+            )
+        )
+    )
+)",True,"(k / kết luận
+:agent(u / ubnd
+:compound(t / tp))
+:tense(đ / đã)
+:mod(c / chính thức)
+:topic(a / and
+:op1(h / hoan nghênh
+:agent u)
+:op2(b / biểu dương
+:theme(v1 / việc làm
+:quant(n / những)
+:mod(t1 / tốt)
+:poss(h1 / họ))
+:agent u)))",0.0
+tuy nhiên chính quyền tp không nên dừng ở đó .,(c /contrast-01:ARG2(r /recommend-01:result(đ1 /dừng:agent(cq /chính_quyền:location(t1 /tp)):degree(n /nên):compound(ở /ở):goal(đ2 /đó)):polarity(-)),(c / contrast-01:ARG2(r / recommend-01:result(đ1 / dừng:agent(cq / chính_quyền:location(t1 / tp)):degree(n / nên):compound(ở / ở):goal(đ2 / đó)):polarity(-)),False,"(cx / contrast-01
+:ARG2(n / nên
+:agent(c / chính quyền
+:source(t1 / tp))
+:polarity -
+:theme(d / dừng
+:goal(đ / đó
+:prep(ở / ở))
+:agent c)))",0.0
+206 ngày đêm khốn khổ .,(n /ngày_đêm:quant(206):mod(k /khốn_khổ)),"    (n / ngày_đêm
+    :quant
+    (x / 206
+    )
+    :mod
+    (k / khốn_khổ
+    )
+)",True,"(n / ngày đêm
+:quant 206
+:mod(k / khốn khổ))",0.0
+lao động tiếp tục bị bán tứ tán .,(b1 /bán:patient(l /lao_động):manner(t /tiếp_tục):modality(-),(b1 / bán:patient(l / lao_động):manner(t / tiếp_tục):modality(-),False,"(t / tiếp tục
+:theme(b1 / bán
+:beneficiary-arg1(l / lao động)
+:modality(b / bị)
+:manner(t1 / tứ tán)))",0.0
+ông Trực nói tiếp : Dân gặp tôi kêu quá trời !,(n /nói:agent(ô /ông:mod(px /person:name(n1 /name:op2(wz3 /Trực):op1(wz4 /võ))):compound(t /tiếp):topic(k /kêu:agent(d /dân:goal-of(g /gặp:goal(t1 /tôi))):manner(q /quá_trời))),(n / nói:agent(ô / ông:mod(px / person:name(n1 / name:op2(wz3 / Trực):op1(wz4 / võ))):compound(t / tiếp):topic(k / kêu:agent(d / dân:goal-of(g / gặp:goal(t1 / tôi))):manner(q / quá_trời))),False,"(n / nói
+:manner(t1 / tiếp)
+:agent(p / person
+:wiki -
+:name(n1 / name
+:op1(ô / ông)
+:op2(t / Trực)))
+:topic(a / and
+:op1(g / gặp
+:agent(d / Dân)
+:goal n1)
+:op2(k / kêu
+:degree(q / quá trời)
+:agent d)))",0.0
+bị cáo Lã Thị Kim Oanh khẳng định khoản vay của nh đều đi kèm với những dự án đầu tư hoặc kinh doanh cụ thể .,(k1 /khẳng_định:agent(b /bị_cáo:name(n2 /name:op1(l /lã):op2(t /thị):op3(k /kim):op4(o /oanh))):topic(đ /đi_kèm:theme(k /khoản_vay:source(n /nh)):compound(v /với):theme(d /dự_nghián:mod(đ1 /đầu_tư):or(k2 /kinh_doanh:mod(c2 /cụ_thể)))),(k1 / khẳng_định:agent(b / bị_cáo:name(n2 / name:op1(l / lã):op2(t / thị):op3(k / kim):op4(o / oanh))):topic(đ / đi_kèm:theme(k / khoản_vay:source(n / nh)):compound(v / với):theme(d / dự_nghián:mod(đ1 / đầu_tư):or(k2 / kinh_doanh:mod(c2 / cụ_thể)))),False,"(k / khẳng định
+:agent(b / bị cáo
+:wiki -
+:name(n3 / name
+:op1(l / Lã Thị Kim Oanh)))
+:topic(đ1 / đi
+:theme(k1 / khoản
+:compound(v / vay)
+:poss(n / nh))
+:compound(k2 / kèm)
+:theme(d / dự án
+:quant(n1 / những)
+:mod(a / and
+:op1(đ2 / đầu tư)
+:op2(k3 / kinh doanh
+:mod(c1 / cụ thể))))))",0.0
+hai anh em tôi ra xem bảng thông báo .,(r /ra:agent(a1 /anh_em:domain(t /tôi):quant(2):compound(x /xem:theme(b /bảng:mod(t1 /thông_báo))))),"    (r / ra
+    :agent
+        (a1 / anh_em
+        :domain
+        (t / tôi
+        )
+        :quant
+        (x / 2
+        )
+        :compound
+            (x / xem
+            :theme
+                (b / bảng
+                :mod
+                (t1 / thông_báo
+                )
+            )
+        )
+    )
+)",True,"(r / ra
+:agent(a / anh em
+:mod(t / tôi)
+:quant 2)
+:compound(x / xem)
+:theme(b / bảng
+:compound(t1 / thông báo)))",0.0
+"một cảnh tượng hỗn loạn , chen lấn nhau diễn ra .",(a /and:op1(c /cảnh_tượng:mod(h /hỗn_loạn):agent-of(đ /diễn_ra)):op2(c1 /chen_lấn:theme(n /nhau))),"    (a / and
+    :op1
+        (c / cảnh_tượng
+        :mod
+        (h / hỗn_loạn
+        )
+        :agent-of
+        (đ / diễn_ra
+        )
+    )
+    :op2
+        (c1 / chen_lấn
+        :theme
+        (n / nhau
+        )
+    )
+)",True,"(d / diễn
+:theme(c / cảnh tượng
+:quant(m / một)
+:mod(a / and
+:op1(h / hỗn loạn)
+:op2(c1 / chen lấn
+:theme(n / nhau))))
+:compound(r / ra))",0.0
+"tôi trình bày lý do , rồi xuất trình giấy tờ để chứng minh là anh em tôi lên sứ quán đổi hộ chiếu .",(a /and:op1(t1 /trình_bày:agent(t /tôi):theme(l /lý_do)):op2(x /xuất_trình:theme(g /giấy_tờ):purpose(c /chứng_minh:topic(đ1 /đổi:agent(h /anh_em:relation-of(i /include-91:ARG0(tôi))_:quant(2):location(s /sứ_quán):patient(h1 /hộ_chứng)):agent(tôi)):agent(tôi))),(a / and:op1(t1 / trình_bày:agent(t / tôi):theme(l / lý_do)):op2(x / xuất_trình:theme(g / giấy_tờ):purpose(c / chứng_minh:topic(đ1 / đổi:agent(h / anh_em:relation-of(i / include-91:ARG0(t / tôi))_:quant(x / 2):location(s / sứ_quán):patient(h1 / hộ_chứng)):agent(t / tôi)):agent(t / tôi))),False,"(a1 / and
+:op1(t1 / trình bày
+:agent(t / tôi)
+:theme(l / lý do))
+:op2(x / xuất trình
+:theme(g / giấy tờ)
+:purpose(c / chứng minh
+:topic(l2 / lên
+:agent(a / anh em
+:mod(t2 / tôi))
+:goal(s / sứ quán)
+:purpose(đ1 / đổi
+:theme(h / hộ chiếu)
+:agent a))
+:agent t)
+:agent t))",0.0
+"đổi hộ chiếu hả , hay làm giấy thông hành về nước ?",(o /or:op1(đ /đổi:theme(h /hộ_chứng):mode(interrogative):op2(l /làm:theme(g /giấy:mod(t /thông_hành)):purpose(n /nước:prep(v /về))_:agent(tôi))),(o / or:op1(đ / đổi:theme(h / hộ_chứng):mode(i / interrogative):op2(l / làm:theme(g / giấy:mod(t / thông_hành)):purpose(n / nước:prep(v / về))_:agent(t / tôi))),False,"(a / and
+:op1(đ / đổi
+:theme(h / hộ chiếu)
+:mode interrogative)
+:op2(l / làm
+:theme(g / giấy thông hành)
+:purpose(v / về
+:goal(n / nước))
+:mode interrogative))",0.0
+anh em tôi chỉ còn biết nhìn nhau .,(b /biết:pivot(a /anh_em:agent-of(t /tôi)):degree(c /chỉ):theme(n /nhìn:goal(p /person:name(n1 /name:op2(e /em):op1(a1 /anh))))),"    (b / biết
+    :pivot
+        (a / anh_em
+        :agent-of
+        (t / tôi
+        )
+    )
+    :degree
+    (c / chỉ
+    )
+    :theme
+        (n / nhìn
+        :goal
+            (p / person
+            :name
+                (n1 / name
+                :op2
+                (e / em
+                )
+                :op1
+                (a1 / anh
+                )
+            )
+        )
+    )
+)",True,"(b / biết
+:agent(a / anh em
+:mod(t / tôi))
+:modality(c / chỉ
+:compound(c1 / còn))
+:manner(n / nhìn
+:goal(n1 / nhau)))",0.0
+chị ta đon đả cầm hộ chiếu và tiền rồi bấm điện thoại .,(a /and:op1(đ /đon_đả:agent(c /chị_ta):theme(h /hộ_chứng)):op2(c1 /cầm:theme(t1 /tiền):agent(chị_ta)):op3(b /bấm:phone(đ1 /điện_thoại):agent(chị_ta))),"    (a / and
+    :op1
+        (đ / đon_đả
+        :agent
+        (c / chị_ta
+        )
+        :theme
+        (h / hộ_chứng
+        )
+    )
+    :op2
+        (c1 / cầm
+        :theme
+        (t1 / tiền
+        )
+        :agent
+        (c / chị_ta
+        )
+    )
+    :op3
+        (b / bấm
+        :phone
+        (đ1 / điện_thoại
+        )
+        :agent
+        (c / chị_ta
+        )
+    )
+)",True,"(a / and
+:op1(c1 / cầm
+:agent(c / chị ta)
+:manner(đ / đon đả)
+:theme(a2 / and
+:op1(h / hộ chiếu)
+:op2(t / tiền)))
+:op2(b / bấm
+:theme(đ1 / điện thoại)
+:agent c))",0.0
+"trong thâm tâm tôi bỗng thấy vừa buồn , vừa tủi , vừa xót xa .",(t1 /thấy:location(t /thâm_tâm:part-of(tôi)):time(b /bỗng):manner(a /and:op1(b1 /buồn:degree(v /vừa)):op2(t2 /tủi:degree(v1 /vừa)):op3(x /xót_xa:degree(v2 /vừa)))):pivot(tôi)),(t1 / thấy:location(t / thâm_tâm:part-of(t / tôi)):time(b / bỗng):manner(a / and:op1(b1 / buồn:degree(v / vừa)):op2(t2 / tủi:degree(v1 / vừa)):op3(x / xót_xa:degree(v2 / vừa)))):pivot(t / tôi)),False,"(t3 / thấy
+:source(t1 / thâm tâm)
+:pivot(t2 / tôi)
+:degree(b / bỗng)
+:theme(a / and
+:op1(b1 / buồn
+:domain t
+:time(bx / before))
+:op2(t4 / tủi
+:time(b2 / before)
+:domain t)
+:op3(x / xót xa
+:domain t
+:time(b3 / before))))",0.0
+"anh chị em chỗ tôi sống đều rất vui mừng , nhưng có lẽ đó chỉ là những chính sách .",(c1 /contrast-01:ARG2(v /vui_mừng:pivot(a /anh_chị_em:location(s /sống:agent(t /tôi))):degree(r /rất)):ARG1(p /possible-01:domain(c2 /chính_sách))),"    (c1 / contrast-01
+    :ARG2
+        (v / vui_mừng
+        :pivot
+            (a / anh_chị_em
+            :location
+                (s / sống
+                :agent
+                (t / tôi
+                )
+            )
+        )
+        :degree
+        (r / rất
+        )
+    )
+    :ARG1
+        (p / possible-01
+        :domain
+        (c2 / chính_sách
+        )
+    )
+)",True,"(cx3 / contrast-01
+:ARG1(v / vui mừng
+:pivot(a / anh chị em
+:location(c / chỗ
+:agent-of(s / sống
+:agent(t / tôi))))
+:degree(r / rất))
+:ARG2(c3 / chính sách
+:modality(c1 / có lẽ)
+:domain(đ1 / đó)
+:degree(c2 / chỉ)
+:quant(n1 / những)))",0.0
+"thấy chúng tôi , ông hỏi đúng giọng bảo vệ chuyên nghiệp :",(h /hỏi:agent(ô /ông):manner(g /giọng:modality(đ /đúng):mod(đ1 /đảu)):goal(c /chúng_tôi):topic(b /bảo_vệ:domain(chúng):degree(c1 /chuyên_nghiệp))),"    (h / hỏi
+    :agent
+    (ô / ông
+    )
+    :manner
+        (g / giọng
+        :modality
+        (đ / đúng
+        )
+        :mod
+        (đ1 / đảu
+        )
+    )
+    :goal
+    (c / chúng_tôi
+    )
+    :topic
+        (b / bảo_vệ
+        :domain
+        (c / chúng
+        )
+        :degree
+        (c1 / chuyên_nghiệp
+        )
+    )
+)",True,"(h / hỏi
+:setting(t / thấy
+:goal(c / chúng tôi)
+:agent ô)
+:agent(ô / ông)
+:manner(đ / đúng
+:theme(g / giọng
+:part-of(b / bảo vệ
+:mod(c1 / chuyên nghiệp))))
+:goal c)",0.0
+nói rồi anh cán bộ ôm tập hồ sơ đi .,(a1 /and:op2(ô /ôm_tập:agent(c /cán_bộ:classifier(a /anh)):theme(h /hồ_sơ):direction(đ /đi))),"    (a1 / and
+    :op2
+        (ô / ôm_tập
+        :agent
+            (c / cán_bộ
+            :classifier
+            (a / anh
+            )
+        )
+        :theme
+        (h / hồ_sơ
+        )
+        :direction
+        (đ / đi
+        )
+    )
+)",True,"(a2 / and
+:op1(n / nói
+:agent a)
+:op2(ô / ôm
+:agent(a / anh
+:mod(c / cán bộ))
+:theme(t / tập
+:mod(h / hồ sơ))
+:manner(đ / đi)))",0.0
+bộ trưởng ra tòa làm nhân chứng .,(r /ra:agent(b /bộ_trưởng):compound(t /tòa):purpose(l /làm:theme(n /nhân_chứng))),"    (r / ra
+    :agent
+    (b / bộ_trưởng
+    )
+    :compound
+    (t / tòa
+    )
+    :purpose
+        (l / làm
+        :theme
+        (n / nhân_chứng
+        )
+    )
+)",True,"(l / làm
+:agent-of(r / ra
+:agent(b / bộ trưởng)
+:goal(t / tòa))
+:result-arg1(n / nhân chứng))",0.0
+"để có các số liệu trên , công an tp trước đó đã có văn bản đề nghị ubnd tp HCM thành lập hội đồng giám định xây dựng công trình này .",(c /có:purpose(s /số_liệu:theme-of(t /trên)):pivot(c1 /công_an:location(t1 /tp):time(b /before:op1(n2 /now))):manner(v1 /văn_bản:mod(đ1 /đề_nghị:topic(t3 /thành_lập:agent(h /hội_đồng:compound(g /giám_định:topic(x1 /xây_dựng:patient(c4 /công_trình)))):location(tp):time(a /after:op1(n1 /now)):mode imperative:quant(1)):agent(công_an):goal(p /person:name(n5 /name:op1(u /ubnd):op2(tp)))),(c / có:purpose(s / số_liệu:theme-of(t / trên)):pivot(c1 / công_an:location(t1 / tp):time(b / before:op1(n2 / now))):manner(v1 / văn_bản:mod(đ1 / đề_nghị:topic(t3 / thành_lập:agent(h / hội_đồng:compound(g / giám_định:topic(x1 / xây_dựng:patient(c4 / công_trình)))):location(t / tp):time(a / after:op1(n1 / now)):mode imperative:quant(x / 1)):agent(c / công_an):goal(p / person:name(n5 / name:op1(u / ubnd):op2(t / tp)))),False,"(c3 / có
+:purpose(c / có
+:theme(s / số liệu
+:quant(c1 / các)
+:mod(t / trên)))
+:pivot(c2 / công an
+:mod(t1 / tp))
+:theme(v / văn bản
+:purpose(đ3 / đề nghị
+:goal-of(t4 / thành lập
+:agent(u / ubnd
+:compound(t3 / tp
+:compound(h / HCM)))
+:theme-of(g / giám định
+:agent(h1 / hội đồng)
+:theme(x / xây dựng
+:result-arg1(c4 / công trình
+:mod(n / này)))))
+:agent c2))
+:time(b / before))",0.0
+"việc ký xác nhận này , theo ông Luân , diễn ra "" sau khi vụ trưởng vụ tài chính kế toán Phan Văn Quán đã xác nhận "" .",(d /diễn_ra:cause(v1 /việc:mod(k /ký_xác_nhận):agent(ô /ông:mod(L /Luân)):time(s /sau:op1(x1 /xác_nhận:agent(p /person:name(n2 /name:op3(wz4 /Quán):op2(t1 /tài_chính:mod(k1 /kế_toán)):op1(P /Phan)))))_:pivot ô:theme(việc)),(d / diễn_ra:cause(v1 / việc:mod(k / ký_xác_nhận):agent(ô / ông:mod(L / Luân)):time(s / sau:op1(x1 / xác_nhận:agent(p / person:name(n2 / name:op3(wz4 / Quán):op2(t1 / tài_chính:mod(k1 / kế_toán)):op1(P / Phan)))))_:pivot ô:theme(v / việc)),False,"(d / diễn
+:theme(v / việc
+:mod(k / ký
+:purpose(x / xác nhận))
+:mod(n / này))
+:source(t / theo
+:goal(px / person
+:wiki -
+:name(n2 / name
+:op1(ô / ông)
+:op2(l / Luân))))
+:compound(r / ra)
+:time(a / after
+:op1(x1 / xác nhận
+:agent(v1 / vụ trưởng
+:mod(v2 / vụ
+:compound(t1 / tài chính
+:compound(k2 / kế toán)))
+:person(p2 / person
+:name(n3 / name
+:op1(p / Phan Văn Quán))
+:wiki -))
+:tense(đ / đã))))",0.0
+"ông Nguyễn Thế Khanh , chi cục phó , cho biết đây là những mặt hàng điện tử cũ đã có qui định cấm nhập khẩu dưới mọi hình thức .",(c1 /cho_biết:agent(ô /ông:mod(px /phó:mod(c /chi_cục)):name(n2 /name:op1(nx /nguyễn):op2(t /thế):op3(k /khanh))):topic(m1 /mặt_hàng:domain(đ /đây):classifier(s /sản_phẩm:mod(đ1 /điện_tử):mod(c2 /cũ):theme-of(q /qui_định:theme(c3 /cấm:theme(n4 /nhập_khẩu:modality(d1 /dưới):manner(h /hình_thức:mod(a /all))))))),(c1 / cho_biết:agent(ô / ông:mod(px / phó:mod(c / chi_cục)):name(n2 / name:op1(nx / nguyễn):op2(t / thế):op3(k / khanh))):topic(m1 / mặt_hàng:domain(đ / đây):classifier(s / sản_phẩm:mod(đ1 / điện_tử):mod(c2 / cũ):theme-of(q / qui_định:theme(c3 / cấm:theme(n4 / nhập_khẩu:modality(d1 / dưới):manner(h / hình_thức:mod(a / all))))))),False,"(c1 / cho
+:compound(b / biết)
+:topic(m / mặt hàng
+:domain(đ / đây)
+:quant(n1 / những)
+:mod(đ1 / điện tử)
+:mod(c2 / cũ)
+:setting(c3 / có
+:tense(đ2 / đã)
+:theme(q / qui định
+:topic(c4 / cấm
+:manner(n2 / nhập khẩu
+:manner(h / hình thức
+:mod(a / all)))))))
+:agent(px / person
+:wiki -
+:name(n3 / name
+:op1(ô / ông)
+:op2(n / Nguyễn Thế Khanh)
+:mod(c / chi cục
+:compound(p / phó)))))",0.0
+"hợp đồng lao động được thực hiện từ tháng 8 – 2003 , thời hạn 36 tháng với loại công việc là công nhân xây dựng .",(t /thực_hiện:theme(h /hợp_đồng_lao_động):modality(đ /được):time(w1 /temporal-quantity:unit(t1 /tháng):range(8 - 2003):duration(t2 /temporal-quantity:unit(t3 /thời_hạn):quant(36):topic(c /công_việc:classifier(l1 /loại):domain(c1 /công_nhân:compound(x /xây_dựng)))),(t / thực_hiện:theme(h / hợp_đồng_lao_động):modality(đ / được):time(w1 / temporal-quantity:unit(t1 / tháng):range(8 - 2003):duration(t2 / temporal-quantity:unit(t3 / thời_hạn):quant(x / 36):topic(c / công_việc:classifier(l1 / loại):domain(c1 / công_nhân:compound(x / xây_dựng)))),False,"(t / thực hiện
+:theme(h / hợp đồng
+:mod(l / lao động))
+:modality(đ / được)
+:time(t3 / thời hạn
+:duration(wz1 / temporal-quantity
+:unit(t4 / tháng)
+:quant 36))
+:manner(l1 / loại
+:mod(c / công việc)
+:goal(c1 / công nhân
+:mod(x / xây dựng)))
+:initialTime(d / date-entity
+:month 8
+:year 2003))",0.0
+"trường hợp nghiên cứu của vn mang tựa đề "" tác động của phát triển cơ sở hạ tầng đối với giảm nghèo nông thôn "" .",(m /mang:theme(t /trường_hợp:mod(n /nghiên_cứu):poss(v /vn)):compound(t1 /tựa_đề:topic(t2 /tác_động:cause(p /phát_triển:theme(c1 /cơ_sở_hạ_tầng)):goal(g /giảm_nghèo:location(n1 /nông_thôn))))),"    (m / mang
+    :theme
+        (t / trường_hợp
+        :mod
+        (n / nghiên_cứu
+        )
+        :poss
+        (v / vn
+        )
+    )
+    :compound
+        (t1 / tựa_đề
+        :topic
+            (t2 / tác_động
+            :cause
+                (p / phát_triển
+                :theme
+                (c1 / cơ_sở_hạ_tầng
+                )
+            )
+            :goal
+                (g / giảm_nghèo
+                :location
+                (n1 / nông_thôn
+                )
+            )
+        )
+    )
+)",True,"(m / mang
+:theme(t / trường hợp
+:mod(n / nghiên cứu)
+:poss(v / vn))
+:topic(t1 / tựa đề
+:wiki -
+:name(n2x / name
+:op1(t2 / tác động)
+:op2(c1 / của)
+:op3(p / phát triển)
+:op4(c2 / cơ sở hạ tầng)
+:op5(đ / đối với)
+:op6(g / giảm)
+:op7(n1 / nghèo)
+:op8(n2 / nông thôn))))",0.0
+đừng để người dân đặt cược cho niềm tin !,(đ /để:theme(n /người_dân:agent-of(đ1 /đặt_cược:purpose(n2 /niềm_tin))):mode imperative:polarity(-),(đ / để:theme(n / người_dân:agent-of(đ1 / đặt_cược:purpose(n2 / niềm_tin))):mode imperative:polarity(-),False,"(đ1 / để
+:mode imperative
+:beneficiary-of(đ2 / đặt cược
+:beneficiary-arg0(n / người
+:compound(d / dân))
+:goal(n1 / niềm
+:compound(t / tin))))",0.0
+muốn biết đúng hay sai tòa phải nhờ ... hội đồng thẩm định .,(n /nhờ:condition(m /muốn:pivot(b /biết:manner(đ /đúng):manner(s /sai)):source(t1 /thẩm_định:agent(h2 /hội_đồng))_:pivot(tôi)):goal(hội_đồng)),"    (n / nhờ
+    :condition
+        (m / muốn
+        :pivot
+            (b / biết
+            :manner
+            (đ / đúng
+            )
+            :manner
+            (s / sai
+            )
+        )
+        :source
+            (t1 / thẩm_định
+            :agent
+            (h2 / hội_đồng
+            )
+        )
+        _
+        :pivot
+        (t / tôi
+        )
+    )
+    :goal
+    (h / hội_đồng
+    )
+)",True,"(r / recommend-01
+:purpose(m / muốn
+:theme(b / biết
+:agent t
+:theme(a / and
+:op1(đ / đúng)
+:op2(s / sai)))
+:agent t)
+:theme(n / nhờ
+:agent(t / tòa)
+:beneficiary(h1 / hội đồng
+:mod(t1 / thẩm định))))",0.0
+ông Hải cũng chỉ đạo sở gtcc báo cáo về xử lý tiêu cực ở công trình này .,(đ /chỉ_đạo:agent(ô /ông:mod(h /Hải)):topic(b /báo_cáo:agent(s /sở_gtcc):topic(x /xử_lý:theme(t /tiêu_cực):location(c1 /công_trình:mod(n1 /này))))),"    (đ / chỉ_đạo
+    :agent
+        (ô / ông
+        :mod
+        (h / Hải
+        )
+    )
+    :topic
+        (b / báo_cáo
+        :agent
+        (s / sở_gtcc
+        )
+        :topic
+            (x / xử_lý
+            :theme
+            (t / tiêu_cực
+            )
+            :location
+                (c1 / công_trình
+                :mod
+                (n1 / này
+                )
+            )
+        )
+    )
+)",True,"(c1 / chỉ đạo
+:beneficiary-of(b / báo cáo
+:beneficiary(s / sở
+:compound(g / gtcc))
+:topic(x / xử lý
+:theme(t / tiêu cực)
+:goal(c2 / công trình
+:mod(n / này))))
+:agent(p / person
+:name(n1 / name
+:op1(ô / ông)
+:op2(h / Hải))
+:wiki -))",0.0
+"làm cho dân thấy và nói cho dân hiểu ! "" .",(w1 /multi-sentence:snt1(t /thấy:pivot(d /dân):theme(l /làm)):snt2(n /nói:topic(h /hiểu:pivot(d1 /dân)):agent(p /person))),"    (w1 / multi-sentence
+    :snt1
+        (t / thấy
+        :pivot
+        (d / dân
+        )
+        :theme
+        (l / làm
+        )
+    )
+    :snt2
+        (n / nói
+        :topic
+            (h / hiểu
+            :pivot
+            (d1 / dân
+            )
+        )
+        :agent
+        (p / person
+        )
+    )
+)",True,"(a / and
+:op1(l / làm
+:purpose(t / thấy
+:agent(d / dân)))
+:op2(n / nói
+:purpose(h / hiểu
+:agent(d1 / dân))))",0.0
+"trở về đời thường , đôi bạn cựu chiến binh phan văn đu và Phạm Văn Thanh ngồi bên ấm trà .",(n /ngồi:time(t /trở_về:source(đ /đời_thường)):agent(b1 /bạn_cựu_chiến_binh:mod(px /person:name(n2 /name:op1(p1 /phan):op2(v2 /văn):op3(đ2 /đu))):quant(2):location(b2 /bên:mod(ấ /ấm_trà))),(n / ngồi:time(t / trở_về:source(đ / đời_thường)):agent(b1 / bạn_cựu_chiến_binh:mod(px / person:name(n2 / name:op1(p1 / phan):op2(v2 / văn):op3(đ2 / đu))):quant(x / 2):location(b2 / bên:mod(ấ / ấm_trà))),False,"(n / ngồi
+:agent(b / bạn
+:quant(đ1 / đôi)
+:mod(c / cựu chiến binh)
+:mod(a / and
+:op1(px / person
+:wiki -
+:name(n1 / name
+:op1(p / phan văn đu)))
+:op2(px1 / person
+:wiki -
+:name(n2 / name
+:op1(p1 / Phạm Văn Thanh)))))
+:location(b1 / bên
+:theme(ấ / ấm
+:mod(t1 / trà))))",0.0
+"cả đoàn mang mì gói ra ăn , lượm các lon bia để nấu nước sôi .",(a /and:op1(m /mang:agent(đ /đoàn):theme(m1 /mì_gói):direction(r /ra):purpose(ă /ăn)):op2(l /lượm:theme(l1 /lon:mod(b /bia)):agent(đoàn):purpose(n /nấu:patient(n1 /nước_sôi)))),"    (a / and
+    :op1
+        (m / mang
+        :agent
+        (đ / đoàn
+        )
+        :theme
+        (m1 / mì_gói
+        )
+        :direction
+        (r / ra
+        )
+        :purpose
+        (ă / ăn
+        )
+    )
+    :op2
+        (l / lượm
+        :theme
+            (l1 / lon
+            :mod
+            (b / bia
+            )
+        )
+        :agent
+        (đ / đoàn
+        )
+        :purpose
+            (n / nấu
+            :patient
+            (n1 / nước_sôi
+            )
+        )
+    )
+)",True,"(a / and
+:op1(m / mang
+:agent(đ / đoàn
+:mod(ax / all))
+:theme(m1 / mì
+:mod(g / gói))
+:direction(r / ra)
+:purpose(ă / ăn
+:agent đ))
+:op2(l / lượm
+:theme(l1 / lon
+:quant(c1 / các)
+:mod(b / bia))
+:purpose(n / nấu
+:result(n1 / nước
+:mod(s / sôi))
+:agent đ)
+:agent đ))",0.0
+"sơ đồ qui hoạch được chính quyền sở tại công bố công khai , hiện vẫn được dựng công khai cách trụ sở ubnd xã Xuân Hải khoảng 2 km .",(a /and:op1(q /qui_hoạch:theme(s /sơ_đồ):modality(đ /được):agent(c /chính_quyền:location(s1 /sở_tại)):compound(c2 /công_bố:degree(c3 /công_khai))):op2(d /dựng:time(h /hiện):modality(v /vẫn):manner(c4 /công_khai):location(k /khoảng:op1(t1 /trụ_sở:acronym(u /ubnd:mod(x1 /xã:mod(n1 /name:op1(Xuan):op2(Hải))))):quant(wz5 /distance-quantity:quant(2000):patient(sơ_đồ))),(a / and:op1(q / qui_hoạch:theme(s / sơ_đồ):modality(đ / được):agent(c / chính_quyền:location(s1 / sở_tại)):compound(c2 / công_bố:degree(c3 / công_khai))):op2(d / dựng:time(h / hiện):modality(v / vẫn):manner(c4 / công_khai):location(k / khoảng:op1(t1 / trụ_sở:acronym(u / ubnd:mod(x1 / xã:mod(n1 / name:op1(x / Xuan):op2(h / Hải))))):quant(wz5 / distance-quantity:quant(x2 / 2000):patient(s / sơ_đồ))),False,"(d / dựng
+:theme(s / sơ đồ
+:mod(q / qui hoạch)
+:agent-of(c1 / công bố
+:modality(đ / được)
+:agent(c / chính quyền
+:mod(s1 / sở tại))
+:manner(c2 / công khai)))
+:modality(đ1 / được)
+:manner(c3 / công khai)
+:time(n / now)
+:location(r / relative-position
+:direction(c4 / cách)
+:op1(t / trụ sở
+:mod(u / ubnd)
+:source(x / xã
+:wiki -
+:name(nx / name
+:op1(x1 / Xuân Hải))))
+:quant(dx / distance-quantity
+:quant(k / khoảng
+:quant 2)
+:unit(k1 / km))))",0.0
+"người dân tuân thủ đúng pháp luật , chính quyền sai phạm về thủ tục quản lý , sao người dân phải gánh chịu hậu quả ?",(a /and:op1(t /tuân_thủ:pivot(n /người_dân):theme(p /pháp_luật)):op2(s /sai_phạm:agent(c /chính_quyền):topic(t1 /thủ_tục:mod(q /quản_lý))):cause(g /gánh_chịu:agent(n1 /người_dân):theme(h /hậu_quả))),"    (a / and
+    :op1
+        (t / tuân_thủ
+        :pivot
+        (n / người_dân
+        )
+        :theme
+        (p / pháp_luật
+        )
+    )
+    :op2
+        (s / sai_phạm
+        :agent
+        (c / chính_quyền
+        )
+        :topic
+            (t1 / thủ_tục
+            :mod
+            (q / quản_lý
+            )
+        )
+    )
+    :cause
+        (g / gánh_chịu
+        :agent
+        (n1 / người_dân
+        )
+        :theme
+        (h / hậu_quả
+        )
+    )
+)",True,"(o / obligate-01
+:theme(g / gánh chịu
+:agent(n1 / người
+:mod(d1 / dân))
+:theme(h / hậu quả))
+:cause(a / amr-unknown)
+:reason(ax / and
+:op1(t / tuân thủ
+:agent(n / người
+:mod(d / dân))
+:manner(đ / đúng)
+:theme(p / pháp luật))
+:op2(s / sai phạm
+:agent(c / chính quyền)
+:topic(t1 / thủ tục
+:mod(q / quản lý)))))",0.0
+"chính quyền sai thì sửa , chứ sao lại chỉ sửa chính quyền mà không sửa bên dân ?",(s /sai:domain(c /chính_quyền):theme-of(s1 /sửa)):manner(a /and:op2(s3 /sửa:patient(b /bên_dân):agent(chính_quyền)):polarity -:pivot(chính_quyền))),(s / sai:domain(c / chính_quyền):theme-of(s1 / sửa)):manner(a / and:op2(s3 / sửa:patient(b / bên_dân):agent(c / chính_quyền)):polarity -:pivot(c / chính_quyền))),False,"(a / and
+:topic(s1 / sửa
+:reason(s / sai
+:domain(c / chính quyền))
+:agent c)
+:op1(s3 / sửa
+:manner(l / lại)
+:degree(c2 / chỉ)
+:agent(c3 / chính quyền))
+:op2(s4 / sửa
+:polarity -
+:agent(b / bên
+:mod(d / dân)))
+:cause(ax / amr-unknown))",0.0
+"bởi giá hồi đó không phải là giá vì không ai cho phép , chắc chắn là có cái gì bên trong nữa ...",(c2 /chắc_chắn:cause(g1 /giá:time(h /hồi:mod(đ /đó)):domain-of(p /phải:polarity -:theme(g /giá):agent(a /ai:polarity(-))):topic(c3 /cái:compound(g2 /gì:classifier(b1 /bên_trong)))),(c2 / chắc_chắn:cause(g1 / giá:time(h / hồi:mod(đ / đó)):domain-of(p / phải:polarity -:theme(g / giá):agent(a / ai:polarity(-))):topic(c3 / cái:compound(g2 / gì:classifier(b1 / bên_trong)))),False,"(c1 / chắc chắn
+:reason(p / phải
+:domain(g / giá)
+:polarity -
+:theme(g1 / giá)
+:reason(c / cho
+:agent(a / ai
+:polarity -)
+:theme(p1 / phép))
+:time(ax / before))
+:topic(c2 / có
+:theme(c3 / cái
+:mod(g2 / gì))
+:source(b1 / bên
+:mod(t / trong))
+:modality(n / nữa)))",0.0
+"ngoài ra , đáng lẽ đổ cát lấp đường ống theo tiêu chuẩn về xây dựng hệ thống thoát nước thì đơn vị thi công lấp đất .",(l1 /lấp:condition(n /ngoài_ra):agent(đ1 /đơn_vị_thi_công):theme(đ2 /đất):time(wz3 /then-01:op1(đ /đổ:theme(c /cát):purpose(l /lấp:patient(đ1 /đường_ống:mod(g /gì)):manner(t /theo:source(t1 /tiêu_chuẩn:topic(x /xây_dựng:system(h /hệ_thống:compound(t2 /thoát_nước)))))):agent(đơn_vị))))),(l1 / lấp:condition(n / ngoài_ra):agent(đ1 / đơn_vị_thi_công):theme(đ2 / đất):time(wz3 / then-01:op1(đ / đổ:theme(c / cát):purpose(l / lấp:patient(đ1 / đường_ống:mod(g / gì)):manner(t / theo:source(t1 / tiêu_chuẩn:topic(x / xây_dựng:system(h / hệ_thống:compound(t2 / thoát_nước)))))):agent(đ / đơn_vị))))),False,"(đ1 / đổ
+:modality(đ / đáng lẽ)
+:theme(c / cát)
+:purpose(l / lấp
+:theme(đ2 / đường ống)
+:manner(t / theo
+:theme(t1 / tiêu chuẩn
+:topic(x / xây dựng
+:result(h / hệ thống
+:mod(t2 / thoát
+:theme(n1 / nước)))))))
+:result(t4 / thi công
+:agent(đ3 / đơn vị)
+:manner(l1 / lấp
+:theme(đ4 / đất))))",0.0
+ngẫm sao mà thương thế !,(n /ngẫm:compound(s /sao):theme(t1 /thương)),"    (n / ngẫm
+    :compound
+    (s / sao
+    )
+    :theme
+    (t1 / thương
+    )
+)",True,"(n / ngẫm
+:modality(s / sao)
+:topic(t / thương)
+:modality(t1 / thế))",0.0
+đáng lẽ phải được tôn vinh thì trái lại những con người ấy đã bị đẩy xuống đáy cùng của cuộc sống !,(a /and:op2(đ3 /đẩy:modality(b /bị):agent(c1 /con_người:mod(ấ /ấy)):tense(đ4 /đã):compound(x /xuống):location(đ5 /đáy:part-of(c2 /cuộc_sống))):op1(o /obligate-01:result-arg1(t /tôn_vinh)))),(a / and:op2(đ3 / đẩy:modality(b / bị):agent(c1 / con_người:mod(ấ / ấy)):tense(đ4 / đã):compound(x / xuống):location(đ5 / đáy:part-of(c2 / cuộc_sống))):op1(o / obligate-01:result-arg1(t / tôn_vinh)))),False,"(r / recommend-01
+:theme(t / tôn vinh
+:modality(đ / đáng lẽ)
+:modality(đ1 / được))
+:result(đ3 / đẩy
+:beneficiary(c / con người
+:quant(n / những)
+:mod(ấ / ấy))
+:tense(đ2 / đã)
+:modality(b / bị)
+:direction(x / xuống)
+:goal(đ4 / đáy
+:mod(c1 / cùng)
+:source(c3 / cuộc sống))))",0.0
+"lại nữa khi thanh tra đã xác định sai phạm sao không xử lý mà để "" ngâm "" lâu ngày đến vậy ?",(x /xác_định:time(k1 /khi):agent(t /thanh_tra):tense(đ /đã):compound(s /sai_phạm):result-arg1(x1 /xử_lý:manner(n2 /ngâm:degree(l2 /lâu_ngày)):agent(thanh_tra)_:patient(sai_phạm):mode(interrogative)),(x / xác_định:time(k1 / khi):agent(t / thanh_tra):tense(đ / đã):compound(s / sai_phạm):result-arg1(x1 / xử_lý:manner(n2 / ngâm:degree(l2 / lâu_ngày)):agent(t / thanh_tra)_:patient(s / sai_phạm):mode(i / interrogative)),False,"(x1 / xử lý
+:time(k / khi
+:agent-of(x / xác định
+:agent(t / thanh tra)
+:tense(đ / đã)
+:theme(s / sai phạm)))
+:polarity -
+:result(đ1 / để
+:compound(n / ngâm)
+:duration(tx / temporal-quantity
+:quant(l1 / lâu)
+:unit(n1 / ngày)
+:modality(đ2 / đến)
+:modality(v / vậy)))
+:cause(a / amr-unknown))",0.0
+nhóm công nhân dũng cảm ấy gồm 20 người vậy mà hầu như nay đã lang bạt hết .,(l /lang_bạt:agent(c /công_nhân:classifier(n /nhóm):mod(đ /dũng_cảm):mod(ấ /ấy)):degree(h /hầu_nhiều):time(n1 /now):tense(đ1 /đã):compound(h1 /hết)),"    (l / lang_bạt
+    :agent
+        (c / công_nhân
+        :classifier
+        (n / nhóm
+        )
+        :mod
+        (đ / dũng_cảm
+        )
+        :mod
+        (ấ / ấy
+        )
+    )
+    :degree
+    (h / hầu_nhiều
+    )
+    :time
+    (n1 / now
+    )
+    :tense
+    (đ1 / đã
+    )
+    :compound
+    (h1 / hết
+    )
+)",True,"(l / lang bạt
+:agent-of(g / gồm
+:agent(n / nhóm
+:mod(c / công nhân
+:mod(d / dũng cảm))
+:mod(ấ / ấy)
+:consist-of(n1 / người
+:quant 20)))
+:degree(h / hầu như)
+:tense(đ / đã)
+:degree(h1 / hết)
+:time(n2 / now))",0.0
+vì sao họ đã làm điều đó ?,(l /làm:cause(a /amr-unknown):agent(h /họ):tense(đ /đã):theme(đ1 /điều:mod(đ2 /đó))),"    (l / làm
+    :cause
+    (a / amr-unknown
+    )
+    :agent
+    (h / họ
+    )
+    :tense
+    (đ / đã
+    )
+    :theme
+        (đ1 / điều
+        :mod
+        (đ2 / đó
+        )
+    )
+)",True,"(l / làm
+:agent(h / họ)
+:tense(đ / đã)
+:theme(đ1 / điều
+:mod(đ2 / đó))
+:cause(a / amr-unknown))",0.0
+"đường đất nhỏ , vận động dân góp công góp của đắp đường bêtông .",(v /vận_động:setting(đ1 /đường_đất:mod(n /nhỏ)):agent(g /góp_công_góp_và:beneficiary-arg2(d /dân):theme(c /của:purpose(đ2 /đắp:patient(đ3 /đường:compound(b /bêtông)))))),"    (v / vận_động
+    :setting
+        (đ1 / đường_đất
+        :mod
+        (n / nhỏ
+        )
+    )
+    :agent
+        (g / góp_công_góp_và
+        :beneficiary-arg2
+        (d / dân
+        )
+        :theme
+            (c / của
+            :purpose
+                (đ2 / đắp
+                :patient
+                    (đ3 / đường
+                    :compound
+                    (b / bêtông
+                    )
+                )
+            )
+        )
+    )
+)",True,"(v / vận động
+:reason(n / nhỏ
+:domain(đ / đường đất))
+:beneficiary(a / and
+:op1(g / góp
+:agent(d / dân)
+:theme(c / công))
+:op2(g1 / góp
+:theme(c1 / của)
+:agent d)
+:op3(đ1 / đắp
+:theme(đ2 / đường
+:mod(b / bêtông))
+:agent d)))",0.0
+"và hôm nay , chúng ta cũng cần hỏi câu hỏi này với chính mình .",(a /and:op2(c1 /cần:time(h /hôm_nay):pivot(c /chúng_ta):theme(h1 /hỏi:theme(c2 /câu_hỏi:mod(n /này)):goal(chính_mình)))),"    (a / and
+    :op2
+        (c1 / cần
+        :time
+        (h / hôm_nay
+        )
+        :pivot
+        (c / chúng_ta
+        )
+        :theme
+            (h1 / hỏi
+            :theme
+                (c2 / câu_hỏi
+                :mod
+                (n / này
+                )
+            )
+            :goal
+            (c / chính_mình
+            )
+        )
+    )
+)",True,"(c2 / cần
+:agent(c / chúng ta)
+:theme(h1 / hỏi
+:theme(c3 / câu
+:compound(h2 / hỏi)
+:mod(n / này)
+:accompanier( / c
+:modality(c4 / chính)))
+:agent c)
+:time(n2 / now))",0.0
+vậy thì sự lầm than hôm nay của nhóm công nhân bảo vệ cái thiện kia minh chứng cho điều gì ?,(m /minh_chứng:domain(s /sự_lầm_than:poss(c1 /công_nhân:classifier(n /nhóm)):time(d /date-entity:dayperiod(h /hôm_nay))):beneficiary(đ /điều:mod(g /gì))),"    (m / minh_chứng
+    :domain
+        (s / sự_lầm_than
+        :poss
+            (c1 / công_nhân
+            :classifier
+            (n / nhóm
+            )
+        )
+        :time
+            (d / date-entity
+            :dayperiod
+            (h / hôm_nay
+            )
+        )
+    )
+    :beneficiary
+        (đ / điều
+        :mod
+        (g / gì
+        )
+    )
+)",True,"(m / minh chứng
+:theme(s / sự
+:compound(l / lầm than)
+:source(b / bảo vệ
+:agent(n / nhóm
+:mod(c1 / công nhân))
+:theme(c2 / cái
+:compound(t1 / thiện)
+:mod(k / kia)))
+:time(n2 / now))
+:theme(đ / điều
+:mod(g / gì)))",0.0
+"tôi mong rằng sẽ có cái hậu đến sau cái kết quả "" nhãn tiền "" mà ba năm nay họ đã lãnh chịu .",(m /mong:pivot(t /tôi):topic(c /cái:compound(h /hậu):time(s1 /sau:mod(k2 /kết_quả:classifier(n1 /nhãn_tiền)):time-of(l1 /lãnh_chịu:tense(đ1 /đã):agent(họ):duration(wz3 /temporal-quantity:unit(n2 /năm):quant(3))_:domain(tôi)):domain(hậu))),(m / mong:pivot(t / tôi):topic(c / cái:compound(h / hậu):time(s1 / sau:mod(k2 / kết_quả:classifier(n1 / nhãn_tiền)):time-of(l1 / lãnh_chịu:tense(đ1 / đã):agent(h / họ):duration(wz3 / temporal-quantity:unit(n2 / năm):quant(x / 3))_:domain(t / tôi)):domain(h2 / hậu))),False,"(m / mong
+:agent(t / tôi)
+:result(c / có
+:tense(s / sẽ)
+:theme-of(đ / đến
+:theme(c1 / cái
+:compound(h / hậu))
+:time(s1 / sau
+:goal(k / kết quả
+:modality(c2 / cái)
+:mod(n / nhãn tiền))))
+:setting(l / lãnh
+:beneficiary-of(h1 / họ)
+:tense(đ1 / đã)
+:compound(c3 / chịu)
+:duration(t2 / temporal-quantity
+:unit(n1 / năm)
+:mod(n2 / nay)
+:quant 3))))",0.0
+điều không thể hiểu nổi là tại sao họ lại mất việc ?,(m /mất_việc:reason(w1 /possible-01:pivot(h /hiểu_nổi:theme(đ /điều):polarity(-)):agent(họ)),(m / mất_việc:reason(w1 / possible-01:pivot(h / hiểu_nổi:theme(đ / điều):polarity(-)):agent(h / họ)),False,"(m / mất
+:domain(đ / điều
+:mod(h / hiểu
+:polarity -
+:manner(n / nổi)))
+:pivot(h1 / họ)
+:manner(l1 / lại)
+:theme(v / việc)
+:cause(a / amr-unknown))",0.0
+""" hai anh cứ ngồi đây uống nước , tí là xong thôi "" .",(wz1 /multi-sentence:snt2(u /uống:agent(a1 /anh:quant(2):location(n /ngồi:modality(c /cứ):location(đ /đây)):theme(n1 /nước)):snt1(x /xong:time(t /tí):domain(anh))),(wz1 / multi-sentence:snt2(u / uống:agent(a1 / anh:quant(x / 2):location(n / ngồi:modality(c / cứ):location(đ / đây)):theme(n1 / nước)):snt1(x / xong:time(t / tí):domain(a / anh))),False,"(a1 / and
+:op1(n / ngồi
+:agent(a / anh
+:quant 2)
+:modality(c / cứ)
+:location(đ / đây))
+:op2(u / uống
+:theme(n1 / nước)
+:agent a)
+:reason(x / xong
+:quant(t / tí)
+:modality(t1 / thôi)))",0.0
+ngày thứ ba phúc thẩm vụ án Lã Thị Kim Oanh : .,(p /phúc_thẩm:time(n /ngày:ord(o /ordinal-entity:value(3)):patient(v1 /vụ_án:mod(l /lã_thị_kim_oanh))),(p / phúc_thẩm:time(n / ngày:ord(o / ordinal-entity:value(x / 3)):patient(v1 / vụ_án:mod(l / lã_thị_kim_oanh))),False,"(p / phúc thẩm
+:time(n / ngày
+:ord(o / ordinal-entity
+:value 3))
+:theme(v / vụ án
+:topic(px / person
+:wiki -
+:name(n1 / name
+:op1(l / Lã Thị Kim Oanh)))))",0.0
+"báo tt có thể là đầu tàu , qua đó rộng rãi độc giả , nhất là các doanh nghiệp , có thể lên tiếng và đưa ra biện pháp trợ giúp .",(a /and:op1(đ /đầu_tàu:domain(b /báo:mod(t /tt)):quant(p /possible)):op2(r /rộng_rãi:theme(đ1 /độc_giả:segment(n /nhất:theme(d /doanh_nghiệp))):agent(báo):degree(wz3 /possible)):op3(l1 /lên_tiếng:agent(đ2 /độc_giả:segment(nhất)):path(báo)):op4(đ3 /đưa_ra:theme(b1 /biện_pháp:compound(t1 /trợ_giúp)):agent(độc_giả))),"    (a / and
+    :op1
+        (đ / đầu_tàu
+        :domain
+            (b / báo
+            :mod
+            (t / tt
+            )
+        )
+        :quant
+        (p / possible
+        )
+    )
+    :op2
+        (r / rộng_rãi
+        :theme
+            (đ1 / độc_giả
+            :segment
+                (n / nhất
+                :theme
+                (d / doanh_nghiệp
+                )
+            )
+        )
+        :agent
+        (b / báo
+        )
+        :degree
+        (wz3 / possible
+        )
+    )
+    :op3
+        (l1 / lên_tiếng
+        :agent
+            (đ2 / độc_giả
+            :segment
+            (n / nhất
+            )
+        )
+        :path
+        (b / báo
+        )
+    )
+    :op4
+        (đ3 / đưa_ra
+        :theme
+            (b1 / biện_pháp
+            :compound
+            (t1 / trợ_giúp
+            )
+        )
+        :agent
+        (đ / độc_giả
+        )
+    )
+)",True,"(đ / đầu tàu
+:domain(b / báo
+:compound(t / tt))
+:modality(c / có thể)
+:instrument(đ1 / đó
+:result(a / and
+:op1(r / rộng rãi
+:theme(đ2 / độc giả))
+:op2(a2 / and
+:op1(l1 / lên tiếng
+:modality(n / nhất là)
+:quant(c1 / các)
+:agent(d / doanh nghiệp)
+:modality(c2 / có thể))
+:op2(đ3 / đưa
+:compound(r1 / ra)
+:theme(b1 / biện pháp
+:mod(t1 / trợ giúp))
+:agent d)))))",0.0
+""" anh hỏi ai "" ?",(h /hỏi:agent(a /anh):goal(a1 /ai):mode(interrogative),(h / hỏi:agent(a / anh):goal(a1 / ai):mode(i / interrogative),False,"(h / hỏi
+:agent(a / anh)
+:amr-unknown(a1 / ai))",0.0
+hay khai sinh cho con ?,(o /or:op1(k /khai_sinh:beneficiary(c2 /con)):mode(interrogative),(o / or:op1(k / khai_sinh:beneficiary(c2 / con)):mode(i / interrogative),False,"(k / khai sinh
+:beneficiary-arg1(c1 / con)
+:mode interrogative)",0.0

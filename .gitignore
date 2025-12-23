@@ -1,0 +1,32 @@
+# Models (quá lớn)
+outputs/vlsp_amr_qwen_7b_v2_F1_0.32/
+outputs/vlsp_amr_qwen_improved_v2/
+outputs/vlsp_amr_qwen_improved_v2_NO_VARS_BACKUP/
+outputs/checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Logs
+*.log
+training_pid.txt
+inference_pid.txt
+*.pid.txt
+
+# Compressed files
+*.tar.gz
+*.zip
+
+# Temp
+cleanup.sh
+PROJECT_STRUCTURE.txt
+check_network.sh
+
+# OS
+.DS_Store
+Thumbs.db
