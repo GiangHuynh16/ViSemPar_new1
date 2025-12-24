@@ -372,6 +372,14 @@ def setup_model_and_tokenizer(args):
     )
 
     model = get_peft_model(model, lora_config)
+
+    # CRITICAL: Enable gradients for LoRA parameters when not using quantization
+    if not use_quantization:
+        for name, param in model.named_parameters():
+            if 'lora_' in name:
+                param.requires_grad = True
+        logger.info("✓ Enabled gradients for LoRA parameters")
+
     model.print_trainable_parameters()
 
     return model, tokenizer
