@@ -12,6 +12,10 @@ __pycache__/
 .Python
 *.so
 
+# Environment variables
+.env
+.env.local
+
 # Logs
 *.log
 training_pid.txt
