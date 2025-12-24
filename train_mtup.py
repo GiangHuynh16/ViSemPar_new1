@@ -44,6 +44,26 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def check_hf_login():
+    """Check and ensure HuggingFace login before training"""
+    try:
+        from hf_auth import ensure_hf_login
+
+        logger.info("\n" + "=" * 70)
+        logger.info("CHECKING HUGGINGFACE LOGIN")
+        logger.info("=" * 70)
+
+        ensure_hf_login(require_write=False)
+
+        logger.info("=" * 70 + "\n")
+        return True
+
+    except Exception as e:
+        logger.warning(f"⚠️  HuggingFace login check failed: {e}")
+        logger.warning("Continuing without HuggingFace login...")
+        return False
+
+
 def print_banner():
     """Print MTUP training banner"""
     banner = """
@@ -561,6 +581,9 @@ def main():
 
     # Print banner
     print_banner()
+
+    # Check HuggingFace login (non-blocking)
+    check_hf_login()
 
     # Check environment
     if not check_environment():
