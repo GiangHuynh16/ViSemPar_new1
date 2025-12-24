@@ -89,15 +89,14 @@ def print_banner():
 
 
 def check_environment():
-    """Check directories and data files"""
+    """Check directories and data files - Auto-create if missing"""
     from config_mtup import DATA_DIR, OUTPUT_DIR, LOG_DIR, CHECKPOINT_DIR
 
     logger.info("\n" + "=" * 70)
     logger.info("ENVIRONMENT CHECK")
     logger.info("=" * 70)
 
-    # Check directories
-    missing_dirs = []
+    # Check and create directories
     for dir_name, dir_path in [
         ("Data", DATA_DIR),
         ("Output", OUTPUT_DIR),
@@ -105,15 +104,17 @@ def check_environment():
         ("Checkpoints", CHECKPOINT_DIR)
     ]:
         if not dir_path.exists():
-            missing_dirs.append((dir_name, dir_path))
             logger.warning(f"⚠️  {dir_name} directory missing: {dir_path}")
+            logger.info(f"   Creating {dir_name} directory...")
+            try:
+                dir_path.mkdir(parents=True, exist_ok=True)
+                logger.info(f"   ✓ Created: {dir_path}")
+            except Exception as e:
+                logger.error(f"   ❌ Failed to create {dir_name} directory: {e}")
+                logger.error(f"\n💡 Please create manually: mkdir -p {dir_path}")
+                return False
         else:
             logger.info(f"✓ {dir_name} directory: {dir_path}")
-
-    if missing_dirs:
-        logger.error("\n❌ Missing directories. Create them with:")
-        logger.error("   mkdir -p data outputs logs outputs/checkpoints")
-        return False
 
     # Check data files
     train_files = ["train_amr_1.txt", "train_amr_2.txt"]
