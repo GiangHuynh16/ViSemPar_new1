@@ -567,8 +567,8 @@ def main():
         # Quick test: 100 samples, 1 epoch (verify pipeline)
         args.max_samples = args.max_samples or 100
         args.epochs = args.epochs or 1
-        args.batch_size = args.batch_size or 2
-        args.grad_accum = args.grad_accum or 4
+        args.batch_size = args.batch_size or 1  # Reduced from 2 to avoid OOM
+        args.grad_accum = args.grad_accum or 8  # Increased from 4 to keep effective batch=8
         args.lr = args.lr or 2e-4
         args.log_steps = args.log_steps or 5
         args.save_steps = args.save_steps or 50
@@ -580,8 +580,8 @@ def main():
         # Fast iteration: 500 samples, 3 epochs (tune hyperparams)
         args.max_samples = args.max_samples or 500
         args.epochs = args.epochs or 3
-        args.batch_size = args.batch_size or 4
-        args.grad_accum = args.grad_accum or 4
+        args.batch_size = args.batch_size or 1  # Reduced from 4 to avoid OOM
+        args.grad_accum = args.grad_accum or 16  # Increased to keep effective batch=16
         args.lr = args.lr or 2e-4
         args.log_steps = args.log_steps or 10
         args.save_steps = args.save_steps or 100
@@ -591,8 +591,8 @@ def main():
     elif args.use_case == 'full_training':
         # Full training: all data, 10 epochs (OPTIMIZED for MTUP)
         args.epochs = args.epochs or 10
-        args.batch_size = args.batch_size or 4
-        args.grad_accum = args.grad_accum or 4
+        args.batch_size = args.batch_size or 1  # Reduced from 4 to avoid OOM
+        args.grad_accum = args.grad_accum or 16  # Increased to keep effective batch=16
         args.lr = args.lr or 2e-4
         args.log_steps = args.log_steps or 20
         args.save_steps = args.save_steps or 200
