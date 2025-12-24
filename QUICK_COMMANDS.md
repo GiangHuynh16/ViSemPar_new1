@@ -1,228 +1,93 @@
-# Quick Commands Reference
+# ⚡ QUICK COMMANDS - Copy Paste Nhanh
 
-**Copy-paste commands cho deployment**
+## 🔍 Kiểm Tra Training Đang Chạy Không
 
----
-
-## 🏠 **LOCAL - PUSH TO GIT**
-
+### Cách 1: Script Tự Động (Khuyến nghị)
 ```bash
 cd ~/ViSemPar_new1
+bash CHECK_TRAINING_STATUS.sh
+```
 
-# Add all new files
-git add .
+### Cách 2: Manual Commands
 
-# Commit
-git commit -m "Add MTUP implementation with Vietnamese char support"
+**Xem process Python:**
+```bash
+ps aux | grep train_mtup
+```
+- Nếu có output → Training đang chạy ✅
+- Nếu không có gì → Training không chạy ❌
 
-# Push
-git push origin main
+**Xem GPU usage:**
+```bash
+nvidia-smi
+```
+- GPU-Util > 50% → Training đang chạy ✅
+- Memory-Usage > 20GB → Model đã load ✅
+
+**Xem tmux sessions:**
+```bash
+tmux list-sessions
+```
+- Có session `mtup_full` → Training trong tmux ✅
+
+---
+
+## 👁️ Xem Training Progress
+
+### Attach vào tmux
+```bash
+tmux attach -t mtup_full
+```
+Bấm `Ctrl+B` rồi `D` để detach lại
+
+### Xem GPU real-time
+```bash
+watch -n 1 nvidia-smi
+```
+Bấm `Ctrl+C` để thoát
+
+### Xem checkpoints
+```bash
+ls -lh outputs/checkpoints_mtup/
+```
+Mỗi checkpoint mới = training đã chạy thêm 250 steps
+
+---
+
+## 🛑 Dừng Training
+
+### Dừng tạm (có thể resume)
+```bash
+# Trong tmux session
+tmux attach -t mtup_full
+# Nhấn Ctrl+C
+
+# Hoặc từ ngoài
+pkill -f train_mtup.py
+```
+
+### Kill tmux session hoàn toàn
+```bash
+tmux kill-session -t mtup_full
 ```
 
 ---
 
-## 🖥️ **SERVER - INITIAL SETUP**
+## 🎯 Most Common Commands
 
 ```bash
-# 1. SSH
-ssh your_username@server_address
+# Kiểm tra status
+bash CHECK_TRAINING_STATUS.sh
 
-# 2. Clone (first time) or Pull (update)
-git clone https://github.com/your-username/ViSemPar_new1.git
-# OR
-cd ViSemPar_new1 && git pull
+# Attach vào training
+tmux attach -t mtup_full
 
-# 3. Run setup
-cd ViSemPar_new1
-bash setup_server.sh
-# → Select Option 1: CLI Login
-# → Paste HF token when asked
-
-# 4. Verify
-huggingface-cli whoami
-```
-
----
-
-## 🔑 **HUGGING FACE TOKEN**
-
-**Get token:**
-1. Go to: https://huggingface.co/settings/tokens
-2. Click "New token"
-3. Select "Write" permission
-4. Copy token: `hf_xxxxxxxxxxxxx`
-
-**Login on server:**
-```bash
-huggingface-cli login
-# Paste token
-```
-
----
-
-## 🧪 **RUN TESTS**
-
-```bash
-# Test 1: MTUP Preprocessing
-python3 test_mtup_simple.py
-
-# Test 2: MTUP Data Preparation
-python3 quick_test_mtup.py
-
-# Test 3: SMATCH Evaluation
-python3 test_smatch.py
-
-# Test 4: Real Data Evaluation
-python3 evaluate_test_data.py
-```
-
-**Expected results:**
-- ✅ All tests pass
-- ✅ SMATCH F1 = 1.0 (self-match)
-- ✅ Preprocessing ready
-
----
-
-## 📊 **CHECK DATA**
-
-```bash
-# Count examples
-grep -c "^#::snt" data/train_amr_1.txt
-grep -c "^#::snt" data/train_amr_2.txt
-
-# View first example
-head -10 data/train_amr_1.txt
-
-# Check file sizes
-ls -lh data/
-```
-
----
-
-## 🚀 **TRAINING (MTUP) - OPTIMIZED**
-
-```bash
-# Quick test (100 samples, 1 epoch - verify pipeline)
-python3 train_mtup.py --use-case quick_test --show-sample
-
-# Fast iteration (500 samples, 3 epochs - tune hyperparams)
-python3 train_mtup.py --use-case fast_iteration
-
-# Full training (all data, 10 epochs - OPTIMIZED) ⭐ RECOMMENDED
-tmux new -s amr-training
-python3 train_mtup.py --use-case full_training
-# Ctrl+B, D (detach)
-
-# Reattach tmux
-tmux attach -t amr-training
-
-# Custom optimized training
-python3 train_mtup.py \
-  --model qwen2.5-3b \
-  --epochs 10 \
-  --batch-size 4 \
-  --grad-accum 4 \
-  --lr 2e-4 \
-  --val-split 0.1
-
-# Best accuracy (7B model, slower)
-python3 train_mtup.py \
-  --model qwen2.5-7b \
-  --epochs 15 \
-  --batch-size 2 \
-  --grad-accum 8 \
-  --lr 1e-4
-```
-
----
-
-## 📈 **MONITOR**
-
-```bash
-# GPU status
+# Xem GPU
 nvidia-smi
 
-# Logs
-tail -f outputs/logs/mtup_*/training.log
+# Xem checkpoints
+ls -lh outputs/checkpoints_mtup/
 
-# TensorBoard
-tensorboard --logdir outputs/logs
-
-# Disk space
-df -h
-du -sh outputs/
+# Dừng training
+pkill -f train_mtup.py
 ```
-
----
-
-## 🔧 **TROUBLESHOOTING**
-
-```bash
-# Reinstall dependencies
-pip install -r requirements.txt
-
-# Re-login HF
-huggingface-cli logout
-huggingface-cli login
-
-# Check Python
-python3 --version
-
-# Check CUDA
-python3 -c "import torch; print(torch.cuda.is_available())"
-```
-
----
-
-## 📝 **COMMON TASKS**
-
-**Upload data to server:**
-```bash
-# From local
-scp -r data/ user@server:~/ViSemPar_new1/
-```
-
-**Download results:**
-```bash
-# From local
-scp -r user@server:~/ViSemPar_new1/outputs/ ./outputs/
-```
-
-**Check tmux sessions:**
-```bash
-tmux ls
-tmux attach -t amr-training
-tmux kill-session -t amr-training
-```
-
----
-
-## ✅ **VERIFICATION CHECKLIST**
-
-```bash
-# Run all checks
-python3 test_mtup_simple.py && \
-python3 quick_test_mtup.py && \
-python3 test_smatch.py && \
-python3 evaluate_test_data.py && \
-echo "✅ ALL TESTS PASSED"
-```
-
----
-
-## 🎯 **ONE-LINER SETUP**
-
-```bash
-# Complete setup in one go
-git pull && \
-bash setup_server.sh && \
-python3 test_mtup_simple.py && \
-echo "✅ Setup complete!"
-```
-
----
-
-**Questions? See:**
-- [`DEPLOYMENT_GUIDE.md`](DEPLOYMENT_GUIDE.md) - Full guide
-- [`SERVER_QUICK_START.md`](SERVER_QUICK_START.md) - Server commands
-- [`HUGGINGFACE_SETUP.md`](HUGGINGFACE_SETUP.md) - HF setup
