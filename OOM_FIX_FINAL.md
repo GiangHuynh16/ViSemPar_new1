@@ -84,16 +84,37 @@ python3 train_mtup.py --use-case quick_test --show-sample --no-quantize \
 
 ## 🔍 Nếu Vẫn OOM
 
-Giảm batch size xuống còn 1 sample mỗi step:
+### GIẢI PHÁP 4: MINIMAL MODE (Emergency)
+
+Nếu Giải pháp 1-3 vẫn crash, dùng script minimal:
 
 ```bash
-python3 train_mtup.py --use-case quick_test --show-sample --no-quantize \
-  --batch-size 1 \
-  --grad-accum 2 \
-  --max-samples 25
+cd ~/ViSemPar_new1
+git pull origin main
+bash RUN_TRAINING_MINIMAL.sh
 ```
 
-Hoặc chuyển sang model nhỏ hơn (1.5B):
+Script này sẽ chạy với:
+- **Chỉ 25 samples**
+- **Batch size = 1**
+- **Gradient accumulation = 1** (không accumulate)
+- Clear tất cả cache trước khi train
+
+Nếu chạy được, bạn có thể tăng dần:
+
+```bash
+# Tăng lên 50 samples
+python3 train_mtup.py --use-case quick_test --no-quantize \
+  --batch-size 1 --grad-accum 1 --max-samples 50
+
+# Tăng grad_accum lên 2
+python3 train_mtup.py --use-case quick_test --no-quantize \
+  --batch-size 1 --grad-accum 2 --max-samples 50
+```
+
+### GIẢI PHÁP 5: Model Nhỏ Hơn
+
+Chuyển sang Qwen 1.5B thay vì 3B:
 
 ```bash
 python3 train_mtup.py --use-case quick_test --show-sample --no-quantize \
@@ -102,6 +123,8 @@ python3 train_mtup.py --use-case quick_test --show-sample --no-quantize \
   --grad-accum 4 \
   --max-samples 100
 ```
+
+Model 1.5B chỉ chiếm ~3GB GPU thay vì ~6GB.
 
 ---
 
