@@ -26,9 +26,14 @@ smatch>=1.0.4
 # Utilities
 tqdm>=4.65.0
 huggingface-hub>=0.17.0
+python-dotenv>=1.0.0
 
-# Optional but recommended
-numpy>=1.24.0
+# NumPy - IMPORTANT: Keep at 1.x for compatibility
+# NumPy 2.x breaks pandas/sklearn compiled with 1.x
+numpy>=1.24.0,<2.0.0
+
+# Optional: TensorBoard for monitoring
+tensorboard>=2.15.0
 
 # Note: xformers is optional, install separately if needed:
 # pip install xformers --no-deps
