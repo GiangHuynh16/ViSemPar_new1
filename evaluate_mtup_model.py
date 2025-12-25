@@ -6,6 +6,7 @@ Generates predictions and computes SMATCH scores
 
 import sys
 import torch
+import re
 from pathlib import Path
 from tqdm import tqdm
 import json
@@ -15,6 +16,26 @@ sys.path.insert(0, 'src')
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 from data_loader import AMRDataLoader
+
+def fix_incomplete_amr(amr_string: str) -> str:
+    """Fix common issues in model-generated AMR"""
+    amr = amr_string.strip()
+
+    # If doesn't start with '(', add it
+    if amr and not amr.startswith('('):
+        amr = '(' + amr
+
+    # Count parentheses
+    open_count = amr.count('(')
+    close_count = amr.count(')')
+
+    # Balance parentheses
+    if open_count > close_count:
+        amr += ')' * (open_count - close_count)
+    elif close_count > open_count:
+        amr = '(' * (close_count - open_count) + amr
+
+    return amr
 
 def load_model(checkpoint_path: str):
     """Load MTUP model from checkpoint"""
@@ -94,6 +115,9 @@ Output:"""
         final_amr = parts[-1].strip()
     else:
         final_amr = result_task2.strip()
+
+    # FIX: Add missing parentheses and balance structure
+    final_amr = fix_incomplete_amr(final_amr)
 
     return final_amr
 
