@@ -74,9 +74,10 @@ Output:"""
         outputs = model.generate(
             **inputs,
             max_length=max_length,
-            temperature=0.7,
+            temperature=0.1,  # Lower temperature for more deterministic output
             do_sample=True,
-            top_p=0.9,
+            top_p=0.95,
+            num_beams=1,
             pad_token_id=tokenizer.eos_token_id
         )
 
