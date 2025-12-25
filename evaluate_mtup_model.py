@@ -62,13 +62,21 @@ def load_model(checkpoint_path: str):
 def generate_mtup_prediction(model, tokenizer, sentence: str, max_length=512):
     """Generate AMR using MTUP (2-task approach)"""
 
-    # Task 1: Generate structure without variables
-    prompt_task1 = f"""Sentence: {sentence}
+    # CRITICAL: Use SAME prompt format as training (v2_natural template)
+    # The model was trained with Vietnamese prompts, NOT English!
 
-Task 1: Generate AMR structure without variables.
-Output:"""
+    # Full prompt for both tasks (as seen in training)
+    full_prompt = f"""### NHIỆM VỤ: Chuyển đổi câu tiếng Việt sang AMR (2 bước)
 
-    inputs = tokenizer(prompt_task1, return_tensors="pt").to(model.device)
+### Câu cần phân tích:
+{sentence}
+
+### Kết quả phân tích:
+
+## Bước 1 - Tạo cấu trúc AMR (chưa có biến):
+"""
+
+    inputs = tokenizer(full_prompt, return_tensors="pt").to(model.device)
 
     with torch.no_grad():
         outputs = model.generate(
@@ -79,43 +87,29 @@ Output:"""
             pad_token_id=tokenizer.eos_token_id
         )
 
-    result_task1 = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    # Extract only the AMR output (after "Output:")
-    if "Output:" in result_task1:
-        structure = result_task1.split("Output:")[-1].strip()
+    # Extract the final AMR (after "Bước 2" section)
+    # Model should generate complete output including both steps
+    if "## Bước 2" in result:
+        # Extract everything after the Bước 2 header
+        parts = result.split("## Bước 2")[1]
+        # Look for "AMR hoàn chỉnh:" section
+        if "AMR hoàn chỉnh:" in parts:
+            final_amr = parts.split("AMR hoàn chỉnh:")[-1].strip()
+        else:
+            # Fallback: take everything after Bước 2
+            final_amr = parts.strip()
     else:
-        structure = result_task1.strip()
+        # Fallback: try to extract any AMR-like structure
+        final_amr = result.strip()
 
-    # Task 2: Add variables
-    prompt_task2 = f"""{prompt_task1}
-{structure}
-
-Task 2: Add variables to complete the AMR.
-Output:"""
-
-    inputs = tokenizer(prompt_task2, return_tensors="pt").to(model.device)
-
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_length=max_length + 100,
-            do_sample=False,  # Greedy decoding - completely deterministic
-            num_beams=1,
-            pad_token_id=tokenizer.eos_token_id
-        )
-
-    result_task2 = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-    # Extract final AMR
-    if "Output:" in result_task2:
-        parts = result_task2.split("Output:")
-        final_amr = parts[-1].strip()
-    else:
-        final_amr = result_task2.strip()
-
-    # DISABLED: Post-processing was making it worse
-    # final_amr = fix_incomplete_amr(final_amr)
+    # Clean up: Remove any prompt text that leaked into output
+    # Only keep the AMR structure (starting with '(')
+    if '(' in final_amr:
+        # Find first '(' and take everything from there
+        first_paren = final_amr.index('(')
+        final_amr = final_amr[first_paren:].strip()
 
     return final_amr
 
