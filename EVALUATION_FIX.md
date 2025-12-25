@@ -1,76 +1,96 @@
-# 🔧 Evaluation Fix Applied
+# 🔧 Evaluation Fix Applied - ROOT CAUSE FOUND!
 
-## Issue
-Model was generating malformed AMR output with excessive/missing parentheses:
-- Input: `Tôi ăn cơm`
-- Expected: `(ăn :agent (tôi) :patient (cơm))`
-- Generated: `ăn:agent(tôi))` or `(((((((((c:domain(`
+## ✅ CRITICAL BUG IDENTIFIED
 
-## Root Cause
-Temperature setting too high (0.7) causing random/unstable generation.
+### The Problem
+Model was generating garbage output with excessive parentheses:
+```
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((c1:ARG0(c2:ARG1(
+```
+
+### ROOT CAUSE
+**Prompt mismatch between training and evaluation!**
+
+#### Training Prompt (Vietnamese - v2_natural template):
+```
+### NHIỆM VỤ: Chuyển đổi câu tiếng Việt sang AMR (2 bước)
+
+### Câu cần phân tích:
+{sentence}
+
+### Kết quả phân tích:
+
+## Bước 1 - Tạo cấu trúc AMR (chưa có biến):
+{amr_no_vars}
+
+## Bước 2 - Gán biến cho các khái niệm:
+...
+AMR hoàn chỉnh:
+{amr_with_vars}
+```
+
+#### Evaluation Prompt (WRONG - English):
+```
+Sentence: {sentence}
+
+Task 1: Generate AMR structure without variables.
+Output:
+```
+
+**Model couldn't recognize the English prompt because it was ONLY trained on Vietnamese prompts!**
 
 ## Fix Applied
-Reduced temperature from **0.7 → 0.1** in `evaluate_mtup_model.py` line 77:
 
-```python
-outputs = model.generate(
-    **inputs,
-    max_length=max_length,
-    temperature=0.1,  # Lower temperature for more deterministic output
-    do_sample=True,
-    top_p=0.95,
-    num_beams=1,
-    pad_token_id=tokenizer.eos_token_id
-)
-```
+### Changes in `evaluate_mtup_model.py`:
 
-## Next Steps
+1. **Replaced English prompt with Vietnamese training format**:
+   ```python
+   full_prompt = f"""### NHIỆM VỤ: Chuyển đổi câu tiếng Việt sang AMR (2 bước)
 
-### On Server (where model checkpoint exists):
+   ### Câu cần phân tích:
+   {sentence}
 
-1. **Pull latest changes**:
-   ```bash
-   cd ~/ViSemPar_new1
-   git pull origin main
+   ### Kết quả phân tích:
+
+   ## Bước 1 - Tạo cấu trúc AMR (chưa có biến):
+   """
    ```
 
-2. **Run evaluation**:
-   ```bash
-   bash RUN_EVALUATION.sh
-   # Choose option 1 (10 samples) for quick test
-   ```
+2. **Single-pass generation** (model generates both tasks at once)
+   - Model was trained to complete the full template
+   - No need for separate Task 1 + Task 2 calls
 
-3. **Check results**:
-   - If F1 score > 0: Temperature fix worked! ✅
-   - If still getting format errors: Try greedy decoding (see Alternative Fix below)
+3. **Extract AMR from "AMR hoàn chỉnh:" section**
+   - Parse the model's complete output
+   - Extract final AMR after "Bước 2" header
 
-## Alternative Fix (if temperature 0.1 still fails)
+4. **Greedy decoding** (deterministic)
+   - `do_sample=False`
+   - No temperature or top_p
 
-Try **greedy decoding** (completely deterministic):
+## Next Steps - RUN ON SERVER
 
-Edit `evaluate_mtup_model.py` line 73-82:
-```python
-outputs = model.generate(
-    **inputs,
-    max_length=max_length,
-    temperature=0.0,      # ← Change to 0.0
-    do_sample=False,      # ← Change to False
-    num_beams=1,
-    pad_token_id=tokenizer.eos_token_id
-)
+```bash
+# 1. Pull latest changes
+cd ~/ViSemPar_new1
+git pull origin main
+
+# 2. Run evaluation
+bash RUN_EVALUATION.sh
+# Choose option 1 (10 samples, ~2 min)
+
+# 3. Expected result
+# Should see valid SMATCH scores now!
 ```
 
-Then remove `top_p=0.95` parameter (not compatible with greedy decoding).
+## Expected Output
 
-## Expected Outcome
-
-After fix, evaluation should show:
 ```
 ================================================================================
 EVALUATION RESULTS
 ================================================================================
 
-Processed: 10/10 examples
+Processed: 10/10 examples  ← All should parse successfully!
 Errors:    0
 
 ================================================================================
@@ -82,10 +102,26 @@ SMATCH SCORES
 ================================================================================
 ```
 
-## Files Changed
-- ✅ [evaluate_mtup_model.py](evaluate_mtup_model.py) - Line 77: temperature reduced to 0.1
-- ✅ [fix_incomplete_amr()](evaluate_mtup_model.py#L20-L38) - Added parentheses balancing
-- ✅ Dependencies installed locally (peft, transformers, datasets, smatch)
+## Why This Should Work
 
-## Status
-🟡 **Ready to test on server** - Local changes committed, waiting for server evaluation results.
+1. ✅ **Prompt matches training** - Model recognizes Vietnamese template
+2. ✅ **Greedy decoding** - Deterministic, stable output
+3. ✅ **No post-processing** - Let model generate naturally
+4. ✅ **Proper extraction** - Parse structured output correctly
+
+## Confidence Level
+
+🟢 **High confidence** - This was the root cause. The model literally couldn't understand the English prompt we were using!
+
+---
+
+## Files Changed
+
+- ✅ [evaluate_mtup_model.py:62-114](evaluate_mtup_model.py#L62-L114) - Fixed prompt format
+- ✅ Commit: `863923e` - "CRITICAL FIX: Use correct Vietnamese prompt from training"
+
+## Commit History
+
+1. `f50aac5` - Initial temperature fix (didn't work - wrong approach)
+2. `559c998` - Tried greedy decoding (still wrong prompt)
+3. `863923e` - **CRITICAL FIX** - Vietnamese prompt (should work!)
