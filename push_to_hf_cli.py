@@ -167,6 +167,13 @@ def push_to_hf(model_type="mtup", model_path=None):
 
         # Create model card
         print("📝 Creating model card...")
+
+        # Build model card sections
+        approach = "Two-Task Decomposition (MTUP)" if model_type == "mtup" else "Single-Task Direct Generation"
+        lora_rank = 64 if model_type == "mtup" else 128
+        trainable_params = "~67M (LoRA adapters)" if model_type == "mtup" else "~134M (LoRA adapters)"
+        expected_f1 = "~0.49-0.53" if model_type == "mtup" else "~0.42-0.46"
+
         model_card = f"""---
 language:
 - vi
@@ -188,9 +195,9 @@ LoRA adapter for Vietnamese Abstract Meaning Representation (AMR) parsing.
 ## Model Details
 
 - **Base Model**: Qwen/Qwen2.5-7B-Instruct (7.62B parameters)
-- **Approach**: {"Two-Task Decomposition (MTUP)" if model_type == "mtup" else "Single-Task Direct Generation"}
-- **LoRA Rank**: {64 if model_type == "mtup" else 128}
-- **Trainable Parameters**: {"~67M (LoRA adapters)" if model_type == "mtup" else "~134M (LoRA adapters)"}
+- **Approach**: {approach}
+- **LoRA Rank**: {lora_rank}
+- **Trainable Parameters**: {trainable_params}
 - **Framework**: PEFT (Parameter-Efficient Fine-Tuning)
 - **Language**: Vietnamese
 - **Task**: AMR Parsing
@@ -216,17 +223,17 @@ tokenizer = AutoTokenizer.from_pretrained("{full_repo_name}")
 
 # Parse Vietnamese sentence
 sentence = "Tôi yêu Việt Nam"
-{"prompt = f'''### NHIỆM VỤ" if model_type == "mtup" else "prompt = f'''Convert to AMR: {sentence}'''"}
-{"Chuyển đổi câu tiếng Việt sang AMR (2 bước)" if model_type == "mtup" else ""}
-{"" if model_type != "mtup" else """
+prompt = \"\"\"### NHIỆM VỤ
+Chuyển đổi câu tiếng Việt sang AMR (2 bước)
+
 ### CÂU ĐẦU VÀO
-{sentence}
+{{sentence}}
 
 ### KẾT QUẢ
 
 ## BƯỚC 1: Cấu trúc AMR (chưa có biến)
-'''"
-"""}
+\"\"\"
+
 inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 outputs = model.generate(**inputs, max_length=512)
 result = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -235,7 +242,7 @@ print(result)
 
 ## Performance
 
-- **Expected F1 Score**: {" ~0.49-0.53" if model_type == "mtup" else "~0.42-0.46"}
+- **Expected F1 Score**: {expected_f1}
 - **Evaluation Metric**: SMATCH
 - **Test Set**: Vietnamese AMR corpus (150 examples)
 
