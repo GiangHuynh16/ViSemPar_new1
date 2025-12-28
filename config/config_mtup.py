@@ -73,19 +73,21 @@ LORA_CONFIG = {
 
 TRAINING_CONFIG = {
     "learning_rate": 2e-4,              # OPTIMIZED: Lower for stable training
-    "num_train_epochs": 10,              # OPTIMIZED: MTUP converges faster, 10 epochs sufficient
+    "num_train_epochs": 15,              # IMPROVED: More epochs for better convergence (was 10)
     "per_device_train_batch_size": 4,    # 3B model can handle larger batch
     "gradient_accumulation_steps": 4,    # Effective batch size: 16
     "warmup_steps": 100,                 # More warmup for stability
     "weight_decay": 0.01,
     "max_grad_norm": 1.0,
     "logging_steps": 10,
-    "save_steps": 250,                   # Save more frequently
-    "save_total_limit": 3,
+    "save_steps": 200,                   # IMPROVED: Save more frequently (was 250)
+    "save_total_limit": 5,               # IMPROVED: Keep more checkpoints (was 3)
     "fp16": True,
     "optim": "adamw_8bit",
     "lr_scheduler_type": "cosine",
     "seed": 42,
+    "load_best_model_at_end": True,      # ADDED: Load best checkpoint at end
+    "metric_for_best_model": "loss",     # ADDED: Use loss as metric
 }
 
 # ==============================================================================

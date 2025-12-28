@@ -32,24 +32,24 @@ AMR(có_biến):
 # Best for: Better model understanding, conversational style
 # ==============================================================================
 MTUP_TEMPLATE_V2_NATURAL = """### NHIỆM VỤ
-Chuyển đổi câu tiếng Việt sang AMR (2 bước)
+Chuyển đổi câu tiếng Việt sang biểu diễn AMR
 
 ### CÂU ĐẦU VÀO
 {sentence}
 
 ### KẾT QUẢ
 
-## BƯỚC 1: Cấu trúc AMR (chưa có biến)
+## BƯỚC 1: Cấu trúc AMR không có biến
 {amr_no_vars}
 
-## BƯỚC 2: Gán biến
+## BƯỚC 2: AMR hoàn chỉnh với biến
 
 Quy tắc gán biến:
-- Mỗi khái niệm → một biến (ví dụ: n, p, c)
-- Khái niệm lặp lại → dùng chung biến (đồng tham chiếu)
+- Mỗi khái niệm → một biến duy nhất
+- Khái niệm lặp lại → dùng chung biến
 - Format: (biến / khái_niệm :quan_hệ ...)
 
-AMR hoàn chỉnh:
+AMR cuối cùng:
 {amr_with_vars}"""
 
 

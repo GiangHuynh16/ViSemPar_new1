@@ -487,10 +487,37 @@ def train_mtup_model(model, tokenizer, train_dataset, val_dataset, args):
 
     # Save final model
     final_model_path = CHECKPOINT_DIR / f"mtup_{args.use_case}_final"
+    final_model_path.parent.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
+
+    logger.info(f"\n💾 Saving model to: {final_model_path.absolute()}")
     trainer.save_model(str(final_model_path))
     tokenizer.save_pretrained(str(final_model_path))
 
-    logger.info(f"\n💾 Model saved to: {final_model_path}")
+    # Verify model files exist
+    required_files = ["adapter_model.safetensors", "adapter_config.json", "tokenizer_config.json"]
+    missing = []
+    for file in required_files:
+        if not (final_model_path / file).exists():
+            # Try .bin format if .safetensors doesn't exist
+            if file == "adapter_model.safetensors" and (final_model_path / "adapter_model.bin").exists():
+                continue
+            missing.append(file)
+
+    if missing:
+        logger.error(f"\n❌ WARNING: Missing files after save: {missing}")
+        logger.error(f"❌ Model may not have saved correctly!")
+        logger.error(f"❌ Check path: {final_model_path.absolute()}")
+    else:
+        logger.info(f"✅ All required files present")
+        logger.info(f"✅ Model ready for evaluation/upload")
+
+        # Show actual file sizes
+        adapter_file = final_model_path / "adapter_model.safetensors"
+        if not adapter_file.exists():
+            adapter_file = final_model_path / "adapter_model.bin"
+        if adapter_file.exists():
+            size_mb = adapter_file.stat().st_size / (1024 * 1024)
+            logger.info(f"✅ Model size: {size_mb:.1f} MB")
 
     return trainer, train_result
 
