@@ -146,7 +146,7 @@ def push_to_hf(model_type="mtup", model_path=None):
         return False
 
     # Repository configuration
-    repo_name = f"vietnamese-amr-{model_type}-7b"
+    repo_name = f"vietnamese-amr-{model_type}-qwen"
     full_repo_name = f"{username}/{repo_name}"
 
     print()
