@@ -82,7 +82,7 @@ TRAINING_CONFIG = {
     "save_steps": 200,                   # IMPROVED: Save more frequently (was 250)
     "save_total_limit": 5,               # IMPROVED: Keep more checkpoints (was 3)
     "fp16": True,
-    "optim": "adamw_8bit",
+    "optim": "adamw_torch",              # FIXED: Use standard AdamW (adamw_8bit requires bitsandbytes)
     "lr_scheduler_type": "cosine",
     "seed": 42,
     "load_best_model_at_end": True,      # ADDED: Load best checkpoint at end
