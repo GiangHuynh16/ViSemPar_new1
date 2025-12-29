@@ -38,9 +38,8 @@ MODELS = {
 }
 
 # Default model for MTUP training
-# NOTE: Using 3B instead of 7B due to GPU memory constraints (no quantization)
-# 7B requires bitsandbytes for quantization which is not available
-MODEL_NAME = MODELS['qwen2.5-3b']
+# UPDATED: Using 7B for better performance (24GB VRAM available)
+MODEL_NAME = MODELS['qwen2.5-7b']
 MAX_SEQ_LENGTH = 2048  # Sufficient for MTUP format with 2 tasks
 
 # ==============================================================================
@@ -57,8 +56,8 @@ USE_4BIT_QUANTIZATION = False  # Disabled - bitsandbytes not available
 # ==============================================================================
 
 LORA_CONFIG = {
-    "r": 64,                     # Reduced rank for smaller models (was 128)
-    "lora_alpha": 128,           # 2x rank for stability
+    "r": 128,                    # INCREASED: Higher rank for 7B model (was 64)
+    "lora_alpha": 256,           # 2x rank for stability
     "lora_dropout": 0.05,        # Small dropout
     "target_modules": [
         "q_proj", "k_proj", "v_proj", "o_proj",
@@ -74,8 +73,8 @@ LORA_CONFIG = {
 TRAINING_CONFIG = {
     "learning_rate": 2e-4,              # OPTIMIZED: Lower for stable training
     "num_train_epochs": 15,              # IMPROVED: More epochs for better convergence (was 10)
-    "per_device_train_batch_size": 4,    # 3B model can handle larger batch
-    "gradient_accumulation_steps": 4,    # Effective batch size: 16
+    "per_device_train_batch_size": 2,    # REDUCED: 7B model needs smaller batch (was 4)
+    "gradient_accumulation_steps": 8,    # INCREASED: Keep effective batch size = 16
     "warmup_steps": 100,                 # More warmup for stability
     "weight_decay": 0.01,
     "max_grad_norm": 1.0,
