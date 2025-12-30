@@ -1,0 +1,189 @@
+========================================
+QUICK COMMANDS FOR NEW SERVER SETUP
+========================================
+
+Server: islabworker2@islab-server2
+Target: /mnt/nghiepth/giangha/ViSemPar
+
+========================================
+STEP 1: SSH TO SERVER
+========================================
+
+ssh islabworker2@islab-server2
+
+
+========================================
+STEP 2: SETUP SSH KEY (If needed)
+========================================
+
+# Generate key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Copy public key
+cat ~/.ssh/id_ed25519.pub
+
+# Add to GitHub:
+# https://github.com/settings/keys
+
+# Test connection
+ssh -T git@github.com
+
+
+========================================
+STEP 3: RUN QUICK SETUP SCRIPT
+========================================
+
+# Create directory and navigate
+mkdir -p /mnt/nghiepth/giangha/ViSemPar
+cd /mnt/nghiepth/giangha/ViSemPar
+
+# Clone repo
+git clone git@github.com:GiangHuynh16/ViSemPar_new1.git
+cd ViSemPar_new1
+
+# Run setup script (checks everything)
+bash QUICK_START_NEW_SERVER.sh
+
+
+========================================
+STEP 4: ACTIVATE ENVIRONMENT
+========================================
+
+# Check existing environments
+conda env list
+
+# Activate environment (choose one)
+conda activate lora_py310
+# OR
+conda activate baseline_7b
+
+# Verify
+python --version
+python -c "import torch; print(torch.__version__)"
+
+
+========================================
+STEP 5: ADJUST CONFIG (If needed)
+========================================
+
+# Check GPU VRAM first
+nvidia-smi
+
+# Edit config based on VRAM:
+nano config/config.py
+
+# For 40GB+ VRAM (A100, etc.):
+MAX_SEQ_LENGTH = 2048
+"per_device_train_batch_size": 2,
+"gradient_accumulation_steps": 8,
+
+# For 32GB VRAM (V100):
+MAX_SEQ_LENGTH = 1024
+"per_device_train_batch_size": 1,
+"gradient_accumulation_steps": 16,
+
+# For 24GB VRAM (RTX 3090):
+MAX_SEQ_LENGTH = 512
+"per_device_train_batch_size": 1,
+"gradient_accumulation_steps": 16,
+
+# Save: Ctrl+O, Enter, Ctrl+X
+
+
+========================================
+STEP 6: START TRAINING IN TMUX
+========================================
+
+# Create tmux session
+tmux new -s baseline_7b
+
+# Inside tmux, activate environment
+conda activate lora_py310
+
+# Navigate to project
+cd /mnt/nghiepth/giangha/ViSemPar/ViSemPar_new1
+
+# Start training
+bash VERIFY_AND_START.sh
+
+# Detach from tmux: Ctrl+B then D
+
+
+========================================
+STEP 7: MONITOR TRAINING
+========================================
+
+# In another SSH session:
+
+# Watch GPU
+watch -n 1 nvidia-smi
+
+# Check logs
+tail -f logs/training_baseline*.log
+
+# Reattach to tmux
+tmux attach -t baseline_7b
+
+
+========================================
+TMUX QUICK REFERENCE
+========================================
+
+Create session:    tmux new -s baseline_7b
+Detach:           Ctrl+B, then D
+List sessions:    tmux ls
+Attach:           tmux attach -t baseline_7b
+Kill session:     tmux kill-session -t baseline_7b
+
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Permission Denied:
+  # Use home directory instead
+  cd ~
+  mkdir -p ViSemPar
+  cd ViSemPar
+  git clone ...
+
+SSH Key Issues:
+  # Check SSH agent
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+
+OOM Error:
+  # Reduce config in config/config.py
+  MAX_SEQ_LENGTH = 512
+  batch_size = 1
+
+Meta Tensor Error:
+  # Should be fixed in latest code
+  # Verify device_map=None in train_baseline.py
+  grep "device_map=None" train_baseline.py
+
+
+========================================
+AFTER TRAINING COMPLETES
+========================================
+
+# Evaluate model
+python evaluate_baseline_model.py \
+  --checkpoint outputs/checkpoints/baseline_7b_final \
+  --test-file data/public_test_ground_truth.txt \
+  --output results/baseline_7b_evaluation.json
+
+# Check results
+cat results/baseline_7b_evaluation.json
+
+
+========================================
+EXPECTED TRAINING TIME
+========================================
+
+40GB+ VRAM (seq=2048, batch=2):  ~10-12 hours
+32GB VRAM (seq=1024, batch=1):   ~12-15 hours
+24GB VRAM (seq=512, batch=1):    ~15-18 hours
+
+
+========================================
