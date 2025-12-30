@@ -28,7 +28,7 @@ echo ""
 
 # Step 3: Verify batch_size is 1
 echo "Step 3: Verifying batch_size configuration..."
-BATCH_SIZE=$(grep "per_device_train_batch_size" config/config.py | awk -F': ' '{print $2}' | grep -oP '^\d+' | head -1)
+BATCH_SIZE=$(grep '"per_device_train_batch_size":' config/config.py | awk -F': ' '{print $2}' | awk '{print $1}' | tr -d ',')
 echo "  Found: per_device_train_batch_size = $BATCH_SIZE"
 if [ "$BATCH_SIZE" != "1" ]; then
     echo "  ✗ ERROR: batch_size should be 1, but found $BATCH_SIZE"
