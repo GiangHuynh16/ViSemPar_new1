@@ -274,16 +274,19 @@ def setup_model_and_tokenizer(args):
     logger.info("\nLoading model...")
 
     if not use_quantization and torch.cuda.is_available():
-        logger.info("⚠️  Loading model with maximum CPU offload to reduce GPU memory usage")
+        logger.info("⚠️  Loading model with device_map for CPU offload")
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
             quantization_config=None,
             device_map="auto",
-            max_memory={0: "12GB", "cpu": "50GB"},  # Very aggressive: only 12GB on GPU, rest on CPU
+            max_memory={0: "12GB", "cpu": "50GB"},
             offload_folder="offload",
             trust_remote_code=True,
             torch_dtype=torch.float16
         )
+        # Mark model as already on device to prevent Trainer from moving it
+        model.is_parallelizable = True
+        model.model_parallel = True
     else:
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
@@ -370,6 +373,8 @@ def train_baseline_model(model, tokenizer, train_dataset, val_dataset, args):
         lr_scheduler_type=TRAINING_CONFIG.get('lr_scheduler_type', 'cosine'),
         report_to=["tensorboard"],
         logging_dir=str(OUTPUT_DIR / "logs" / f"baseline_{timestamp}"),
+        ddp_find_unused_parameters=False,  # Important for models with device_map
+        remove_unused_columns=False,  # Keep all columns when using device_map
     )
 
     logger.info("Training Configuration:")
