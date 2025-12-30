@@ -18,7 +18,7 @@ CHECKPOINT_DIR = OUTPUT_DIR / "checkpoints"
 
 # Model Configuration - BASELINE (Same as MTUP for fair comparison)
 MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"  # Same as MTUP
-MAX_SEQ_LENGTH = 2048  # Same as MTUP
+MAX_SEQ_LENGTH = 512  # CRITICAL: Reduced to 512 to fit in memory (MTUP uses 2048 but baseline has OOM)
 
 # Quantization - Disabled (same as MTUP)
 USE_4BIT_QUANTIZATION = False  # Disabled - bitsandbytes not available

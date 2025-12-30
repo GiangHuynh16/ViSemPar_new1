@@ -275,12 +275,12 @@ def setup_model_and_tokenizer(args):
 
     # For non-quantized mode, use CPU offloading to reduce GPU memory
     if not use_quantization and torch.cuda.is_available():
-        logger.info("⚠️  Loading model with aggressive CPU offload (16GB GPU limit)")
+        logger.info("⚠️  Loading model with maximum CPU offload (14GB GPU limit)")
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
             quantization_config=None,  # Don't use quantization config when disabled
             device_map="auto",
-            max_memory={0: "16GB", "cpu": "40GB"},  # Limit GPU to 16GB, reserve 8GB for training
+            max_memory={0: "14GB", "cpu": "50GB"},  # Limit GPU to 14GB, reserve 10GB for training
             offload_folder="offload",
             trust_remote_code=True,
             torch_dtype=torch.float16
