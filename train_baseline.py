@@ -328,6 +328,15 @@ def setup_model_and_tokenizer(args):
                 param.requires_grad = True
         logger.info("✓ Enabled gradients for LoRA parameters")
 
+    # CRITICAL: Mark model as parallelizable AFTER applying LoRA
+    # This prevents Trainer from trying to move the model with .to(device)
+    if hasattr(model, 'base_model'):
+        model.base_model.is_parallelizable = True
+        model.base_model.model_parallel = True
+    model.is_parallelizable = True
+    model.model_parallel = True
+    logger.info("✓ Model marked as parallelizable to preserve device_map")
+
     model.print_trainable_parameters()
 
     return model, tokenizer
