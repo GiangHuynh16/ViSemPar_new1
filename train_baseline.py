@@ -364,7 +364,7 @@ def train_baseline_model(model, tokenizer, train_dataset, val_dataset, args):
         load_best_model_at_end=TRAINING_CONFIG.get('load_best_model_at_end', True) if val_dataset else False,
         metric_for_best_model=TRAINING_CONFIG.get('metric_for_best_model', 'loss') if val_dataset else None,
         fp16=torch.cuda.is_available(),
-        gradient_checkpointing=False,
+        gradient_checkpointing=True,  # Enable for memory optimization
         optim=TRAINING_CONFIG.get('optim', 'adamw_torch'),
         lr_scheduler_type=TRAINING_CONFIG.get('lr_scheduler_type', 'cosine'),
         report_to=["tensorboard"],

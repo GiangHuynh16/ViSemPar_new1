@@ -19,7 +19,7 @@ CHECKPOINT_DIR = OUTPUT_DIR / "checkpoints"
 # Model Configuration - BASELINE (Unified with MTUP for fair comparison)
 # UPDATED: Using 7B for fair comparison with MTUP 7B (24GB VRAM available)
 MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
-MAX_SEQ_LENGTH = 2048  # Sufficient for complex AMR structures
+MAX_SEQ_LENGTH = 1536  # Optimized: 2048→1536 saves ~25% memory without reducing model params
 
 # Quantization - Disabled (same as MTUP)
 USE_4BIT_QUANTIZATION = False  # Disabled - bitsandbytes not available
