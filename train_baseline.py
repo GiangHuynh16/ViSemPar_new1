@@ -274,12 +274,12 @@ def setup_model_and_tokenizer(args):
     logger.info("\nLoading model...")
 
     if not use_quantization and torch.cuda.is_available():
-        logger.info("⚠️  Loading model with aggressive CPU offload to reduce GPU memory usage")
+        logger.info("⚠️  Loading model with maximum CPU offload to reduce GPU memory usage")
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
             quantization_config=None,
             device_map="auto",
-            max_memory={0: "16GB", "cpu": "40GB"},  # Reduced GPU limit to leave room for training
+            max_memory={0: "12GB", "cpu": "50GB"},  # Very aggressive: only 12GB on GPU, rest on CPU
             offload_folder="offload",
             trust_remote_code=True,
             torch_dtype=torch.float16
@@ -295,9 +295,10 @@ def setup_model_and_tokenizer(args):
 
     logger.info(f"✓ Model loaded")
 
-    # Enable gradient checkpointing
-    model.gradient_checkpointing_enable()
-    logger.info("✓ Gradient checkpointing enabled")
+    # NOTE: Gradient checkpointing enabled via TrainingArguments instead
+    # Enabling here can cause memory issues with device_map="auto"
+    # model.gradient_checkpointing_enable()
+    # logger.info("✓ Gradient checkpointing enabled")
 
     # Prepare for k-bit training if quantized
     if use_quantization and torch.cuda.is_available():

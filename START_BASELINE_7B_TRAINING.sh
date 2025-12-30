@@ -21,10 +21,10 @@ echo "  - Batch size: 1 (per device, optimized for memory)"
 echo "  - Gradient accumulation: 16 (increased to maintain effective batch)"
 echo "  - Effective batch size: 16 (same as MTUP)"
 echo "  - Max sequence length: 1024 (optimized from 2048)"
-echo "  - Max GPU memory: 16GB (with CPU offload)"
+echo "  - Max GPU memory: 12GB (maximum CPU offload)"
 echo "  - Learning rate: 2e-4"
-echo "  - Estimated time: ~12-15 hours"
-echo "  - Peak VRAM usage: ~16-18 GB (aggressively optimized)"
+echo "  - Estimated time: ~15-18 hours (slower due to CPU offload)"
+echo "  - Peak VRAM usage: ~12-15 GB (maximum optimization)"
 echo ""
 
 # Check VRAM
