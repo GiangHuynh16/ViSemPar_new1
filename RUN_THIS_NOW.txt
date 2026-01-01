@@ -1,0 +1,68 @@
+==========================================
+🔥 RUN THESE COMMANDS NOW
+==========================================
+
+Root cause found and fixed!
+Issue: gradient_checkpointing_enable() was called BEFORE LoRA
+Fix: Moved it to AFTER LoRA
+
+==========================================
+COMMANDS TO RUN ON SERVER
+==========================================
+
+# 1. Stop current training
+pkill -f train_baseline.py
+
+# 2. Navigate to project
+cd /mnt/nghiepth/giangha/visempar/ViSemPar_new1
+
+# 3. Pull the fix
+git reset --hard origin/main
+git pull origin main
+
+# 4. Clear Python cache (IMPORTANT!)
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+
+# 5. Activate environment
+conda activate baseline_final
+
+# 6. Test the fix
+python test_bf16_forward.py
+
+# 7. If test passes, start training
+bash VERIFY_AND_START.sh
+
+
+==========================================
+WHAT YOU SHOULD SEE
+==========================================
+
+After running test_bf16_forward.py, you should see:
+
+Step 8: Testing backward pass with gradient checkpointing...
+  Loss before backward: 2.591958
+  Gradient norm: 1.234567  ← NOT NaN anymore!
+  ✓ Gradients computed successfully
+
+✅ SUCCESS: BF16 working correctly
+
+
+After starting training, you should see:
+
+{'loss': 8.92, 'grad_norm': 2.14, 'learning_rate': 0.000198}
+{'loss': 8.71, 'grad_norm': 1.89, 'learning_rate': 0.000196}
+{'loss': 8.52, 'grad_norm': 2.34, 'learning_rate': 0.000194}
+
+✅ All values > 0, none are NaN!
+
+
+==========================================
+IF YOU WANT MORE DETAILS
+==========================================
+
+Read these files:
+- ROOT_CAUSE_FOUND.md     - Full explanation
+- APPLY_CRITICAL_FIX.sh   - Automated fix script
+
+
+==========================================
