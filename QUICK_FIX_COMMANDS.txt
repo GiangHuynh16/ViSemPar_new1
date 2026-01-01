@@ -1,0 +1,121 @@
+==========================================
+QUICK FIX COMMANDS FOR NaN LOSS
+==========================================
+
+Run these commands on server to fix the NaN loss issue:
+
+==========================================
+1. STOP TRAINING AND PULL LATEST CODE
+==========================================
+
+ssh islabworker2@islab-server2
+pkill -f train_baseline.py
+cd /mnt/nghiepth/giangha/visempar/ViSemPar_new1
+git reset --hard origin/main
+git pull origin main
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+
+
+==========================================
+2. RUN DIAGNOSTIC TEST
+==========================================
+
+conda activate baseline_final
+bash DEBUG_NAN_LOSS.sh
+
+
+==========================================
+3A. IF BF16 TEST PASSES (✅)
+==========================================
+
+# Training should work now with latest code
+# Just restart training:
+bash VERIFY_AND_START.sh
+
+
+==========================================
+3B. IF BF16 TEST FAILS (❌) - APPLY FIX
+==========================================
+
+# Solution: Disable gradient checkpointing + use FP16
+
+# Edit config
+nano config/config.py
+
+# Change these lines:
+#   "fp16": False,    →  "fp16": True,
+#   "bf16": True,     →  "bf16": False,
+
+# Save: Ctrl+O, Enter, Ctrl+X
+
+# Edit training script
+nano train_baseline.py
+
+# Find line 311 and comment it out:
+#   model.gradient_checkpointing_enable()
+# Change to:
+#   # model.gradient_checkpointing_enable()
+
+# Save: Ctrl+O, Enter, Ctrl+X
+
+# Clear cache
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+
+# Start training
+bash VERIFY_AND_START.sh
+
+
+==========================================
+4. VERIFY TRAINING IS WORKING
+==========================================
+
+# In another terminal, watch logs:
+tail -f logs/training_baseline*.log
+
+# Look for:
+#   {'loss': 8.xxxx, 'grad_norm': 2.xxxx, 'learning_rate': 0.000xxx}
+
+# Loss should be:
+#   ✅ > 0 (not zero)
+#   ✅ Not NaN
+#   ✅ Gradually decreasing
+
+
+==========================================
+5. IF STILL FAILING
+==========================================
+
+# Try minimal config (most stable):
+
+nano config/config.py
+
+# Change:
+MAX_SEQ_LENGTH = 512
+"per_device_train_batch_size": 1,
+"gradient_accumulation_steps": 16,
+"fp16": True,
+"bf16": False,
+
+# Make sure gradient checkpointing is commented:
+nano train_baseline.py
+# Line 311: # model.gradient_checkpointing_enable()
+
+# Clear cache and retry:
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+bash VERIFY_AND_START.sh
+
+
+==========================================
+EXPECTED SUCCESSFUL OUTPUT
+==========================================
+
+Step 10:  {'loss': 8.92, 'grad_norm': 2.14, 'learning_rate': 0.000198}
+Step 20:  {'loss': 8.71, 'grad_norm': 1.89, 'learning_rate': 0.000196}
+Step 30:  {'loss': 8.52, 'grad_norm': 2.34, 'learning_rate': 0.000194}
+
+✅ Loss > 0 and decreasing
+✅ Grad norm > 0
+✅ Learning rate > 0
+
+
+==========================================
