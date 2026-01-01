@@ -310,10 +310,8 @@ def setup_model_and_tokenizer(args):
         )
         logger.info(f"✓ Model loaded")
 
-    # Enable gradient checkpointing to reduce memory usage (SAME AS MTUP)
-    # This is now safe because we're not using device_map
-    model.gradient_checkpointing_enable()
-    logger.info("✓ Gradient checkpointing enabled (reduces memory usage)")
+    # NOTE: gradient_checkpointing_enable() must be called AFTER LoRA is applied
+    # Otherwise LoRA parameters won't have proper gradient tracking
 
     # Prepare for k-bit training if quantized
     if use_quantization and torch.cuda.is_available():
@@ -339,6 +337,11 @@ def setup_model_and_tokenizer(args):
             if 'lora_' in name:
                 param.requires_grad = True
         logger.info("✓ Enabled gradients for LoRA parameters")
+
+    # CRITICAL: Enable gradient checkpointing AFTER LoRA is applied
+    # This ensures LoRA parameters have proper gradient tracking
+    model.gradient_checkpointing_enable()
+    logger.info("✓ Gradient checkpointing enabled (reduces memory usage)")
 
     model.print_trainable_parameters()
 
