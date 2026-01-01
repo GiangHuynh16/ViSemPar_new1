@@ -18,10 +18,10 @@ CHECKPOINT_DIR = OUTPUT_DIR / "checkpoints"
 
 # Model Configuration - BASELINE (Same as MTUP for fair comparison)
 MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"  # Same as MTUP
-MAX_SEQ_LENGTH = 384  # CRITICAL: Reduced to 384 (no gradient checkpointing uses much more memory)
+MAX_SEQ_LENGTH = 512  # With 4-bit quantization can use 512
 
-# Quantization - Disabled (same as MTUP)
-USE_4BIT_QUANTIZATION = False  # Disabled - bitsandbytes not available
+# Quantization - ENABLED for baseline (needed without gradient checkpointing)
+USE_4BIT_QUANTIZATION = True  # Required - 7B model + no gradient checkpointing needs quantization
 
 # LoRA Configuration - Optimized for Vietnamese AMR
 LORA_CONFIG = {
