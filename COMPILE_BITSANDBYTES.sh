@@ -43,7 +43,9 @@ echo ""
 # Compile for CUDA 11.8
 echo "Step 4: Compiling for CUDA 11.8..."
 echo "  This may take 5-10 minutes..."
-CUDA_VERSION=118 make cuda11x
+# Use cmake instead of make for newer bitsandbytes
+CUDA_VERSION=118 cmake -DCOMPUTE_BACKEND=cuda -S . -B build
+cmake --build build
 echo "  ✓ Compilation complete"
 echo ""
 
