@@ -16,12 +16,12 @@ CHECKPOINT_DIR = OUTPUT_DIR / "checkpoints"
 # NOTE: Directories must be created manually before training
 # Run: mkdir -p data outputs logs outputs/checkpoints
 
-# Model Configuration - BASELINE
-MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"  # 3B fits in memory without quantization
-MAX_SEQ_LENGTH = 1024  # 3B model can handle longer sequences
+# Model Configuration - BASELINE (7B for comparison with MTUP)
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"  # Must use 7B to compare with MTUP
+MAX_SEQ_LENGTH = 512  # With 4-bit quantization
 
-# Quantization - DISABLED (3B model doesn't need it)
-USE_4BIT_QUANTIZATION = False  # 3B fits without quantization
+# Quantization - REQUIRED for 7B
+USE_4BIT_QUANTIZATION = True  # Required - must compile bitsandbytes from source
 
 # LoRA Configuration - Optimized for Vietnamese AMR
 LORA_CONFIG = {
@@ -41,8 +41,8 @@ LORA_CONFIG = {
 TRAINING_CONFIG = {
     "learning_rate": 2e-4,
     "num_train_epochs": 15,
-    "per_device_train_batch_size": 2,    # 3B model can handle batch=2
-    "gradient_accumulation_steps": 8,    # Keep effective batch = 16
+    "per_device_train_batch_size": 1,    # 7B with quantization
+    "gradient_accumulation_steps": 16,   # Keep effective batch = 16
     "warmup_steps": 100,                 # Same as MTUP
     "weight_decay": 0.01,
     "max_grad_norm": 1.0,
