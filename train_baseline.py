@@ -391,11 +391,10 @@ def train_baseline_model(model, tokenizer, train_dataset, val_dataset, args):
     logger.info(f"  Learning rate: {training_args.learning_rate}")
     logger.info(f"  Total steps: {len(train_dataset) // (training_args.per_device_train_batch_size * training_args.gradient_accumulation_steps) * training_args.num_train_epochs}")
 
-    # Data collator
-    data_collator = DataCollatorForLanguageModeling(
-        tokenizer=tokenizer,
-        mlm=False
-    )
+    # Data collator - Use default collator since we already set labels in dataset
+    # DataCollatorForLanguageModeling can cause issues with pre-set labels
+    from transformers import default_data_collator
+    data_collator = default_data_collator
 
     # NOTE: Monkey-patch no longer needed since we're not using device_map
     # Model is loaded directly on GPU, so Trainer can move it normally
