@@ -50,6 +50,12 @@ print()
 
 # Apply LoRA
 print("Step 4: Applying LoRA...")
+
+# Prepare model for LoRA: freeze base parameters
+print("  Freezing base model parameters...")
+for param in model.parameters():
+    param.requires_grad = False
+
 lora_config = LoraConfig(
     r=128,
     lora_alpha=256,
@@ -58,15 +64,16 @@ lora_config = LoraConfig(
     bias="none",
     task_type="CAUSAL_LM"
 )
+
+# Apply LoRA - this will automatically set requires_grad=True for LoRA params
 model = get_peft_model(model, lora_config)
+
+# Verify LoRA parameters have gradients
+lora_params_count = sum(1 for name, param in model.named_parameters() if param.requires_grad and 'lora_' in name)
+print(f"  LoRA parameters with gradients: {lora_params_count}")
 
 # CRITICAL: Set model to training mode BEFORE gradient checkpointing
 model.train()
-
-# CRITICAL: Enable gradients for LoRA parameters
-for name, param in model.named_parameters():
-    if 'lora_' in name:
-        param.requires_grad = True
 
 # CRITICAL: Enable gradient checkpointing AFTER LoRA is applied AND model.train()
 model.gradient_checkpointing_enable()

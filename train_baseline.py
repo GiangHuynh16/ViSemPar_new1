@@ -313,6 +313,22 @@ def setup_model_and_tokenizer(args):
     # NOTE: gradient_checkpointing_enable() must be called AFTER LoRA is applied
     # Otherwise LoRA parameters won't have proper gradient tracking
 
+    # Prepare model for LoRA training
+    # For non-quantized models, we need to:
+    # 1. Cast layer norms to fp32 for stability
+    # 2. Freeze base model parameters (only train LoRA)
+    if not use_quantization:
+        # Cast LayerNorm to fp32 for training stability
+        for name, module in model.named_modules():
+            if "norm" in name.lower() or isinstance(module, torch.nn.LayerNorm):
+                module = module.to(torch.float32)
+        logger.info("✓ Cast LayerNorm modules to fp32 for stability")
+
+        # Freeze all base model parameters
+        for param in model.parameters():
+            param.requires_grad = False
+        logger.info("✓ Froze base model parameters (will unfreeze LoRA params after applying LoRA)")
+
     # Prepare for k-bit training if quantized
     if use_quantization and torch.cuda.is_available():
         model = prepare_model_for_kbit_training(model)
@@ -329,19 +345,23 @@ def setup_model_and_tokenizer(args):
         task_type="CAUSAL_LM"
     )
 
+    # Apply LoRA - this will automatically set requires_grad=True for LoRA params
     model = get_peft_model(model, lora_config)
+    logger.info("✓ LoRA applied")
+
+    # Verify LoRA parameters have gradients enabled
+    lora_params_count = sum(1 for name, param in model.named_parameters() if param.requires_grad and 'lora_' in name)
+    if lora_params_count == 0:
+        logger.warning("⚠️  No LoRA parameters have requires_grad=True! Manually enabling...")
+        for name, param in model.named_parameters():
+            if 'lora_' in name:
+                param.requires_grad = True
+    logger.info(f"✓ LoRA parameters with gradients: {lora_params_count}")
 
     # CRITICAL: Set model to training mode BEFORE enabling gradient checkpointing
     # This ensures parameters are properly initialized for gradient computation
     model.train()
     logger.info("✓ Model set to training mode")
-
-    # Enable gradients for LoRA parameters when not using quantization
-    if not use_quantization:
-        for name, param in model.named_parameters():
-            if 'lora_' in name:
-                param.requires_grad = True
-        logger.info("✓ Enabled gradients for LoRA parameters")
 
     # CRITICAL: Enable gradient checkpointing AFTER LoRA is applied AND model.train()
     # This ensures LoRA parameters have proper gradient tracking
