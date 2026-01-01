@@ -394,6 +394,9 @@ def train_baseline_model(model, tokenizer, train_dataset, val_dataset, args):
     logger.info(f"  Effective batch size: {training_args.per_device_train_batch_size * training_args.gradient_accumulation_steps}")
     logger.info(f"  Learning rate: {training_args.learning_rate}")
     logger.info(f"  Total steps: {len(train_dataset) // (training_args.per_device_train_batch_size * training_args.gradient_accumulation_steps) * training_args.num_train_epochs}")
+    logger.info(f"  🔍 FP16: {training_args.fp16}")
+    logger.info(f"  🔍 BF16: {training_args.bf16}")
+    logger.info(f"  Gradient checkpointing: {model.is_gradient_checkpointing if hasattr(model, 'is_gradient_checkpointing') else 'enabled'}")
 
     # Data collator - Use default collator since we already set labels in dataset
     # DataCollatorForLanguageModeling can cause issues with pre-set labels
