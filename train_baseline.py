@@ -331,6 +331,11 @@ def setup_model_and_tokenizer(args):
 
     model = get_peft_model(model, lora_config)
 
+    # CRITICAL: Set model to training mode BEFORE enabling gradient checkpointing
+    # This ensures parameters are properly initialized for gradient computation
+    model.train()
+    logger.info("✓ Model set to training mode")
+
     # Enable gradients for LoRA parameters when not using quantization
     if not use_quantization:
         for name, param in model.named_parameters():
@@ -338,7 +343,7 @@ def setup_model_and_tokenizer(args):
                 param.requires_grad = True
         logger.info("✓ Enabled gradients for LoRA parameters")
 
-    # CRITICAL: Enable gradient checkpointing AFTER LoRA is applied
+    # CRITICAL: Enable gradient checkpointing AFTER LoRA is applied AND model.train()
     # This ensures LoRA parameters have proper gradient tracking
     model.gradient_checkpointing_enable()
     logger.info("✓ Gradient checkpointing enabled (reduces memory usage)")

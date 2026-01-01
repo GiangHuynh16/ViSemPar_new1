@@ -60,15 +60,18 @@ lora_config = LoraConfig(
 )
 model = get_peft_model(model, lora_config)
 
-# CRITICAL: Enable gradients for LoRA parameters BEFORE gradient checkpointing
+# CRITICAL: Set model to training mode BEFORE gradient checkpointing
+model.train()
+
+# CRITICAL: Enable gradients for LoRA parameters
 for name, param in model.named_parameters():
     if 'lora_' in name:
         param.requires_grad = True
 
-# CRITICAL: Enable gradient checkpointing AFTER LoRA is applied
+# CRITICAL: Enable gradient checkpointing AFTER LoRA is applied AND model.train()
 model.gradient_checkpointing_enable()
 
-print(f"  ✓ LoRA applied")
+print(f"  ✓ LoRA applied and model set to training mode")
 print(f"  Trainable params: {model.print_trainable_parameters()}")
 print()
 
