@@ -72,13 +72,13 @@ model = get_peft_model(model, lora_config)
 lora_params_count = sum(1 for name, param in model.named_parameters() if param.requires_grad and 'lora_' in name)
 print(f"  LoRA parameters with gradients: {lora_params_count}")
 
-# CRITICAL: Set model to training mode BEFORE gradient checkpointing
+# Set model to training mode
 model.train()
 
-# CRITICAL: Enable gradient checkpointing AFTER LoRA is applied AND model.train()
-model.gradient_checkpointing_enable()
+# DISABLE gradient checkpointing - test without it
+# model.gradient_checkpointing_enable()
 
-print(f"  ✓ LoRA applied and model set to training mode")
+print(f"  ✓ LoRA applied and model set to training mode (gradient checkpointing DISABLED)")
 print(f"  Trainable params: {model.print_trainable_parameters()}")
 print()
 
