@@ -119,7 +119,8 @@ echo "==========================================="
 echo ""
 
 # Set memory optimizations
-export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128,expandable_segments:True"
+# Note: expandable_segments requires PyTorch >= 2.1, we have 2.0.1
+export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128"
 export TOKENIZERS_PARALLELISM=false
 export OMP_NUM_THREADS=4
 

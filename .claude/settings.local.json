@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(chmod:*)",
+      "Bash(ssh islabworker2@islab-server2 \"cd /mnt/nghiepth/giangha/visempar/ViSemPar_new1 && grep -n ''gradient_checkpointing_enable'' train_baseline.py\")"
     ]
   }
 }
