@@ -214,6 +214,10 @@ def create_baseline_dataset(examples: List[Dict], tokenizer, max_length: int):
             attention_mask = encoding['attention_mask'].squeeze()
             labels = input_ids.clone()
 
+            # CRITICAL: Mask padding tokens in labels to prevent learning on padding
+            # Without this, model trains on padding tokens → loss = 0, grad_norm = NaN
+            labels[labels == self.tokenizer.pad_token_id] = -100
+
             return {
                 'input_ids': input_ids,
                 'attention_mask': attention_mask,
