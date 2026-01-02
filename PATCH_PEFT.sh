@@ -44,12 +44,12 @@ if grep -q "# PATCHED: lazy import bitsandbytes" "$PEFT_LORA_MODEL"; then
 else
     # Patch the file - replace "import bitsandbytes as bnb" with lazy import
     echo "Step 3: Patching PEFT to use lazy bitsandbytes import..."
-    
-    python << 'PYEOF'
-import re
 
-peft_file = """SITE_PACKAGES""" + "/peft/tuners/lora/model.py"
-peft_file = peft_file.replace("SITE_PACKAGES", """$SITE_PACKAGES""")
+    PEFT_FILE="$PEFT_LORA_MODEL" python << 'PYEOF'
+import os
+import sys
+
+peft_file = os.environ['PEFT_FILE']
 
 with open(peft_file, 'r') as f:
     content = f.read()
@@ -70,6 +70,7 @@ if old_import in content:
     print("  ✓ Patched successfully")
 else:
     print("  ⚠️  Import pattern not found, file may be different version")
+    sys.exit(1)
 PYEOF
 
 fi
