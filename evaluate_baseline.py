@@ -156,16 +156,8 @@ def calculate_smatch(pred_file, gold_file):
             total_gold = 0
             errors = 0
 
-            # Detect smatch API version
-            if hasattr(smatch, 'amr') and hasattr(smatch.amr, 'AMR'):
-                print("\n  Using smatch.amr.AMR API...")
-                parse_func = lambda s: smatch.amr.AMR.parse_AMR_line(s.replace('\n', ' '))
-                match_func = smatch.get_amr_match
-            elif hasattr(smatch, 'AMR'):
-                print("\n  Using smatch.AMR API...")
-                parse_func = lambda s: smatch.AMR.parse_AMR_line(s.replace('\n', ' '))
-                match_func = smatch.get_amr_match
-            elif hasattr(smatch, 'score_amr_pairs'):
+            # Detect smatch API version - check score_amr_pairs FIRST
+            if hasattr(smatch, 'score_amr_pairs'):
                 print("\n  Using smatch.score_amr_pairs() API...")
                 # This API takes lists of AMR strings directly
                 # We'll handle this differently - calculate all at once
@@ -183,6 +175,14 @@ def calculate_smatch(pred_file, gold_file):
                 print(f"{'='*70}")
 
                 return {'precision': precision, 'recall': recall, 'f1': f1}
+            elif hasattr(smatch, 'amr') and hasattr(smatch.amr, 'AMR'):
+                print("\n  Using smatch.amr.AMR API...")
+                parse_func = lambda s: smatch.amr.AMR.parse_AMR_line(s.replace('\n', ' '))
+                match_func = smatch.get_amr_match
+            elif hasattr(smatch, 'AMR'):
+                print("\n  Using smatch.AMR API...")
+                parse_func = lambda s: smatch.AMR.parse_AMR_line(s.replace('\n', ' '))
+                match_func = smatch.get_amr_match
             else:
                 print("\n  ERROR: Cannot detect smatch API!")
                 print("  Available attributes:", [a for a in dir(smatch) if not a.startswith('_')])
