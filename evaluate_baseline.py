@@ -158,17 +158,50 @@ def calculate_smatch(pred_file, gold_file):
 
             # Detect smatch API version - check score_amr_pairs FIRST
             if hasattr(smatch, 'score_amr_pairs'):
-                print("\n  Using smatch.score_amr_pairs() API...")
-                # This API takes lists of AMR strings directly
-                # Convert multiline AMRs to single-line by replacing newlines with spaces
+                print("\n  Using manual pair-by-pair calculation...")
+                print("  (to handle AMR parse errors gracefully)")
+
+                # Convert multiline AMRs to single-line
                 pred_amrs = [amr.replace('\n', ' ') for _, amr in pred_pairs]
                 gold_amrs = [amr.replace('\n', ' ') for _, amr in gold_pairs]
 
-                precision, recall, f1 = smatch.score_amr_pairs(pred_amrs, gold_amrs)
+                total_match = 0
+                total_test = 0
+                total_gold = 0
+                parse_errors = 0
+                valid_pairs = 0
+
+                print(f"\n  Processing {len(pred_pairs)} AMR pairs...")
+                for i, (pred_amr, gold_amr) in enumerate(zip(pred_amrs, gold_amrs)):
+                    try:
+                        # Calculate SMATCH for this pair
+                        match_num, test_num, gold_num = smatch.single_score(pred_amr, gold_amr)
+
+                        total_match += match_num
+                        total_test += test_num
+                        total_gold += gold_num
+                        valid_pairs += 1
+
+                        if (i + 1) % 20 == 0:
+                            print(f"    Processed {i+1}/{len(pred_pairs)} (errors: {parse_errors})...")
+
+                    except Exception as e:
+                        parse_errors += 1
+                        if parse_errors <= 3:
+                            print(f"    Warning: Parse error on pair {i+1}: {str(e)[:80]}")
+
+                # Calculate final scores
+                precision = total_match / total_test if total_test > 0 else 0.0
+                recall = total_match / total_gold if total_gold > 0 else 0.0
+                f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
 
                 print(f"\n{'='*70}")
                 print("RESULTS")
                 print(f"{'='*70}")
+                print(f"Total AMR pairs: {len(pred_pairs)}")
+                print(f"Successfully parsed: {valid_pairs}")
+                print(f"Parse errors: {parse_errors}")
+                print()
                 print(f"Precision: {precision:.4f} ({precision*100:.2f}%)")
                 print(f"Recall:    {recall:.4f} ({recall*100:.2f}%)")
                 print(f"F1 Score:  {f1:.4f} ({f1*100:.2f}%)")
