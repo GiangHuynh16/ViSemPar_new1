@@ -75,7 +75,11 @@ def calculate_smatch_score(predictions_file, gold_file):
         print()
 
         # This API takes lists of AMR strings directly
-        precision, recall, f1 = smatch.score_amr_pairs(predictions, gold)
+        # Convert multiline AMRs to single-line by replacing newlines with spaces
+        pred_single = [amr.replace('\n', ' ') for amr in predictions]
+        gold_single = [amr.replace('\n', ' ') for amr in gold]
+
+        precision, recall, f1 = smatch.score_amr_pairs(pred_single, gold_single)
 
         print()
         print("=" * 70)

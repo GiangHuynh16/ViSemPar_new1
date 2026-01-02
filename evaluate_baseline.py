@@ -160,9 +160,9 @@ def calculate_smatch(pred_file, gold_file):
             if hasattr(smatch, 'score_amr_pairs'):
                 print("\n  Using smatch.score_amr_pairs() API...")
                 # This API takes lists of AMR strings directly
-                # We'll handle this differently - calculate all at once
-                pred_amrs = [amr for _, amr in pred_pairs]
-                gold_amrs = [amr for _, amr in gold_pairs]
+                # Convert multiline AMRs to single-line by replacing newlines with spaces
+                pred_amrs = [amr.replace('\n', ' ') for _, amr in pred_pairs]
+                gold_amrs = [amr.replace('\n', ' ') for _, amr in gold_pairs]
 
                 precision, recall, f1 = smatch.score_amr_pairs(pred_amrs, gold_amrs)
 
