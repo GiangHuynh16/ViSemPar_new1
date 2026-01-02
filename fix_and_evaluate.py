@@ -9,19 +9,30 @@ import sys
 from pathlib import Path
 
 
-def check_duplicate_nodes(amr_string):
-    """Check if AMR has duplicate node names"""
+def check_amr_validity(amr_string):
+    """Check if AMR is valid (no duplicate nodes, balanced parentheses)"""
+    # Check balanced parentheses
+    open_count = amr_string.count('(')
+    close_count = amr_string.count(')')
+
+    if open_count != close_count:
+        return False, f"unmatched_parentheses ({open_count} open, {close_count} close)"
+
+    # Check duplicate nodes
     pattern = r'\((\w+)\s*/\s*[\w_\-]+'
     nodes = re.findall(pattern, amr_string)
 
     if not nodes:
-        return False, []
+        return True, None  # Empty AMR is valid
 
     from collections import Counter
     node_counts = Counter(nodes)
     duplicates = [node for node, count in node_counts.items() if count > 1]
 
-    return len(duplicates) > 0, duplicates
+    if duplicates:
+        return False, f"duplicate_nodes: {', '.join(duplicates)}"
+
+    return True, None
 
 
 def filter_valid_amrs(input_file, output_file):
@@ -43,13 +54,13 @@ def filter_valid_amrs(input_file, output_file):
         amr = '\n'.join(lines[1:]).strip()
 
         if amr:
-            has_dup, dup_nodes = check_duplicate_nodes(amr)
+            is_valid, error_msg = check_amr_validity(amr)
 
-            if not has_dup:
+            if is_valid:
                 valid_amrs.append(f"#::snt {sentence}\n{amr}\n\n")
             else:
                 invalid_indices.append(i)
-                print(f"  ⚠️  Skipping AMR #{i} (duplicate nodes: {', '.join(dup_nodes)})")
+                print(f"  ⚠️  Skipping AMR #{i}: {error_msg}")
 
     # Write valid AMRs
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -116,14 +127,14 @@ def main():
         print(f"\n⚠️  SMATCH returned code {result.returncode}")
         print("\nTrying alternative approach with smatch.main()...")
 
-        import smatch
-        old_argv = sys.argv
-        sys.argv = ['smatch', '-f', 'predictions_valid.txt', 'gold_valid.txt', '--significant', '4']
-
-        try:
-            smatch.main()
-        finally:
-            sys.argv = old_argv
+        # smatch.main() requires arguments object, not sys.argv
+        # Just report the error
+        print("Unable to calculate SMATCH with current smatch version.")
+        print("\nFiles created for manual calculation:")
+        print("  - predictions_valid.txt")
+        print("  - gold_valid.txt")
+        print("\nYou can manually run:")
+        print("  python -m smatch -f predictions_valid.txt gold_valid.txt --significant 4")
 
     print()
     print("=" * 70)
