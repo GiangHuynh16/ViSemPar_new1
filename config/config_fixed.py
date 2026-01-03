@@ -38,15 +38,15 @@ LORA_CONFIG = {
 # Training Configuration
 TRAINING_CONFIG = {
     "learning_rate": 2e-4,
-    "num_train_epochs": 15,
+    "num_train_epochs": 2,  # REDUCED: checkpoint-200 was best (70% valid), avoid overfitting
     "per_device_train_batch_size": 1,
     "gradient_accumulation_steps": 16,
-    "warmup_steps": 100,
+    "warmup_steps": 50,  # Reduced warmup
     "weight_decay": 0.01,
     "max_grad_norm": 1.0,
     "logging_steps": 10,
-    "save_steps": 200,
-    "save_total_limit": 5,
+    "save_steps": 100,  # Save more frequently to find sweet spot
+    "save_total_limit": 10,  # Keep more checkpoints for testing
     "fp16": False,
     "bf16": True,
     "optim": "adamw_torch",
@@ -59,12 +59,13 @@ TRAINING_CONFIG = {
 
 # Inference Configuration
 INFERENCE_CONFIG = {
-    "temperature": 0.1,
-    "top_p": 0.9,
+    "temperature": 0.3,  # Slightly higher for diversity
+    "top_p": 0.95,  # Allow more tokens
     "top_k": 50,
-    "repetition_penalty": 1.15,
+    "repetition_penalty": 1.2,  # Stronger penalty to avoid loops
     "max_new_tokens": 512,
     "do_sample": True,
+    "num_beams": 1,  # Greedy for consistency
 }
 
 # Data Configuration
@@ -116,22 +117,13 @@ SYSTEM_CONFIG = {
 }
 
 # ============================================================================
-# FIXED PROMPT TEMPLATE - Clear Penman format requirements
+# FIXED PROMPT TEMPLATE - Simple and clear, matches training format
 # ============================================================================
-PROMPT_TEMPLATE = """Bạn là chuyên gia ngôn ngữ học máy tính, chuyên về phân tích ngữ nghĩa tiếng Việt.
-Hãy chuyển đổi câu văn sau sang định dạng AMR (Abstract Meaning Representation) theo đúng **chuẩn Penman**.
+PROMPT_TEMPLATE = """Chuyển câu tiếng Việt sau sang AMR (Abstract Meaning Representation) theo định dạng Penman:
 
-Các quy tắc bắt buộc:
-1. Sử dụng định dạng Penman: (biến / khái niệm :quan-hệ (biến2 / khái niệm2))
-2. Khái niệm tiếng Việt đa âm tiết phải dùng dấu gạch dưới (ví dụ: c / chính_phủ, p / phát_triển)
-3. Sử dụng các quan hệ chuẩn: :ARG0, :ARG1, :ARG2, :time, :location, :mod, :poss, v.v.
-4. Đảm bảo cấu trúc cây với các dấu đóng mở ngoặc đơn hoàn toàn cân bằng
-5. Mỗi khái niệm chỉ nên được gán một biến duy nhất trong toàn bộ cấu trúc
-6. KHÔNG thêm giải thích, chỉ trả về cấu trúc AMR thuần túy
+Câu: {sentence}
 
-Câu tiếng Việt: {sentence}
-
-AMR (Penman):
+AMR:
 """
 
 # Logging Configuration

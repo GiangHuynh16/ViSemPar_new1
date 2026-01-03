@@ -54,11 +54,11 @@ echo "STEP 2: Test tokenization fix"
 echo "=========================================="
 echo ""
 
-python diagnose_tokenization.py
+python TEST_TOKENIZATION_FIX.py
 
 if [ $? -ne 0 ]; then
     echo ""
-    echo "❌ Tokenization diagnosis failed!"
+    echo "❌ Tokenization fix verification failed!"
     echo "Please review the output above."
     exit 1
 fi
@@ -76,7 +76,7 @@ echo ""
 
 python train_baseline_fixed.py \
     --max-samples 10 \
-    --num-epochs 1 \
+    --epochs 1 \
     --show-sample
 
 if [ $? -ne 0 ]; then
