@@ -315,21 +315,13 @@ def setup_model_and_tokenizer(args):
 
     model = get_peft_model(model, lora_config)
 
-    # CRITICAL: Set model to training mode FIRST
+    # CRITICAL: Set model to training mode
     model.train()
 
-    # Make sure LoRA parameters require gradients
-    for name, param in model.named_parameters():
-        if 'lora' in name.lower():
-            param.requires_grad = True
-
-    # CRITICAL: Enable gradient checkpointing AFTER setting requires_grad
-    if hasattr(model, 'gradient_checkpointing_enable'):
-        model.gradient_checkpointing_enable()
-        logger.info("✓ Gradient checkpointing enabled")
-    elif hasattr(model.base_model, 'gradient_checkpointing_enable'):
-        model.base_model.gradient_checkpointing_enable()
-        logger.info("✓ Gradient checkpointing enabled (via base_model)")
+    # IMPORTANT: DISABLE gradient checkpointing for LoRA compatibility
+    # Gradient checkpointing causes "None of the inputs have requires_grad" error with LoRA
+    # 7B model with batch_size=1 should fit in 48GB without checkpointing
+    logger.info("⚠️  Gradient checkpointing DISABLED for LoRA compatibility")
 
     # Count trainable parameters (compatible with all peft versions)
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
