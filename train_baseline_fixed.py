@@ -224,41 +224,49 @@ def create_baseline_dataset(examples: List[Dict], tokenizer, max_length: int):
             # Complete text with EOS token
             full_text = prompt + amr + self.tokenizer.eos_token
 
-            # Tokenize full text
-            encoding = self.tokenizer(
-                full_text,
-                truncation=True,
-                max_length=self.max_length,
-                padding='max_length',
-                return_tensors='pt'
-            )
+            # FIX 3: INSTRUCTION MASKING (CORRECTED)
+            # Encode each part separately WITHOUT special tokens to avoid tokenization mismatch
+            prompt_ids = self.tokenizer.encode(prompt, add_special_tokens=False)
+            amr_ids = self.tokenizer.encode(amr, add_special_tokens=False)
+            eos_ids = self.tokenizer.encode(self.tokenizer.eos_token, add_special_tokens=False)
 
-            input_ids = encoding['input_ids'].squeeze()
-            attention_mask = encoding['attention_mask'].squeeze()
-            labels = input_ids.clone()
+            # Combine to get full sequence
+            full_ids = prompt_ids + amr_ids + eos_ids
 
-            # FIX 3: INSTRUCTION MASKING
-            # Only train on AMR output, not on instruction
-            # Tokenize prompt separately to find where it ends
-            prompt_encoding = self.tokenizer(
-                prompt,
-                truncation=True,
-                max_length=self.max_length,
-                return_tensors='pt'
-            )
+            # Truncate if too long
+            if len(full_ids) > self.max_length:
+                # Keep prompt + truncated AMR
+                available = self.max_length - len(prompt_ids) - len(eos_ids)
+                if available > 0:
+                    amr_ids = amr_ids[:available]
+                    full_ids = prompt_ids + amr_ids + eos_ids
+                else:
+                    # Prompt itself is too long, truncate everything
+                    full_ids = full_ids[:self.max_length]
 
-            prompt_length = len(prompt_encoding['input_ids'][0])
+            # Pad to max_length
+            padding_length = self.max_length - len(full_ids)
+            input_ids = full_ids + [self.tokenizer.pad_token_id] * padding_length
+            attention_mask = [1] * len(full_ids) + [0] * padding_length
 
-            # Mask instruction part (set to -100)
-            labels[:prompt_length] = -100
+            # Create labels for training
+            labels = input_ids.copy()
+
+            # Mask instruction part (only train on AMR + EOS)
+            prompt_end = len(prompt_ids)
+            for i in range(prompt_end):
+                labels[i] = -100
 
             # Mask padding tokens
-            labels[labels == self.tokenizer.pad_token_id] = -100
+            for i in range(len(full_ids), self.max_length):
+                labels[i] = -100
 
+            # Convert to tensors
+            import torch
             return {
-                'input_ids': input_ids,
-                'attention_mask': attention_mask,
-                'labels': labels
+                'input_ids': torch.tensor(input_ids, dtype=torch.long),
+                'attention_mask': torch.tensor(attention_mask, dtype=torch.long),
+                'labels': torch.tensor(labels, dtype=torch.long)
             }
 
     return BaselineDatasetFixed(examples, tokenizer, max_length)

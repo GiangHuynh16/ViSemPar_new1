@@ -139,9 +139,10 @@ def predict_amr(model, tokenizer, sentence: str, prompt_template: str, config: d
             amr_lines.append(line)
             # Check if this line has closing parenthesis
             if ')' in line:
-                # Check if parentheses are balanced
-                open_count = amr.count('(')
-                close_count = amr.count(')')
+                # Check if parentheses are balanced IN ACCUMULATED TEXT (not original)
+                accumulated = '\n'.join(amr_lines)
+                open_count = accumulated.count('(')
+                close_count = accumulated.count(')')
                 if open_count == close_count and open_count > 0:
                     found_amr_end = True
         # Skip lines after AMR end (explanations)
@@ -203,20 +204,38 @@ def main():
     print()
 
     predictions = []
+    errors = []
 
     for i, sentence in enumerate(sentences, 1):
         print(f"[{i}/{len(sentences)}] Processing: {sentence[:60]}...")
 
-        amr = predict_amr(model, tokenizer, sentence, PROMPT_TEMPLATE, INFERENCE_CONFIG)
-        predictions.append(amr)
+        try:
+            amr = predict_amr(model, tokenizer, sentence, PROMPT_TEMPLATE, INFERENCE_CONFIG)
+            predictions.append(amr)
 
-        # Show first few predictions
-        if i <= 3:
-            print(f"  AMR: {amr[:100]}...")
+            # Show first few predictions
+            if i <= 3:
+                print(f"  AMR: {amr[:100]}...")
+                print()
+
+        except Exception as e:
+            print(f"  ❌ ERROR: {e}")
+            errors.append((i, sentence, str(e)))
+            # Add placeholder to maintain alignment
+            predictions.append(f"(e / error\n    :sentence \"{sentence}\")")
             print()
 
     print("=" * 70)
     print()
+
+    if errors:
+        print("⚠️  ERRORS ENCOUNTERED:")
+        print("=" * 70)
+        for i, sent, err in errors:
+            print(f"  #{i}: {sent[:50]}...")
+            print(f"       Error: {err}")
+        print("=" * 70)
+        print()
 
     # Save results
     save_results(sentences, predictions, args.output)
