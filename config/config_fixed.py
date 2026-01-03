@@ -54,6 +54,7 @@ TRAINING_CONFIG = {
     "seed": 42,
     "load_best_model_at_end": True,
     "metric_for_best_model": "loss",
+    "gradient_checkpointing": False,  # CRITICAL: Disable for LoRA compatibility
 }
 
 # Inference Configuration
