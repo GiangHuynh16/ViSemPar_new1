@@ -314,7 +314,10 @@ def setup_model_and_tokenizer(args):
     )
 
     model = get_peft_model(model, lora_config)
-    trainable_params, total_params = model.get_nb_trainable_parameters()
+
+    # Count trainable parameters (compatible with all peft versions)
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    total_params = sum(p.numel() for p in model.parameters())
 
     logger.info(f"✓ LoRA applied")
     logger.info(f"  Trainable params: {trainable_params:,} ({100 * trainable_params / total_params:.2f}%)")
